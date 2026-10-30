@@ -1,15 +1,15 @@
 [changelog]
 header = ""
 body = """
-{% if version %}## {{ version }} 更新内容{% else %}## 待发布更新{% endif %}
+{% if version and version != "unreleased" %}## {{ version }} 更新内容{% else %}## 待发布更新{% endif %}
 {% for group, commits in commits | group_by(attribute="group") %}
 ### {{ group }}
 {% for commit in commits -%}
 - {{ commit.message | split(pat="\n") | first }} ([{{ commit.id | truncate(length=7, end="") }}](https://github.com/MaLuns/crab/commit/{{ commit.id }}))
 {% endfor %}
 {% endfor %}
-{% if not commits %}暂无新增提交。{% endif %}
-{% if previous and previous.version and version %}
+{% if not commits %}暂无面向使用者的功能更新。{% endif %}
+{% if previous and previous.version and version and version != "unreleased" and previous.version != version %}
 [完整变更：{{ previous.version }} → {{ version }}](https://github.com/MaLuns/crab/compare/{{ previous.version }}...{{ version }})
 {% endif %}
 """
@@ -27,11 +27,25 @@ conventional_commits = false
 filter_unconventional = false
 filter_commits = false
 commit_parsers = [
+  { message = '(?i)^(ci|docs|chore|build|test|style|refactor)(\([^)]*\))?:', skip = true },
   { message = '^feat(\([^)]*\))?!?:', group = "新增功能" },
   { message = '^fix(\([^)]*\))?!?:', group = "问题修复" },
   { message = '^perf(\([^)]*\))?!?:', group = "性能优化" },
-  { message = '.*', group = "其他变更" },
+  { message = '^revert(\([^)]*\))?!?:', group = "功能回退" },
+  { message = '.*', group = "其他功能更新" },
 ]
+include_paths = [
+  "Crab/**",
+  "Shared/**",
+  "FinderExtension/**",
+  "project.yml",
+  "Support/CArchive/*.h",
+  "Support/CArchive/module.modulemap",
+  "Support/WebP/include/**",
+  "Vendor/libwebp/src/**",
+  "Vendor/libwebp/sharpyuv/**",
+]
+exclude_paths = ["Crab/Resources/Licenses/**"]
 tag_pattern = '^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$'
 topo_order = true
 sort_commits = "oldest"
