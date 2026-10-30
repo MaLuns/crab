@@ -1,0 +1,21 @@
+Tool: built-in image_gen
+Status: design preview only; application icon remains unchanged.
+Edit target: CrabLogo-sculpted-v3.png
+Output: CrabLogo-rounded-v4.png
+
+Prompt:
+Use case: precise-object-edit / logo-brand.
+Refine the attached Crab app logo with ONE targeted change: make its geometry smoother, rounder and softer. The user likes this existing direction.
+
+PRESERVE the same unified abstract crab-pincer / mouse-inspired emblem, two curved lobes with forward overlap, diagonal orientation, gold-orange through coral to red-magenta gradient, subtle deep-plum underside, dimensional curved surfaces, composition and pale neutral square background.
+
+ROUND THE SHAPES:
+- Make both upper pincer tips softly rounded and blunt, with generous continuous curvature instead of pointed hooked ends.
+- Broaden and smooth the inner pincer opening into a graceful flowing rounded curve.
+- Replace the sharp pointed termination of the central white slit with a small gently rounded termination, integrated naturally with the existing negative space.
+- Smooth the junction where the foreground lobe crosses the lower body; soften the abrupt diagonal fold edge into a rounded rolled transition, while keeping the forward/backward layering clearly visible.
+- Keep all curves continuous, plump and controlled. Avoid sharp corners, knife-like edges, hard creases or pointed fins.
+Preserve a clear OPEN pincer and two distinct tips; do not close it into a ring or turn it into a bean.
+
+Keep the current bold gradient and sculptural depth. Smooth satin-like large surfaces, tasteful narrow highlights, controlled soft shadows, no texture. Do not simplify it into a flat icon, make it excessively swollen, or change the design concept. No eyes, face, legs, scroll wheel, physical mouse parts, fox, globe, text, border, watermark or added objects. One finished logo.
+

@@ -1,0 +1,21 @@
+Tool: built-in image_gen
+Status: design preview only; application icon remains unchanged.
+Edit target: CrabLogo-mouse-claw-abstract-v2.png
+Style reference: Firefox icon within the user's supplied Dock screenshot.
+Output: CrabLogo-sculpted-v3.png
+
+Prompt:
+Use case: style-transfer / logo-brand.
+Edit IMAGE 1, the selected abstract Crab mouse-pincer logo. IMAGE 2 is the user's Dock screenshot: use ONLY the Firefox browser icon (orange/golden form around a purple center, between the chat icon and the interwoven black emblem) as a visual-language reference for flowing curves, saturated graduated color and layered sculptural volume. Do not reproduce its fox, globe, or literal silhouette.
+
+Primary goal: a noticeably more dimensional and more deliberately designed premium app emblem, retaining the established abstract MOUSE + CRAB PINCER idea. It must remain a clean brand symbol, not hardware or an animal illustration.
+
+Preserve from IMAGE 1: one compact unified crab pincer, two rounded inward-hooking tips, diagonal forward movement, a curved tapered negative-space opening subtly suggesting mouse-button division. No physical scroll wheel, black parts, buttons, seams, eyes or legs.
+
+Refine the form: transform the broad flat lower blob into TWO flowing, thick curved lobes that seamlessly sweep around one another and merge at the base. The larger left lobe sweeps from a low rounded base up into the left claw tip; the right lobe wraps forward and curls into the opposing tip. Give their meeting area a graceful curved fold with a small believable occlusion shadow. Show a clearly convex outer shoulder and a gently concave inner surface around the pincer opening, so the volume is legible through the actual shape. Use optical asymmetry, varying thickness, and a tighter slightly rounder footprint. Keep the silhouette calm, simple and instantly readable. Exactly two claw tips, not several flames or fins.
+
+Color and dimensionality inspired by the Firefox reference: luminous golden-orange upper-left rim transitioning through vibrant tangerine and coral, richer red/magenta on the lower sweep, and a SMALL restrained plum-violet shaded underside/inner fold. Orange/coral remains dominant. Three or four broad intentional color regions with continuous smooth gradients. Clear but tasteful depth from overlapping curved surfaces, richer inner shading, and narrow soft luminous edges. No white glossy stripes. A refined 2.5D/3D-illustrated software brand mark with rich volume, not a shiny plastic object, clay toy, metal, realistic product photo, flat disc, or simple extruded pancake.
+Do not add a purple globe, circular background disc, fox, fur, animal face, tail, flames, tiny details, scroll wheel, mouse casing, literal computer pointer, text or letters. Maintain the crab-pincer identity.
+
+Composition: one finished logo, centered on a very pale warm-neutral square background, generous clean margin all around, no app tile, mockup, grid, captions or watermark. Very faint compact shadow only. Smooth flawless surfaces, no texture or noise. The redesigned overlapping curvature and graduated color should provide the visual interest.
+

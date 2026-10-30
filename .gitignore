@@ -1,0 +1,51 @@
+# 本地实验、临时验证工具与历史证据
+/work/
+/VALIDATION.md
+
+# 构建产物（WebP 静态库由预构建脚本自动生成）
+build/
+DerivedData/
+/Support/WebP/lib/
+*.app/
+*.appex/
+*.xcarchive/
+*.dSYM/
+*.dSYM.zip
+
+# 测试结果、覆盖率与构建日志（包括自定义输出位置）
+*.xcresult/
+*.xctestrun
+*.profraw
+*.profdata
+*.xcactivitylog
+*.log
+
+# Xcode 用户状态；工程、工作区及共享 scheme 保持可提交
+*.xcuserstate
+xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+
+# 资源生成脚本的中间文件（保留最终图标与模板资源）
+*.iconset/
+.crab-icon-*.icns
+
+# Python 脚本缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# 编辑器交换文件、备份及临时文件
+*.swp
+*.swo
+*~
+*.tmp
+*.temp
+*.orig
+*.rej
+
+# macOS 目录元数据
+.DS_Store
+._*
+.AppleDouble/
+.LSOverride

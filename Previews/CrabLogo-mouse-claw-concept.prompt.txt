@@ -1,0 +1,21 @@
+Tool: built-in image_gen
+Status: design preview only; not installed as the application icon.
+Final preview: Previews/CrabLogo-mouse-claw-concept.png
+
+Initial concept prompt:
+Use case: logo-brand.
+Create ONE refined original app logo for Crab, a macOS file utility. The user wants an ABSTRACT FUSION OF A COMPUTER MOUSE AND A CRAB CLAW with a LITTLE THREE-DIMENSIONAL DEPTH.
+Design concept: ONE cohesive sculpted silhouette, a compact rounded wireless mouse whose front button region is itself an elegant open crab pincer. The low, plump rounded mouse body flows directly into TWO softly hooked claw tips at its upper end; the negative space between these tips is one deliberate tapered V-shaped pinch opening. Mouse and claw are inseparable, all formed from the SAME smooth shell. A tiny recessed scroll wheel and one restrained button seam convey the mouse identity. The asymmetric curved pincer tips convey the crab identity. Integrate these cues into a confident simple abstract brand symbol, NOT a crab holding a mouse and NOT a mouse with claws glued onto it.
+View and form: near top-down, very mild three-quarter view just enough to show a narrow beveled sidewall. Orient the symbol on a slight elegant diagonal from lower left to upper right. Large softly rounded body, broad clean curves, precise negative-space opening, no small fussy details. Friendly compact proportions with a designed silhouette.
+Material and color: warm vivid coral-orange/red shell, subtle tonal shading and a restrained soft edge highlight to give shallow 2.5D depth. Matte satin finish, no shiny plastic reflections or photorealism. Tiny darker inset scroll wheel. One soft short contact shadow. The dimensionality should support the geometry rather than overpower it.
+Composition: one large symbol centered on a clean warm off-white square background with ample negative space, around 65 percent canvas occupancy. Premium modern macOS application identity, polished and instantly legible at small sizes.
+Avoid: eyes, face, smile, crab body, crab legs, separate arms, antennae, wires, pointer-arrow shape, any literal cartoon animal, busy machinery, heavy 3D render, hyperreal hardware, gradients in the background, multiple objects, separate mouse plus separate claw, detailed illustration, text, letters, captions, watermark, presentation board, surrounding computer or mockup. Only the finished unified mouse-claw brand mark.
+
+Refinement prompt (applied to the generated concept):
+Use case: style-transfer / logo-brand.
+Edit the attached concept. Preserve its ONE-PIECE fusion of a computer mouse and crab pincer: the broad rounded mouse body, two pincer tips growing directly from its front, a small central scroll wheel, the diagonal orientation and warm coral-orange palette.
+Change ONLY the rendering style and level of detail so this becomes a polished ABSTRACT SOFTWARE APP ICON rather than a physical hardware product render.
+Style: refined 2.5D icon illustration with very shallow volume. Simple smooth broad color surfaces, gentle orange-to-red tonal transitions, a soft narrow highlight on one upper edge, restrained flat darker lower edge. Remove EVERY trace of grain, stippling, noise, surface texture and realistic material. Simplify the wheel to one smooth dark rounded pill with NO grooves, tread or bevel detail. Remove the long button seam extending down the entire body; keep only a very short subtle separation near the wheel. Make the lower mouse body one uninterrupted clean rounded surface. Reduce the thick base layer to a thin visual edge. Reduce the dramatic floor shadow to a faint compact soft shadow. Soften and round the two pincer tips a little. Keep the shape visually simple and legible when tiny.
+This is an app logo like a carefully designed rounded sculptural glyph, NOT a photo or hardware concept. One unified strong shape, minimal deliberate details, just a hint of depth.
+Center the complete mark within a clean warm-white square canvas with about 18% margin all around. No text, no letters, no watermark, no icon grid, no mockup, no separate objects, no eyes, no face, no legs. Keep the mouse-claw fusion recognizable and do not revert to a cartoon crab.
+

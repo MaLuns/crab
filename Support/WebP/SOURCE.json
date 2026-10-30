@@ -1,0 +1,10 @@
+{
+  "project": "libwebp",
+  "version": "1.6.0",
+  "commit": "4fa21912338357f89e4fd51cf2368325b59e9bd9",
+  "source": "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.6.0.tar.gz",
+  "sha256": "e4ab7009bf0629fd11982d4c2aa83964cf244cffba7347ecd39019a9e38c4564",
+  "license": "BSD-3-Clause; see COPYING and PATENTS",
+  "build": "Support/WebP/build.sh: offline from Vendor/libwebp; ARCHS arm64/x86_64; combined static libwebp.a includes libsharpyuv; macOS13",
+  "library_sha256": "d4810e9ac6c52e1296ca1cb98d0aa33c57ed586ff7ebe13f3a74a2f4f067f3d3"
+}

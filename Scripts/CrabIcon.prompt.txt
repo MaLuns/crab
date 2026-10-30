@@ -1,0 +1,32 @@
+Tool: built-in image_gen
+Adopted design: plump v5 abstract mouse / crab-pincer logo.
+Approved preview: Previews/CrabLogo-plump-v5.png
+Production artwork: Shared/Resources/CrabIcon.png
+The tray icon remains independently drawn by StatusBarPresentation and is not replaced.
+
+Design refinement prompt (input: Previews/CrabLogo-rounded-v4.png):
+Use case: precise-object-edit / logo-brand.
+Edit the attached selected Crab logo. The user wants the ENTIRE form visibly FATTER, ROUNDER, MORE PLUMP and slightly CHIBI, while retaining the abstract premium brand-logo identity.
+
+Preserve: one unified abstract crab pincer with two tips and a curved central opening, the overlapping front and back lobes, diagonal orientation, luminous golden-orange to coral/red-magenta gradients, small deep-plum undersides, sculptural depth, smooth clean surfaces and pale neutral background.
+
+Make a noticeable proportion change, not merely softer rendering:
+- Shorten the overall silhouette by about 15 percent and broaden its body by about 15 percent, making it compact and near-circular rather than long and teardrop-shaped.
+- Enlarge the rounded belly/base so the center of mass feels low, cuddly and plump.
+- Thicken BOTH claw lobes into soft inflated bean-like volumes. Make the two upper claw tips SHORTER and noticeably chunkier, with large bulbous rounded ends.
+- Use generous continuous curves everywhere. Keep the pincer tips turned toward each other, with a clear rounded open gap.
+- Give the central negative space a short, softly rounded U-like pinch and a gentle curved continuation; no long sharp slit, knife edge or pointed taper.
+- Keep the foreground lobe short and round, with a smooth rolled transition and clear but gentle overlap.
+The Q/chibi feeling must come ONLY from oversized round volumes, stubby tips and compact proportions. Do not add a face, eyes, mouth, cheeks, legs, mascot anatomy or props. Still a distinctive abstract software app logo.
+
+Maintain convincing dimensional gradients and soft edge illumination. No texture, no realistic plastic grain, no metallic finish, no exaggerated glossy glare. Not flat. Do not turn it into a complete ring or lose the two-claw opening.
+One finished centered logo on a clean pale neutral square canvas, even comfortable margins, faint compact shadow. No text, letters, border, watermark, grid, hardware mouse wheel or buttons.
+
+Production transparency prompt (input: approved v5 preview):
+Use case: background-extraction.
+The attached image is the USER-APPROVED FINAL LOGO. This is strictly a production background-removal operation. DO NOT REDESIGN OR REINTERPRET IT.
+
+Remove ONLY the pale white/off-white background and the external cast shadow beneath the mark, replacing them with genuine transparent alpha. Also make the existing opening BETWEEN the pincer tips transparent, since that white area belongs to the background.
+Preserve the original foreground artwork EXACTLY: identical plump rounded silhouette, two blunt pincer tips, dimensions and placement, internal curved overlap, golden orange/coral/red/magenta/purple gradients, color saturation, edges and internal highlights/shadows. Preserve the full square canvas, original margins and orientation. Do not crop or enlarge. Keep the shaded purple underside as part of the opaque logo; it is not background.
+The result must be the identical selected logo as a clean transparent PNG asset, ready for macOS app icon export. Fully opaque foreground with antialiased contour. No color fringes, halos, scattered background pixels, new shadows or new details. No rounded-square tile, border, text, watermark or extra elements. Background removal ONLY.
+

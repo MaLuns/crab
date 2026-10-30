@@ -1,0 +1,528 @@
+CRAB NONCOMMERCIAL SOURCE LICENSE
+Version 1.0
+
+This is an independently named, custom source-available license for Crab.
+It adapts the terms and section structure of version 3 of the GNU Affero
+General Public License, whose original text is copyright (C) 2007 Free
+Software Foundation, Inc. The original preamble and application appendix
+are not included. This license is not the GNU Affero General Public
+License and is not endorsed by the Free Software Foundation. Because it
+restricts commercial use, it is not an OSI-approved open-source license.
+
+Copyright in the software remains with its respective copyright holders.
+The terms below apply only to material that its copyright holder or an
+authorized licensor has released under this license.
+
+TERMS AND CONDITIONS
+
+  0. Definitions.
+
+  "This License" means version 1.0 of the Crab Noncommercial Source
+License, including all of its conditions. It does not mean the original
+license from which these terms were adapted.
+
+  "Copyright" also means copyright-like laws that apply to other kinds
+of works, such as semiconductor masks.
+
+  "The Program" means Crab and any other copyrightable material
+expressly released under this License by a person entitled to license
+it. A "licensor" is such a copyright holder or authorized licensor for
+the material concerned. Each licensee is addressed as "you"; licensees
+and recipients may be individuals or organizations.
+
+  To "modify" a work means to copy from or adapt all or part of the work
+in a fashion requiring copyright permission, other than making an exact
+copy. The result is a "modified version" or a work "based on" that work.
+A "covered work" is the unmodified Program or a work based on the Program,
+subject to the third-party and aggregation rules in sections 5 and 7.
+
+  To "propagate" a work means to do anything with it that, without
+permission, would make you directly or secondarily liable for copyright
+infringement under applicable law, except executing it on a computer or
+modifying a private copy. It includes copying, distribution, and making
+the work available to the public, with or without modification.
+
+  To "convey" a work means any propagation enabling other parties to
+make or receive copies. Merely interacting with a user over a computer
+network without transferring a copy is not conveying; section 13 still
+applies to remote interaction with a modified version.
+
+  "Commercial Use" means using, copying, modifying, propagating, or
+operating a covered work for direct or indirect commercial advantage or
+monetary compensation. It includes selling copies or access; incorporating
+the work into commercial products or services; operating it in business,
+production, or revenue-generating activities, including internal business
+use; advertising-supported operation; and providing paid development,
+deployment, hosting, consulting, support, or similar services based on the
+work. Free distribution and disclosure of source code do not, by
+themselves, make a commercial activity noncommercial.
+
+  "Noncommercial Purposes" means purposes that do not constitute
+Commercial Use. Personal study, private use, experimentation, and hobby
+activities qualify when they are not undertaken for commercial advantage
+or compensation. Work performed as part of employment or business
+operations is not personal noncommercial use merely because an individual
+performs it.
+
+  "Appropriate Legal Notices" means reasonably prominent notices
+identifying the applicable copyright notices, explaining that the work
+comes without warranty except as expressly stated, identifying this
+License and its noncommercial and source-sharing conditions, and telling
+users how to obtain the License and Corresponding Source. An interactive
+interface may provide these notices through a conveniently accessible
+menu item or other prominent feature.
+
+  1. Source Code.
+
+  The "source code" for a work means the preferred form of the work
+for making modifications to it.  "Object code" means any non-source
+form of a work.
+
+  A "Standard Interface" means an interface that either is an official
+standard defined by a recognized standards body, or, in the case of
+interfaces specified for a particular programming language, one that
+is widely used among developers working in that language.
+
+  The "System Libraries" of an executable work include anything, other
+than the work as a whole, that (a) is included in the normal form of
+packaging a Major Component, but which is not part of that Major
+Component, and (b) serves only to enable use of the work with that
+Major Component, or to implement a Standard Interface for which an
+implementation is available to the public in source code form.  A
+"Major Component", in this context, means a major essential component
+(kernel, window system, and so on) of the specific operating system
+(if any) on which the executable work runs, or a compiler used to
+produce the work, or an object code interpreter used to run it.
+
+  The "Corresponding Source" for a work in object code form means all
+the source code needed to generate, install, and (for an executable
+work) run the object code and to modify the work, including scripts to
+control those activities.  However, it does not include the work's
+System Libraries, or general-purpose tools or generally available free
+programs which are used unmodified in performing those activities but
+which are not part of the work.  For example, Corresponding Source
+includes interface definition files associated with source files for
+the work, and the source code for shared libraries and dynamically
+linked subprograms that the work is specifically designed to require,
+such as by intimate data communication or control flow between those
+subprograms and other parts of the work.
+
+  The Corresponding Source need not include anything that users
+can regenerate automatically from other parts of the Corresponding
+Source.
+
+  The Corresponding Source for a work in source code form is that
+same work.
+
+  Corresponding Source must be complete for the version conveyed,
+including your modifications, build and installation scripts, project
+files, configuration, and resources needed for those activities.
+Obfuscated code, a patch without the complete source, or a link only to
+an upstream version that lacks your modifications is not a substitute
+for Corresponding Source. You need not disclose personal credentials or
+private signing keys where recipients can build and install a modified
+version without them; section 6 otherwise governs required Installation
+Information.
+
+  2. Basic Permissions and Noncommercial Scope.
+
+  Subject to compliance with this License, each licensor grants you a
+worldwide, non-exclusive, royalty-free copyright license, for the term of
+copyright, to run, study, copy, modify, and propagate covered works solely
+for Noncommercial Purposes. These permissions include free personal
+noncommercial use, copying, and sharing. They are irrevocable while you
+comply with the applicable conditions, subject to section 8.
+
+  You may make and run private copies for Noncommercial Purposes without
+publishing private modifications, unless you convey the work or section
+13 applies. Conveyance to a contractor, hosting provider, or other party
+is still subject to the conveyance and source-sharing conditions; it does
+not make that party's otherwise commercial activities noncommercial.
+
+  Commercial Use is not authorized by this License. Before any
+Commercial Use, you must obtain separate, express written authorization
+from the copyright holders or other parties entitled to authorize that
+use. Such authorization applies only to the parties, material, activities,
+and period it expressly covers; it does not grant rights in material its
+author does not control. A commercial authorization removes the
+noncommercial or no-charge limitation only to the extent expressly
+stated. A person receiving commercial authorization must still satisfy
+the source-sharing and same-license conditions in sections 4, 5, 6, and
+13 when applicable. Payment alone is not authorization, and commercial
+permission granted to one party does not automatically pass to others.
+
+  The output from running a covered work is covered by this License
+only if its content constitutes a covered work. Nothing in this License
+limits fair use, other statutory exceptions, or rights that do not
+require permission under applicable law. No trademark rights are granted.
+
+  Conveying is permitted only under the conditions below. Sublicensing
+is not granted; section 10 provides direct licensing to recipients.
+
+  3. Protecting Users' Legal Rights From Anti-Circumvention Law.
+
+  No covered work shall be deemed part of an effective technological
+measure under any applicable law fulfilling obligations under article
+11 of the WIPO copyright treaty adopted on 20 December 1996, or
+similar laws prohibiting or restricting circumvention of such
+measures.
+
+  When you convey a covered work, you waive any legal power to forbid
+circumvention of technological measures to the extent such circumvention
+is effected by exercising rights under this License with respect to
+the covered work, and you disclaim any intention to limit operation or
+modification of the work as a means of enforcing, against the work's
+users, your or third parties' legal rights to forbid circumvention of
+technological measures.
+
+  4. Conveying Verbatim Copies and Public Source Availability.
+
+  You may convey verbatim copies of the Program's source code for
+Noncommercial Purposes, without a fee, in any medium, provided that you
+conspicuously retain applicable copyright notices, notices identifying
+this License and any permitted terms under section 7, and warranty
+disclaimers, and provide every recipient with the full text of this
+License. Charging for copies, access, support, or warranty services
+requires the prior written commercial authorization described in
+section 2.
+
+  Whenever you convey a covered work, whether original or modified and
+whether in source or object code form, you must at the same time make
+the complete, machine-readable Corresponding Source of that version
+publicly available, free of charge, under this License. You must clearly
+identify how to obtain it, including a direct source download or a clear
+link to a publicly accessible source repository or download location.
+Access must not require payment, individual approval, or a nondisclosure
+agreement. Keep the source accessible throughout the period in which you
+convey that version, and do not prevent recipients from retaining copies.
+A promise to supply source later does not satisfy this requirement.
+
+  A recipient must be able to use, copy, modify, and convey the source
+under the same conditions, including the noncommercial restriction. The
+requirement to provide source does not authorize Commercial Use.
+
+  5. Conveying Modified Source Versions.
+
+  You may convey a modified version in source code form only under
+sections 2 and 4 and the following conditions:
+
+    a) Prominent notices must identify the changes you made and give
+    the relevant dates. You must not present your modified version as
+    an unmodified release by another licensor.
+
+    b) The work must carry prominent notices that it is released under
+    this License and identify any permitted terms under section 7.
+
+    c) The entire covered work, as a whole, must be made available to
+    recipients under this same version of this License, including the
+    noncommercial and source-sharing conditions. Packaging, compilation,
+    or inclusion in a larger derivative program does not remove those
+    conditions. You may not relicense material you do not control under
+    a different license. Third-party material remains subject to
+    section 7.
+
+    d) Interactive interfaces must display Appropriate Legal Notices;
+    however, an interface of the original Program that displayed no
+    such notices need not be changed solely to add them.
+
+  Merely putting a covered work alongside separate, independent works
+on a storage or distribution medium does not apply this License to
+those independent works. This aggregation exception does not apply to
+parts combined into a derivative program based on the covered work.
+The distribution must preserve each component's applicable license.
+
+  6. Conveying Non-Source Forms.
+
+  You may convey a covered work as an executable, application bundle,
+installer, or other object code only under sections 2, 4, and 5. At the
+time of conveyance, you must publish its complete Corresponding Source
+as required by section 4 and either accompany the object code with that
+source or give recipients clear directions to a working source download.
+This applies equally to physical media, downloads, and peer-to-peer
+transfers. Passing on a written offer to provide source later is not
+sufficient, even for occasional noncommercial sharing.
+
+  You need not require recipients to download the source together with
+the object code. A source server may be operated by a third party, but
+you remain responsible for providing a correct, accessible source for
+the version you convey. A separable System Library excluded from
+Corresponding Source under section 1 need not be included.
+
+  A "User Product" is either (1) a "consumer product", which means any
+tangible personal property which is normally used for personal, family,
+or household purposes, or (2) anything designed or sold for incorporation
+into a dwelling.  In determining whether a product is a consumer product,
+doubtful cases shall be resolved in favor of coverage.  For a particular
+product received by a particular user, "normally used" refers to a
+typical or common use of that class of product, regardless of the status
+of the particular user or of the way in which the particular user
+actually uses, or expects or is expected to use, the product.  A product
+is a consumer product regardless of whether the product has substantial
+commercial, industrial or non-consumer uses, unless such uses represent
+the only significant mode of use of the product.
+
+  "Installation Information" for a User Product means any methods,
+procedures, authorization keys, or other information required to install
+and execute modified versions of a covered work in that User Product from
+a modified version of its Corresponding Source.  The information must
+suffice to ensure that the continued functioning of the modified object
+code is in no case prevented or interfered with solely because
+modification has been made.
+
+  If you convey an object code work under this section in, or with, or
+specifically for use in, a User Product, and the conveying occurs as
+part of a transaction in which the right of possession and use of the
+User Product is transferred to the recipient in perpetuity or for a
+fixed term (regardless of how the transaction is characterized), the
+Corresponding Source conveyed under this section must be accompanied
+by the Installation Information.  But this requirement does not apply
+if neither you nor any third party retains the ability to install
+modified object code on the User Product (for example, the work has
+been installed in ROM).
+
+  The requirement to provide Installation Information does not include a
+requirement to continue to provide support service, warranty, or updates
+for a work that has been modified or installed by the recipient, or for
+the User Product in which it has been modified or installed.  Access to a
+network may be denied when the modification itself materially and
+adversely affects the operation of the network or violates the rules and
+protocols for communication across the network.
+
+  Corresponding Source conveyed, and Installation Information provided,
+in accord with this section must be in a format that is publicly
+documented (and with an implementation available to the public in
+source code form), and must require no special password or key for
+unpacking, reading or copying.
+
+  7. Integral Conditions, Additional Terms, and Third-Party Material.
+
+  The noncommercial, no-charge sharing, same-license, and source-sharing
+conditions are integral conditions of this License. They are not
+optional notices, removable additional restrictions, or separate terms
+that a recipient may discard. Neither a conveyor nor a recipient may
+remove or reduce these conditions, or elect to use the original license
+from which this License was adapted, under the permissions granted here.
+
+  For material you add and are entitled to license, you may add
+reasonable requirements to preserve legal notices or attribution,
+identify modifications or their origin, disclaim warranties, limit
+liability, or avoid implying endorsement or trademark permission.
+Identify such terms in the relevant source or in an accompanying notice.
+They must not prevent recipients from exercising rights actually
+granted by this License. This rule does not cancel or narrow the
+conditions that are part of this License itself.
+
+  Any additional permissions you grant for material you control apply
+only to that material. They do not authorize Commercial Use of another
+party's material or remove the conditions on the Program as a whole.
+A separate commercial authorization is governed by section 2, not by
+unilateral removal of a condition by a conveyor or recipient.
+
+  Independently licensed third-party code, libraries, tools, and
+resources retain their original licenses, copyright notices, and patent
+notices. This License does not replace those licenses, restrict rights
+already granted in that third-party material, or claim authority to
+relicense it. You must comply with all applicable licenses; do not
+combine or convey material if you lack the permissions needed to do so.
+
+  For this project, relevant third-party notices include libwebp's
+COPYING and PATENTS in Vendor/libwebp/ and Support/WebP/, the copies in
+Crab/Resources/Licenses/, and the notices in libarchive's public headers
+Support/CArchive/archive.h and Support/CArchive/archive_entry.h.
+
+  8. Termination.
+
+  You may not run, copy, modify, or propagate a covered work except as
+expressly permitted by this License or a valid separate authorization
+under section 2. Any attempt otherwise to exercise these rights is void
+and will automatically terminate your rights under this License
+(including the patent license granted under section 11).
+
+  However, if you cease all violation of this License, then your
+license from a particular copyright holder is reinstated (a)
+provisionally, unless and until the copyright holder explicitly and
+finally terminates your license, and (b) permanently, if the copyright
+holder fails to notify you of the violation by some reasonable means
+prior to 60 days after the cessation.
+
+  Moreover, your license from a particular copyright holder is
+reinstated permanently if the copyright holder notifies you of the
+violation by some reasonable means, this is the first time you have
+received notice of violation of this License (for any work) from that
+copyright holder, and you cure the violation prior to 30 days after
+your receipt of the notice.
+
+  Termination of your rights under this section does not terminate the
+licenses of parties who have received copies or rights from you under
+this License.  If your rights have been terminated and not permanently
+reinstated, you do not qualify to receive new licenses for the same
+material under section 10.
+
+  Reinstatement authorizes only future compliant activities. It does
+not retroactively authorize Commercial Use undertaken without the
+required written authorization or waive claims for past violations.
+
+  9. Receiving Copies and Acceptance.
+
+  Mere receipt or possession of a copy does not require acceptance of
+this License. However, possession does not itself authorize Commercial
+Use or unrestricted copying, modification, or propagation. To exercise
+permissions granted by this License, including permission to run the
+Program, you must comply with its conditions. Exercising those
+permissions indicates acceptance of this License for those activities.
+Rights available without this License under applicable law remain
+unaffected, as stated in section 2.
+
+  10. Automatic Licensing of Downstream Recipients.
+
+  Each time you convey a covered work, each recipient receives a direct
+license from the relevant original licensors to run, copy, modify, and
+propagate that work, subject to all conditions of this same version of
+this License. This is a noncommercial grant. It does not automatically
+transfer any separate commercial authorization you may have received.
+You are not responsible for enforcing other recipients' compliance.
+
+  An entity transaction, such as a merger or transfer of an
+organization's assets or control, does not expand the scope of this
+License. A recipient of a copy through such a transaction receives the
+same noncommercial rights and a right to obtain the Corresponding
+Source from its predecessor if that predecessor possesses it or can
+obtain it with reasonable efforts. Transfer of a separate commercial
+authorization depends on that authorization's written terms.
+
+  You may not charge a license fee or royalty for exercising the
+noncommercial rights granted here, or impose additional terms or
+technical measures preventing their exercise. This prohibition does
+not remove any integral condition of this License, including its
+noncommercial and source-sharing conditions, and does not prohibit
+an entitled rights holder from separately negotiating the commercial
+authorization described in section 2.
+
+  You may not bring a patent claim against another party based on acts
+that this License permits in relation to a covered work, except to the
+extent allowed by a valid termination of that party's applicable rights.
+
+  11. Patents.
+
+  A "contributor" is a copyright holder authorizing use under this
+License of the Program or a work on which it is based. The work so
+licensed is that contributor's "contributor version".
+
+  A contributor's "essential patent claims" are claims it owns or
+controls, now or later, that would be infringed by activities permitted
+by this License with respect to its contributor version. They exclude
+claims infringed only because of further modifications. "Control"
+includes authority to grant patent licenses consistent with these terms.
+
+  Each contributor grants a non-exclusive, worldwide, royalty-free
+patent license under its essential patent claims to make, use, import,
+run, copy, modify, and propagate its contributor version solely within
+the permissions and Noncommercial Purposes authorized by this License.
+This patent grant is subject to the same conditions and termination
+rules as the copyright grant. It grants no independent right to sell,
+commercially operate, or otherwise commercially exploit a covered work.
+Any patent permission necessary for Commercial Use must be covered by
+appropriate separate authorization from parties entitled to grant it.
+
+  Here, a "patent license" includes an express permission, covenant not
+to sue, or other express commitment not to enforce a patent. If you
+knowingly rely on such a license when conveying a covered work, you
+must ensure that recipients can lawfully exercise the rights granted
+by this License and can obtain the Corresponding Source free of charge
+as required by sections 4 and 6. "Knowingly rely" means actual knowledge
+that, absent the patent license, the conveyance or permitted use would
+infringe identifiable patent claims you have reason to believe valid.
+
+  If you convey a covered work and grant some recipients a patent
+license for activities permitted under this License, that patent grant
+must extend to all recipients for those same permitted activities.
+This does not automatically extend a separately negotiated commercial
+authorization or grant Commercial Use rights under this License.
+
+  You may not convey a covered work under a patent arrangement that
+prevents recipients from exercising the noncommercial rights granted
+by this License or makes those rights conditional on payment or on
+refraining from permitted modifications or redistribution.
+
+  Nothing here excludes any implied license or other defense available
+to you under applicable patent law.
+
+  12. No Surrender of License Conditions.
+
+  Other obligations imposed by court order, contract, or otherwise do
+not excuse compliance with this License. Except for the express
+commercial authorization mechanism in section 2, no separate agreement
+or obligation removes the noncommercial scope or the source-sharing
+and same-license conditions. If you cannot satisfy this License and
+all other applicable obligations simultaneously, you may not perform
+the conflicting activity under this License. In particular, another
+party's demand for secrecy or withholding source is not permission
+to convey a covered work without its Corresponding Source.
+
+  13. Remote Network Interaction.
+
+  If you modify the Program and your modified version supports remote
+interaction through a computer network, it must prominently offer all
+users interacting with it in that way an opportunity to obtain the
+complete Corresponding Source of that version. Provide access from a
+network server free of charge through a standard or customary means
+of copying software, under this License and without an individual
+approval or nondisclosure requirement.
+
+  This condition applies even when the network interaction does not
+convey a copy of the Program. Commercial operation of such a service
+also requires the prior written authorization described in section 2;
+that authorization does not remove this source-sharing condition.
+
+  This section grants no exception for combining the Program with
+material under another license. Any combination must be permitted by
+all applicable licenses, as stated in sections 5 and 7.
+
+  14. Fixed License Version.
+
+  These permissions are granted under version 1.0 of the Crab
+Noncommercial Source License only. There is no automatic option to
+choose a later version, a license from another publisher, or any
+other license. Publication of a revised text does not by itself
+relicense copies or contributions already governed by this version.
+A different grant requires authorization from the parties entitled
+to grant it; a conveyor or recipient cannot change the license for
+material it does not control.
+
+  15. Disclaimer of Warranty.
+
+  THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
+APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
+HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY
+OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM
+IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF
+ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+
+  16. Limitation of Liability.
+
+  IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS
+THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY
+GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE
+USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF
+DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD
+PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS),
+EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGES.
+
+  17. Interpretation of Sections 15 and 16.
+
+  If the warranty disclaimer or limitation of liability cannot be given
+full effect under local law, they apply to the maximum extent that law
+permits. No provision excludes liability that applicable law forbids
+excluding. Any express warranty or assumption of liability is solely
+that of the party that expressly provides it and must be consistent
+with that party's authority and the conditions of this License.
+
+  If a provision is held unenforceable, the remaining provisions
+continue to apply to the extent permitted by law; that finding does
+not itself grant Commercial Use or permission to withhold source.
+
+END OF TERMS AND CONDITIONS

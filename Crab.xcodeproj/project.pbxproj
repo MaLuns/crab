@@ -1,0 +1,1139 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		029E1E3E73CF36C95E129538 /* ReferenceWindowControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6CDC221FF193A2E6AE44B6 /* ReferenceWindowControls.swift */; };
+		03A00BCB60FF5F5DE9D7E11F /* ConfigurationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18626E7A8013D394A67C2AC5 /* ConfigurationStore.swift */; };
+		0756331472297691F7E69086 /* AppLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220E269334D60A63DF5B1355 /* AppLocalization.swift */; };
+		077AFD4E400099A611E6B6AC /* SystemIconDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4033BD9D4B02D72EBEF4CA4 /* SystemIconDefaults.swift */; };
+		0B6C886DD65B4E4A59050BA1 /* Blank.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 8901DCD82E2B909C26AF1D19 /* Blank.xlsx */; };
+		0CC51CE391C714B21976E8B3 /* ApplicationIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129D1C5B5040AB83A991DA2 /* ApplicationIcon.swift */; };
+		0CFBA74BFA26554ADE119837 /* CrabIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4576BE6CB73FFB8884F10F3B /* CrabIcon.png */; };
+		0E7A46CF18099050CD0700E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED05DCC2F2346264E788995 /* AppDelegate.swift */; };
+		0F9B18816A48503AA2B95490 /* ApplicationCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F1899CBE78F3C267177A81 /* ApplicationCatalog.swift */; };
+		1416912DD494433EC857D45B /* StatusBarPresentationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD26BF91A56FC43300F0831 /* StatusBarPresentationTests.swift */; };
+		149217FD835EC812590EBEEC /* FinderExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AF4C7654A83D5C52DEF356EF /* FinderExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		14C9C7DADA8D9872C06CDEA9 /* UIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8877B010ABDEF32318885 /* UIHelpers.swift */; };
+		1547BDBED1E26D336341002C /* FileTemplateIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9808D0C5D7C26F10399D7E /* FileTemplateIcon.swift */; };
+		1885F81DDF136D282F46BD54 /* CategoryIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FB35B41D05CB934CAD93A0 /* CategoryIcon.swift */; };
+		1B68ED9922007A61B90B5477 /* Crab-en.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E3C6B42BA406914898C71A9 /* Crab-en.json */; };
+		1EF9A32225BC294D5E750D91 /* OperationPickerWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B07EFD5791F9C33F252B3A /* OperationPickerWindowController.swift */; };
+		1F0446AE4E7FF48AAECF348E /* ToolMenuIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267668CFA2E49AF731B06370 /* ToolMenuIcon.swift */; };
+		206F90CA5A238C32FDDB1B44 /* Crab-fr.json in Resources */ = {isa = PBXBuildFile; fileRef = DA5E134B18247D261CCE4DB8 /* Crab-fr.json */; };
+		22B85D154BFFBF532CD63F44 /* MenuIconPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0579864F2D82C2803EF5C19 /* MenuIconPreview.swift */; };
+		236B8A0E36196520DE72A463 /* Crab-de.json in Resources */ = {isa = PBXBuildFile; fileRef = CCA777C9F3436D67D74EBBAE /* Crab-de.json */; };
+		2A87E9246609F411B33951E1 /* CutSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B2175F20FEAE8FCDDFE15E /* CutSessionManager.swift */; };
+		2C4E7738E83BDA4DD125C25A /* Blank.dps in Resources */ = {isa = PBXBuildFile; fileRef = 8C4D4FE3802A609A346235E7 /* Blank.dps */; };
+		2DDCDB03F06396FAB58F5AE2 /* ConfigurationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18626E7A8013D394A67C2AC5 /* ConfigurationStore.swift */; };
+		310B61FA65288A080D0591D7 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA996B1B0F6A30AD67B1A5 /* Models.swift */; };
+		33AD75A2C0F554E1DD63A6B8 /* CustomScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668F5C236939A3941EA75BD /* CustomScriptRunner.swift */; };
+		35BE7C2886F467936A803820 /* AppPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF65922444A095F913AB484D /* AppPermissions.swift */; };
+		3612C5C2C96ABD54EFCCC0E8 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0677781DF32B8BD67ABDD62 /* SettingsWindowController.swift */; };
+		37B556AE63AE959124631F44 /* FinderFallbackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2149760E6D5C7E4B0A7A5D4 /* FinderFallbackTests.swift */; };
+		390941F946FDF7290437B7D0 /* ArchiveMenuTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739BD6BD27387526E625ED8E /* ArchiveMenuTitle.swift */; };
+		3ACDC4345BC7FECD9993B0C8 /* OperationLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4423FF9BF79902ADD6E9B0 /* OperationLibraryTests.swift */; };
+		3BC2504D1C00279FDCACB83D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E1E36ED1934278A9BC270E /* main.swift */; };
+		3DF9CBB2C5DF74CB332003E2 /* MenuEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A64E620610931CB3854D0F1 /* MenuEditorView.swift */; };
+		3E666B4336B7135D434FCDA4 /* ToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F69FD29A439B012428FC818 /* ToolTests.swift */; };
+		3F2B8C18919EC25D85C2CAE8 /* Blank.ai in Resources */ = {isa = PBXBuildFile; fileRef = F01653017164D9C5A5CBD4D0 /* Blank.ai */; };
+		424041496E480DC2E2A86116 /* MenuEditorInteractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD02CFF6FBCD57245C3F5B9 /* MenuEditorInteractionTests.swift */; };
+		42E6260DD613E994506546C4 /* ToolMenuIconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAA91CE51C9C01B7FACD273 /* ToolMenuIconTests.swift */; };
+		456BE202D935F581DBFD017A /* MenuIconPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0579864F2D82C2803EF5C19 /* MenuIconPreview.swift */; };
+		4752ADF4B5832D029E1409FC /* CrabSymbolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D011FF2CB42BF179399E5B3 /* CrabSymbolTests.swift */; };
+		475F6B2770BF77441269200D /* AppPermissionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE0D7B972D0473C6E392B5 /* AppPermissionsTests.swift */; };
+		47AD0725C5B37AEA18E8041D /* OperationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBACCB773D6AF1B406BA322 /* OperationModels.swift */; };
+		4943E76138C2A44DEDC0F589 /* Blank.docx in Resources */ = {isa = PBXBuildFile; fileRef = 379DBA618966B81AB0C42AAD /* Blank.docx */; };
+		4DCAEBB79AC3882DA20997FD /* WindowAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FFB3739105CE8CE235F0A6 /* WindowAppearance.swift */; };
+		4FB8CC7F3FD189D307BB1277 /* Crab-ja.json in Resources */ = {isa = PBXBuildFile; fileRef = 72660F273452E706F2A1B91B /* Crab-ja.json */; };
+		524B06A4DB650311EBD12044 /* SystemIconDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4033BD9D4B02D72EBEF4CA4 /* SystemIconDefaults.swift */; };
+		5407B4BD9BFCF903A9E77E34 /* ActionLaunchPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A1F1237B9A20AFE6C2300 /* ActionLaunchPolicy.swift */; };
+		5475146C1B3D673FCA612162 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC8FB330DFF1DC59FE9D284 /* libz.tbd */; };
+		55BD08D62368C73E47FDA515 /* Blank.numbers in Resources */ = {isa = PBXBuildFile; fileRef = 706FD3C1865C43279F25338F /* Blank.numbers */; };
+		57DF2F1E7B17A495563A8219 /* CategoryIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FB35B41D05CB934CAD93A0 /* CategoryIcon.swift */; };
+		61E10A612189364E91B42BD8 /* ScriptLanguageIconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0065C68A03CAB07B47455A /* ScriptLanguageIconTests.swift */; };
+		651CA21E95B589B79AFBD3E4 /* MenuVisibilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2780336261AF10D6DE7397B /* MenuVisibilityTests.swift */; };
+		66C315F5BF13B9AE8C1008D6 /* Blank.et in Resources */ = {isa = PBXBuildFile; fileRef = 3EB3E7FBF6D6DF8CB7923F4D /* Blank.et */; };
+		68AF28C238AE246E72DB8A14 /* OperationEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD303D1B369DEFA446382A /* OperationEditor.swift */; };
+		6B39EC805A36BFA09EE30949 /* CrabSymbolArtwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647C58796C7654976DD4FC75 /* CrabSymbolArtwork.swift */; };
+		714F4931E4DC1AC9D4B06B2D /* OperationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBACCB773D6AF1B406BA322 /* OperationModels.swift */; };
+		71C1CE99603775FA18A6AAE7 /* OperationRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B2DDC86F3EEEDB28FF388D /* OperationRegistry.swift */; };
+		741F2C6E1B693F4FEFF277B5 /* ArchiveTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0EBA0BC057A792FA19140E /* ArchiveTools.swift */; };
+		745B52504375D08435FD0EEE /* OperationRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B2DDC86F3EEEDB28FF388D /* OperationRegistry.swift */; };
+		7500612E31DAA0017C89CD21 /* FilenameRepairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C609B61F15A0E65422EBEB4 /* FilenameRepairTests.swift */; };
+		76B508D328EDCF3E6BD49BFB /* CrabSymbolArtwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647C58796C7654976DD4FC75 /* CrabSymbolArtwork.swift */; };
+		77B4A8C4D7808F409B45F4A2 /* Blank.psd in Resources */ = {isa = PBXBuildFile; fileRef = 2D40E2F1EEF061E808B41C61 /* Blank.psd */; };
+		78F8F62E7AC5095B775B8A69 /* OperationPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9579B4D6DDB7EFDA8F78A /* OperationPresentation.swift */; };
+		79E59E996EA9B42C0270356D /* OperationCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621409643070078A5257D9DD /* OperationCardItem.swift */; };
+		7BAD386D4783D3F8E44F3CF1 /* HashTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D11BFF0D465B887A39121 /* HashTools.swift */; };
+		7EE1D9989DBA840327EFC533 /* Blank.key in Resources */ = {isa = PBXBuildFile; fileRef = 4783A234087A2A496445649B /* Blank.key */; };
+		7FB633F2A16D3784B0DFB048 /* Crab-de.json in Resources */ = {isa = PBXBuildFile; fileRef = CCA777C9F3436D67D74EBBAE /* Crab-de.json */; };
+		831D57B5A867EFBE453DFC01 /* FileTemplateIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9808D0C5D7C26F10399D7E /* FileTemplateIcon.swift */; };
+		83A369F5C87DA265ABC63AFC /* ApplicationLauncherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC44CA0F62BAF359983833C2 /* ApplicationLauncherTests.swift */; };
+		84445C31734D3491A7A74D37 /* Crab-pt-PT.json in Resources */ = {isa = PBXBuildFile; fileRef = 7061FD4E0989B62E99FD4699 /* Crab-pt-PT.json */; };
+		856F10F864D03C27DA4661F4 /* FinderMenuPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731C032DD9C15ED3D76ACC9 /* FinderMenuPresentation.swift */; };
+		8A1633DAC155484B1F0D4D1D /* HoverHelpButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA9E4EC4BB09F3EF5A47567 /* HoverHelpButtonTests.swift */; };
+		8CB0A7560F183B89B8D7570D /* SettingsPageLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C348047560D472E793CC1F67 /* SettingsPageLayoutTests.swift */; };
+		8CE0BF1F2D12D67F16A906E4 /* ThreeFingerMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B57CA7F0E4A88A141F1FE5 /* ThreeFingerMonitorTests.swift */; };
+		8DC8F09AC5BD932F6F63E0CC /* MenuNodeIconStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006C6C8746FAB8C92D1EE989 /* MenuNodeIconStyleTests.swift */; };
+		92D3A936583BCD3FF12A3A40 /* ApplicationIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129D1C5B5040AB83A991DA2 /* ApplicationIcon.swift */; };
+		961E1F92B2E9EACD97B617FE /* FinderSync.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9006FF49123B7168C2744465 /* FinderSync.framework */; };
+		97C7968C41278E8BB531CBD8 /* ScriptLanguageIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BA2F037164CBDF1BBFFE26 /* ScriptLanguageIcon.swift */; };
+		97E8A120002A2B40AB02126E /* libwebp-PATENTS.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0DCE78B57055E0D0B8397444 /* libwebp-PATENTS.txt */; };
+		9B040F2B96319A7AFF7C3792 /* ReferenceUIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEA4B363A8EF76ADECEF5C /* ReferenceUIComponents.swift */; };
+		9BDB5E298B221A36C8732709 /* Crab-zh-Hant.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F65F7D148507A1107B02B1B /* Crab-zh-Hant.json */; };
+		9CD43D62BDC7E5339BA5159F /* WindowAppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3E04FE87D839E61D3BE9F /* WindowAppearanceTests.swift */; };
+		9E4147C809B6BEA435702C90 /* CrabIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4576BE6CB73FFB8884F10F3B /* CrabIcon.png */; };
+		9FFFDA646EDF80BD59FCE809 /* ToolMenuIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267668CFA2E49AF731B06370 /* ToolMenuIcon.swift */; };
+		A152A3EC50B317B20268100A /* libwebp-COPYING.txt in Resources */ = {isa = PBXBuildFile; fileRef = CFE0C497229CFDD640E75AE7 /* libwebp-COPYING.txt */; };
+		A1B29AC2F48FB6A497A98804 /* ArchiveAndWebPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD03A6B8919BB8747A9C46B5 /* ArchiveAndWebPTests.swift */; };
+		A4EC60937F69C1AED8EFFEE0 /* WindowDialogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21EE475D719D1122C4FC240 /* WindowDialogTests.swift */; };
+		A5EF6DC05E8AF9C98EE73FB7 /* Blank.pages in Resources */ = {isa = PBXBuildFile; fileRef = E26FE7816F5F2DA96467B74C /* Blank.pages */; };
+		A7BB6DE72A44A05B205CD817 /* ScriptLanguageIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BA2F037164CBDF1BBFFE26 /* ScriptLanguageIcon.swift */; };
+		AA97D6091A1405CC2E916000 /* FileOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C94DB5F4EB227CAB694DFD7 /* FileOperations.swift */; };
+		ACB40F9EABC2FADF9079AFCE /* CrabSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856C2E0BC6079FB0C806DE0C /* CrabSymbol.swift */; };
+		ACD009438FD1DB0890BDB740 /* FilenameRepairWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AF75912D8678561CE82C1A /* FilenameRepairWindowController.swift */; };
+		B09CCEB1E49B438AD767E266 /* CrabIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9EBD2741ED4B951EE83D58 /* CrabIcon.swift */; };
+		B2547C672B243088C40A08F5 /* Crab-zh-Hans.json in Resources */ = {isa = PBXBuildFile; fileRef = 160E506D89BD4D7C2D031490 /* Crab-zh-Hans.json */; };
+		B605FA5A8544AF48688ECC97 /* AppLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220E269334D60A63DF5B1355 /* AppLocalization.swift */; };
+		B6336F443CDC65BD23AA7DA2 /* PermissionSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFED684B0B270B7E7C7B48A /* PermissionSettingsTests.swift */; };
+		B876B2A317096BDB458C3DB1 /* FileOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7421DD0A93626464D3737DC9 /* FileOperationsTests.swift */; };
+		BCDCF62F7AAB9E9EE2BEFB78 /* HoverHelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9743C7451EE53EDFB072BC8 /* HoverHelpButton.swift */; };
+		BD76E37D26C82E52BF335952 /* Crab-ja.json in Resources */ = {isa = PBXBuildFile; fileRef = 72660F273452E706F2A1B91B /* Crab-ja.json */; };
+		C012EB7392B7FBBFB2D318B3 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA996B1B0F6A30AD67B1A5 /* Models.swift */; };
+		C0D02425C9A4E3801CFCBFEB /* ActionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1D6FB982E50470A9AFD44 /* ActionRouter.swift */; };
+		C22D148DEBF007D1FB62C95A /* CrabIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9EBD2741ED4B951EE83D58 /* CrabIcon.swift */; };
+		C5C0EBDB4BB339D30E586103 /* Blank.wps in Resources */ = {isa = PBXBuildFile; fileRef = 4BD9DC667998027F93D50DF7 /* Blank.wps */; };
+		C5F5C896EF03F2078170E02D /* ThreeFingerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E5D359083524B8B3F03990 /* ThreeFingerMonitor.swift */; };
+		CB2934CCDB8F970E3A91DC7A /* DocumentTemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953085455DAE6BEB94DD45E7 /* DocumentTemplateTests.swift */; };
+		CD21C572FB23FE6026007468 /* ApplicationCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F1899CBE78F3C267177A81 /* ApplicationCatalog.swift */; };
+		CE40F1B5807712F36B8C6C21 /* FinderSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AFB7AEB41ABB7B2FC96DDF /* FinderSync.swift */; };
+		CEDC4BCE30B0DAD269E1FAAA /* ContextMenuBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E55B6600EE1B76E4E310508 /* ContextMenuBuilder.swift */; };
+		D077BD2D81525E70CFFD6327 /* ArchiveMenuTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739BD6BD27387526E625ED8E /* ArchiveMenuTitle.swift */; };
+		D1E08CE4A12D284536F24E6A /* CutSessionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7225EAB554B0345EE396122D /* CutSessionManagerTests.swift */; };
+		D3C4B62E948FD0AA616B58B7 /* AppLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DED37C50F867F1568445647 /* AppLocalizationTests.swift */; };
+		D52E1B97BFF78724CDD8C5BA /* Crab-es.json in Resources */ = {isa = PBXBuildFile; fileRef = BFE60591483F8C29A9BD4040 /* Crab-es.json */; };
+		D57AEE1AC6B4970BF8308EA0 /* Crab-es.json in Resources */ = {isa = PBXBuildFile; fileRef = BFE60591483F8C29A9BD4040 /* Crab-es.json */; };
+		D62BA8185983D5FD7BA39E6E /* FilenameRepair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1575782CAF8CEFDD77289BED /* FilenameRepair.swift */; };
+		D64A00867A790B53D1A54086 /* Crab-ko.json in Resources */ = {isa = PBXBuildFile; fileRef = 4BD61733B0AA08E8927926FC /* Crab-ko.json */; };
+		D6CD034565F745D7A604AB12 /* CustomScriptRunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EAAD639405B339BA858596 /* CustomScriptRunnerTests.swift */; };
+		DA49DA734C5604EE0E32BAE5 /* Crab-ko.json in Resources */ = {isa = PBXBuildFile; fileRef = 4BD61733B0AA08E8927926FC /* Crab-ko.json */; };
+		DB5F2DF353FBD74F4AD03E66 /* CrabSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856C2E0BC6079FB0C806DE0C /* CrabSymbol.swift */; };
+		DB8D64582B56D86D7819257A /* OperationPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08232C1D27ECC0BFE28CC930 /* OperationPickerTests.swift */; };
+		DCC9BAEE1EEB09F38F7E9CDF /* ActionLaunchPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A1F1237B9A20AFE6C2300 /* ActionLaunchPolicy.swift */; };
+		DCF098D88F2A9C2F23BF8F20 /* Crab-pt-PT.json in Resources */ = {isa = PBXBuildFile; fileRef = 7061FD4E0989B62E99FD4699 /* Crab-pt-PT.json */; };
+		E650854734FC08EAB65E2B17 /* Crab-zh-Hant.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F65F7D148507A1107B02B1B /* Crab-zh-Hant.json */; };
+		EC0C87E3B57BB01B3A4347EB /* ContextMenuBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E55B6600EE1B76E4E310508 /* ContextMenuBuilder.swift */; };
+		ECDD661D0D1D4DEE5F7269D2 /* Crab-fr.json in Resources */ = {isa = PBXBuildFile; fileRef = DA5E134B18247D261CCE4DB8 /* Crab-fr.json */; };
+		EDD79FCAB287F4C6253FC210 /* SettingsPermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3662ED473DAF37D83D730B9E /* SettingsPermissionsView.swift */; };
+		F0456BA74D34AE4FE78638D1 /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1C55B89874DF97AB78B0F18C /* AppIcon.icns */; };
+		F079FB4F3EFB410ADF828935 /* MediaTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE333F218ED320780FF5BB /* MediaTools.swift */; };
+		F2CD0B485F96500E2FE05F29 /* Blank.pptx in Resources */ = {isa = PBXBuildFile; fileRef = 1C4B42C4A047A429E59E7C9B /* Blank.pptx */; };
+		F650F0666ECCDD20FE469076 /* FinderFallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73260FEDF057BE19C063E879 /* FinderFallback.swift */; };
+		F6EE441A7A277E158F3888BD /* FinderMenuPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731C032DD9C15ED3D76ACC9 /* FinderMenuPresentation.swift */; };
+		F87A61B9245609FB749DF5BA /* Crab-en.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E3C6B42BA406914898C71A9 /* Crab-en.json */; };
+		F906EBBCC7BDAC6BFE8F6601 /* ActionLaunchPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBEC7544C48856D2DA44BC8 /* ActionLaunchPolicyTests.swift */; };
+		FCF1A5F4B0D7410EA848F627 /* Crab-zh-Hans.json in Resources */ = {isa = PBXBuildFile; fileRef = 160E506D89BD4D7C2D031490 /* Crab-zh-Hans.json */; };
+		FE7771006930442E5458F1DA /* StatusBarPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAFEA7F6A0761C867048A06 /* StatusBarPresentation.swift */; };
+		FE7A4DF6AFAFE41F1B9CB882 /* ApplicationLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE98CEB363E7D585D5E819C /* ApplicationLauncher.swift */; };
+		FEAE8955ADBC44C080B7A444 /* BrandingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709804DA3814EAD6ADF9B05B /* BrandingTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		916B9519A89862937CE48DCE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7F4959AC661226C7CD3DBB8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 193AB174AB59ED1D0A6E8783;
+			remoteInfo = FinderExtension;
+		};
+		BBD39692A0B924A9ACC1A4A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7F4959AC661226C7CD3DBB8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3FFE7DC7956015E3B1DCB96;
+			remoteInfo = Crab;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		45ECA3BA1089A50AA2E36CA4 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				149217FD835EC812590EBEEC /* FinderExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		006C6C8746FAB8C92D1EE989 /* MenuNodeIconStyleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNodeIconStyleTests.swift; sourceTree = "<group>"; };
+		043D11BFF0D465B887A39121 /* HashTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTools.swift; sourceTree = "<group>"; };
+		08232C1D27ECC0BFE28CC930 /* OperationPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationPickerTests.swift; sourceTree = "<group>"; };
+		0BBD303D1B369DEFA446382A /* OperationEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationEditor.swift; sourceTree = "<group>"; };
+		0BFED684B0B270B7E7C7B48A /* PermissionSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionSettingsTests.swift; sourceTree = "<group>"; };
+		0DCE78B57055E0D0B8397444 /* libwebp-PATENTS.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "libwebp-PATENTS.txt"; sourceTree = "<group>"; };
+		1575782CAF8CEFDD77289BED /* FilenameRepair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilenameRepair.swift; sourceTree = "<group>"; };
+		160E506D89BD4D7C2D031490 /* Crab-zh-Hans.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "Crab-zh-Hans.json"; sourceTree = "<group>"; };
+		18626E7A8013D394A67C2AC5 /* ConfigurationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationStore.swift; sourceTree = "<group>"; };
+		18E1D6FB982E50470A9AFD44 /* ActionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRouter.swift; sourceTree = "<group>"; };
+		1C4B42C4A047A429E59E7C9B /* Blank.pptx */ = {isa = PBXFileReference; path = Blank.pptx; sourceTree = "<group>"; };
+		1C55B89874DF97AB78B0F18C /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
+		1EE98CEB363E7D585D5E819C /* ApplicationLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationLauncher.swift; sourceTree = "<group>"; };
+		1F69FD29A439B012428FC818 /* ToolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolTests.swift; sourceTree = "<group>"; };
+		220E269334D60A63DF5B1355 /* AppLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocalization.swift; sourceTree = "<group>"; };
+		22C9579B4D6DDB7EFDA8F78A /* OperationPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationPresentation.swift; sourceTree = "<group>"; };
+		2668F5C236939A3941EA75BD /* CustomScriptRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScriptRunner.swift; sourceTree = "<group>"; };
+		267668CFA2E49AF731B06370 /* ToolMenuIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolMenuIcon.swift; sourceTree = "<group>"; };
+		2731C032DD9C15ED3D76ACC9 /* FinderMenuPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderMenuPresentation.swift; sourceTree = "<group>"; };
+		2D40E2F1EEF061E808B41C61 /* Blank.psd */ = {isa = PBXFileReference; path = Blank.psd; sourceTree = "<group>"; };
+		3662ED473DAF37D83D730B9E /* SettingsPermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPermissionsView.swift; sourceTree = "<group>"; };
+		379DBA618966B81AB0C42AAD /* Blank.docx */ = {isa = PBXFileReference; path = Blank.docx; sourceTree = "<group>"; };
+		38EAAD639405B339BA858596 /* CustomScriptRunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScriptRunnerTests.swift; sourceTree = "<group>"; };
+		3CAA91CE51C9C01B7FACD273 /* ToolMenuIconTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolMenuIconTests.swift; sourceTree = "<group>"; };
+		3DED37C50F867F1568445647 /* AppLocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocalizationTests.swift; sourceTree = "<group>"; };
+		3DFE0D7B972D0473C6E392B5 /* AppPermissionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPermissionsTests.swift; sourceTree = "<group>"; };
+		3EB3E7FBF6D6DF8CB7923F4D /* Blank.et */ = {isa = PBXFileReference; path = Blank.et; sourceTree = "<group>"; };
+		3F0065C68A03CAB07B47455A /* ScriptLanguageIconTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptLanguageIconTests.swift; sourceTree = "<group>"; };
+		3F9808D0C5D7C26F10399D7E /* FileTemplateIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTemplateIcon.swift; sourceTree = "<group>"; };
+		41419DF264A23D398A6A619A /* CrabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4576BE6CB73FFB8884F10F3B /* CrabIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CrabIcon.png; sourceTree = "<group>"; };
+		45FFB3739105CE8CE235F0A6 /* WindowAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowAppearance.swift; sourceTree = "<group>"; };
+		4783A234087A2A496445649B /* Blank.key */ = {isa = PBXFileReference; path = Blank.key; sourceTree = "<group>"; };
+		490A1F1237B9A20AFE6C2300 /* ActionLaunchPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionLaunchPolicy.swift; sourceTree = "<group>"; };
+		4BD61733B0AA08E8927926FC /* Crab-ko.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "Crab-ko.json"; sourceTree = "<group>"; };
+		4BD9DC667998027F93D50DF7 /* Blank.wps */ = {isa = PBXFileReference; path = Blank.wps; sourceTree = "<group>"; };
+		59E1E36ED1934278A9BC270E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		5C609B61F15A0E65422EBEB4 /* FilenameRepairTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilenameRepairTests.swift; sourceTree = "<group>"; };
+		621409643070078A5257D9DD /* OperationCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationCardItem.swift; sourceTree = "<group>"; };
+		647C58796C7654976DD4FC75 /* CrabSymbolArtwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrabSymbolArtwork.swift; sourceTree = "<group>"; };
+		68AF75912D8678561CE82C1A /* FilenameRepairWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilenameRepairWindowController.swift; sourceTree = "<group>"; };
+		6F65F7D148507A1107B02B1B /* Crab-zh-Hant.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "Crab-zh-Hant.json"; sourceTree = "<group>"; };
+		7061FD4E0989B62E99FD4699 /* Crab-pt-PT.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "Crab-pt-PT.json"; sourceTree = "<group>"; };
+		706FD3C1865C43279F25338F /* Blank.numbers */ = {isa = PBXFileReference; path = Blank.numbers; sourceTree = "<group>"; };
+		709804DA3814EAD6ADF9B05B /* BrandingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandingTests.swift; sourceTree = "<group>"; };
+		7225EAB554B0345EE396122D /* CutSessionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutSessionManagerTests.swift; sourceTree = "<group>"; };
+		72660F273452E706F2A1B91B /* Crab-ja.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "Crab-ja.json"; sourceTree = "<group>"; };
+		73260FEDF057BE19C063E879 /* FinderFallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderFallback.swift; sourceTree = "<group>"; };
+		739BD6BD27387526E625ED8E /* ArchiveMenuTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveMenuTitle.swift; sourceTree = "<group>"; };
+		7421DD0A93626464D3737DC9 /* FileOperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOperationsTests.swift; sourceTree = "<group>"; };
+		76B2DDC86F3EEEDB28FF388D /* OperationRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationRegistry.swift; sourceTree = "<group>"; };
+		77AFB7AEB41ABB7B2FC96DDF /* FinderSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSync.swift; sourceTree = "<group>"; };
+		7C94DB5F4EB227CAB694DFD7 /* FileOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOperations.swift; sourceTree = "<group>"; };
+		7E55B6600EE1B76E4E310508 /* ContextMenuBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuBuilder.swift; sourceTree = "<group>"; };
+		7EF8877B010ABDEF32318885 /* UIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelpers.swift; sourceTree = "<group>"; };
+		7FB3E04FE87D839E61D3BE9F /* WindowAppearanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowAppearanceTests.swift; sourceTree = "<group>"; };
+		856C2E0BC6079FB0C806DE0C /* CrabSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrabSymbol.swift; sourceTree = "<group>"; };
+		86DA996B1B0F6A30AD67B1A5 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		8901DCD82E2B909C26AF1D19 /* Blank.xlsx */ = {isa = PBXFileReference; path = Blank.xlsx; sourceTree = "<group>"; };
+		8A4423FF9BF79902ADD6E9B0 /* OperationLibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationLibraryTests.swift; sourceTree = "<group>"; };
+		8A64E620610931CB3854D0F1 /* MenuEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuEditorView.swift; sourceTree = "<group>"; };
+		8BAFEA7F6A0761C867048A06 /* StatusBarPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarPresentation.swift; sourceTree = "<group>"; };
+		8C4D4FE3802A609A346235E7 /* Blank.dps */ = {isa = PBXFileReference; path = Blank.dps; sourceTree = "<group>"; };
+		8D011FF2CB42BF179399E5B3 /* CrabSymbolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrabSymbolTests.swift; sourceTree = "<group>"; };
+		8E3C6B42BA406914898C71A9 /* Crab-en.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "Crab-en.json"; sourceTree = "<group>"; };
+		8EBACCB773D6AF1B406BA322 /* OperationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationModels.swift; sourceTree = "<group>"; };
+		9006FF49123B7168C2744465 /* FinderSync.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FinderSync.framework; path = System/Library/Frameworks/FinderSync.framework; sourceTree = SDKROOT; };
+		90F1899CBE78F3C267177A81 /* ApplicationCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCatalog.swift; sourceTree = "<group>"; };
+		91B57CA7F0E4A88A141F1FE5 /* ThreeFingerMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeFingerMonitorTests.swift; sourceTree = "<group>"; };
+		953085455DAE6BEB94DD45E7 /* DocumentTemplateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTemplateTests.swift; sourceTree = "<group>"; };
+		97B2175F20FEAE8FCDDFE15E /* CutSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutSessionManager.swift; sourceTree = "<group>"; };
+		9D0EBA0BC057A792FA19140E /* ArchiveTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveTools.swift; sourceTree = "<group>"; };
+		A2780336261AF10D6DE7397B /* MenuVisibilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVisibilityTests.swift; sourceTree = "<group>"; };
+		A4033BD9D4B02D72EBEF4CA4 /* SystemIconDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemIconDefaults.swift; sourceTree = "<group>"; };
+		ADD26BF91A56FC43300F0831 /* StatusBarPresentationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarPresentationTests.swift; sourceTree = "<group>"; };
+		AF4C7654A83D5C52DEF356EF /* FinderExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FinderExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0579864F2D82C2803EF5C19 /* MenuIconPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuIconPreview.swift; sourceTree = "<group>"; };
+		B2149760E6D5C7E4B0A7A5D4 /* FinderFallbackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderFallbackTests.swift; sourceTree = "<group>"; };
+		BDD02CFF6FBCD57245C3F5B9 /* MenuEditorInteractionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuEditorInteractionTests.swift; sourceTree = "<group>"; };
+		BECE333F218ED320780FF5BB /* MediaTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTools.swift; sourceTree = "<group>"; };
+		BFE60591483F8C29A9BD4040 /* Crab-es.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "Crab-es.json"; sourceTree = "<group>"; };
+		C129D1C5B5040AB83A991DA2 /* ApplicationIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationIcon.swift; sourceTree = "<group>"; };
+		C21EE475D719D1122C4FC240 /* WindowDialogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowDialogTests.swift; sourceTree = "<group>"; };
+		C348047560D472E793CC1F67 /* SettingsPageLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageLayoutTests.swift; sourceTree = "<group>"; };
+		C9BA2F037164CBDF1BBFFE26 /* ScriptLanguageIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptLanguageIcon.swift; sourceTree = "<group>"; };
+		CCA777C9F3436D67D74EBBAE /* Crab-de.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "Crab-de.json"; sourceTree = "<group>"; };
+		CEBEC7544C48856D2DA44BC8 /* ActionLaunchPolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionLaunchPolicyTests.swift; sourceTree = "<group>"; };
+		CF65922444A095F913AB484D /* AppPermissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPermissions.swift; sourceTree = "<group>"; };
+		CFE0C497229CFDD640E75AE7 /* libwebp-COPYING.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "libwebp-COPYING.txt"; sourceTree = "<group>"; };
+		D1B07EFD5791F9C33F252B3A /* OperationPickerWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationPickerWindowController.swift; sourceTree = "<group>"; };
+		D9743C7451EE53EDFB072BC8 /* HoverHelpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverHelpButton.swift; sourceTree = "<group>"; };
+		DA5E134B18247D261CCE4DB8 /* Crab-fr.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "Crab-fr.json"; sourceTree = "<group>"; };
+		DC44CA0F62BAF359983833C2 /* ApplicationLauncherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationLauncherTests.swift; sourceTree = "<group>"; };
+		DD03A6B8919BB8747A9C46B5 /* ArchiveAndWebPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveAndWebPTests.swift; sourceTree = "<group>"; };
+		DDC8FB330DFF1DC59FE9D284 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		E26FE7816F5F2DA96467B74C /* Blank.pages */ = {isa = PBXFileReference; path = Blank.pages; sourceTree = "<group>"; };
+		E545B2277061AACB7B81C1AC /* Crab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crab.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6FB35B41D05CB934CAD93A0 /* CategoryIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIcon.swift; sourceTree = "<group>"; };
+		EA9EBD2741ED4B951EE83D58 /* CrabIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrabIcon.swift; sourceTree = "<group>"; };
+		EEA9E4EC4BB09F3EF5A47567 /* HoverHelpButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverHelpButtonTests.swift; sourceTree = "<group>"; };
+		EECEA4B363A8EF76ADECEF5C /* ReferenceUIComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceUIComponents.swift; sourceTree = "<group>"; };
+		EED05DCC2F2346264E788995 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F01653017164D9C5A5CBD4D0 /* Blank.ai */ = {isa = PBXFileReference; path = Blank.ai; sourceTree = "<group>"; };
+		F0677781DF32B8BD67ABDD62 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
+		F7E5D359083524B8B3F03990 /* ThreeFingerMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeFingerMonitor.swift; sourceTree = "<group>"; };
+		FC6CDC221FF193A2E6AE44B6 /* ReferenceWindowControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceWindowControls.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		795F22CB9EDF4544E6C2970F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5475146C1B3D673FCA612162 /* libz.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEB83B755BB017A68448A280 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				961E1F92B2E9EACD97B617FE /* FinderSync.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		19A91040F5581D490CDEE086 /* Crab */ = {
+			isa = PBXGroup;
+			children = (
+				B1C9E08DA24F2214FB555D60 /* App */,
+				4F601BFA2FD6C11F938C756F /* Resources */,
+				F4D6BC191007EE77EBCF089A /* Services */,
+				F516AB3F2CFC488FECE03F5E /* UI */,
+			);
+			path = Crab;
+			sourceTree = "<group>";
+		};
+		25FC481BF6E592259FDB8752 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				CEBEC7544C48856D2DA44BC8 /* ActionLaunchPolicyTests.swift */,
+				DC44CA0F62BAF359983833C2 /* ApplicationLauncherTests.swift */,
+				3DED37C50F867F1568445647 /* AppLocalizationTests.swift */,
+				3DFE0D7B972D0473C6E392B5 /* AppPermissionsTests.swift */,
+				DD03A6B8919BB8747A9C46B5 /* ArchiveAndWebPTests.swift */,
+				709804DA3814EAD6ADF9B05B /* BrandingTests.swift */,
+				8D011FF2CB42BF179399E5B3 /* CrabSymbolTests.swift */,
+				38EAAD639405B339BA858596 /* CustomScriptRunnerTests.swift */,
+				7225EAB554B0345EE396122D /* CutSessionManagerTests.swift */,
+				953085455DAE6BEB94DD45E7 /* DocumentTemplateTests.swift */,
+				5C609B61F15A0E65422EBEB4 /* FilenameRepairTests.swift */,
+				7421DD0A93626464D3737DC9 /* FileOperationsTests.swift */,
+				B2149760E6D5C7E4B0A7A5D4 /* FinderFallbackTests.swift */,
+				EEA9E4EC4BB09F3EF5A47567 /* HoverHelpButtonTests.swift */,
+				BDD02CFF6FBCD57245C3F5B9 /* MenuEditorInteractionTests.swift */,
+				006C6C8746FAB8C92D1EE989 /* MenuNodeIconStyleTests.swift */,
+				A2780336261AF10D6DE7397B /* MenuVisibilityTests.swift */,
+				8A4423FF9BF79902ADD6E9B0 /* OperationLibraryTests.swift */,
+				08232C1D27ECC0BFE28CC930 /* OperationPickerTests.swift */,
+				0BFED684B0B270B7E7C7B48A /* PermissionSettingsTests.swift */,
+				3F0065C68A03CAB07B47455A /* ScriptLanguageIconTests.swift */,
+				C348047560D472E793CC1F67 /* SettingsPageLayoutTests.swift */,
+				ADD26BF91A56FC43300F0831 /* StatusBarPresentationTests.swift */,
+				91B57CA7F0E4A88A141F1FE5 /* ThreeFingerMonitorTests.swift */,
+				3CAA91CE51C9C01B7FACD273 /* ToolMenuIconTests.swift */,
+				1F69FD29A439B012428FC818 /* ToolTests.swift */,
+				7FB3E04FE87D839E61D3BE9F /* WindowAppearanceTests.swift */,
+				C21EE475D719D1122C4FC240 /* WindowDialogTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		4F601BFA2FD6C11F938C756F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1C55B89874DF97AB78B0F18C /* AppIcon.icns */,
+				F01653017164D9C5A5CBD4D0 /* Blank.ai */,
+				379DBA618966B81AB0C42AAD /* Blank.docx */,
+				8C4D4FE3802A609A346235E7 /* Blank.dps */,
+				3EB3E7FBF6D6DF8CB7923F4D /* Blank.et */,
+				4783A234087A2A496445649B /* Blank.key */,
+				706FD3C1865C43279F25338F /* Blank.numbers */,
+				E26FE7816F5F2DA96467B74C /* Blank.pages */,
+				1C4B42C4A047A429E59E7C9B /* Blank.pptx */,
+				2D40E2F1EEF061E808B41C61 /* Blank.psd */,
+				4BD9DC667998027F93D50DF7 /* Blank.wps */,
+				8901DCD82E2B909C26AF1D19 /* Blank.xlsx */,
+				621B5E87B03209C9CEA9E861 /* Licenses */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		621B5E87B03209C9CEA9E861 /* Licenses */ = {
+			isa = PBXGroup;
+			children = (
+				CFE0C497229CFDD640E75AE7 /* libwebp-COPYING.txt */,
+				0DCE78B57055E0D0B8397444 /* libwebp-PATENTS.txt */,
+			);
+			path = Licenses;
+			sourceTree = "<group>";
+		};
+		9461A7FCAE93CEDE458CF76E = {
+			isa = PBXGroup;
+			children = (
+				19A91040F5581D490CDEE086 /* Crab */,
+				CE9EB067CEE1E00863D86A5E /* FinderExtension */,
+				CCB25C16E9AB047B0BF04CBE /* Shared */,
+				25FC481BF6E592259FDB8752 /* Tests */,
+				C369D27D62B9743F5530F207 /* Frameworks */,
+				B9B080D701D5D4E1C681F4FE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B1C9E08DA24F2214FB555D60 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				EED05DCC2F2346264E788995 /* AppDelegate.swift */,
+				59E1E36ED1934278A9BC270E /* main.swift */,
+				8BAFEA7F6A0761C867048A06 /* StatusBarPresentation.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B9B080D701D5D4E1C681F4FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E545B2277061AACB7B81C1AC /* Crab.app */,
+				41419DF264A23D398A6A619A /* CrabTests.xctest */,
+				AF4C7654A83D5C52DEF356EF /* FinderExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C369D27D62B9743F5530F207 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9006FF49123B7168C2744465 /* FinderSync.framework */,
+				DDC8FB330DFF1DC59FE9D284 /* libz.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CCB25C16E9AB047B0BF04CBE /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				490A1F1237B9A20AFE6C2300 /* ActionLaunchPolicy.swift */,
+				90F1899CBE78F3C267177A81 /* ApplicationCatalog.swift */,
+				C129D1C5B5040AB83A991DA2 /* ApplicationIcon.swift */,
+				220E269334D60A63DF5B1355 /* AppLocalization.swift */,
+				739BD6BD27387526E625ED8E /* ArchiveMenuTitle.swift */,
+				E6FB35B41D05CB934CAD93A0 /* CategoryIcon.swift */,
+				18626E7A8013D394A67C2AC5 /* ConfigurationStore.swift */,
+				7E55B6600EE1B76E4E310508 /* ContextMenuBuilder.swift */,
+				EA9EBD2741ED4B951EE83D58 /* CrabIcon.swift */,
+				856C2E0BC6079FB0C806DE0C /* CrabSymbol.swift */,
+				647C58796C7654976DD4FC75 /* CrabSymbolArtwork.swift */,
+				3F9808D0C5D7C26F10399D7E /* FileTemplateIcon.swift */,
+				2731C032DD9C15ED3D76ACC9 /* FinderMenuPresentation.swift */,
+				B0579864F2D82C2803EF5C19 /* MenuIconPreview.swift */,
+				86DA996B1B0F6A30AD67B1A5 /* Models.swift */,
+				8EBACCB773D6AF1B406BA322 /* OperationModels.swift */,
+				76B2DDC86F3EEEDB28FF388D /* OperationRegistry.swift */,
+				C9BA2F037164CBDF1BBFFE26 /* ScriptLanguageIcon.swift */,
+				A4033BD9D4B02D72EBEF4CA4 /* SystemIconDefaults.swift */,
+				267668CFA2E49AF731B06370 /* ToolMenuIcon.swift */,
+				F4272CAB01C93F2BF64C84CC /* Resources */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		CE9EB067CEE1E00863D86A5E /* FinderExtension */ = {
+			isa = PBXGroup;
+			children = (
+				77AFB7AEB41ABB7B2FC96DDF /* FinderSync.swift */,
+			);
+			path = FinderExtension;
+			sourceTree = "<group>";
+		};
+		F4272CAB01C93F2BF64C84CC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CCA777C9F3436D67D74EBBAE /* Crab-de.json */,
+				8E3C6B42BA406914898C71A9 /* Crab-en.json */,
+				BFE60591483F8C29A9BD4040 /* Crab-es.json */,
+				DA5E134B18247D261CCE4DB8 /* Crab-fr.json */,
+				72660F273452E706F2A1B91B /* Crab-ja.json */,
+				4BD61733B0AA08E8927926FC /* Crab-ko.json */,
+				7061FD4E0989B62E99FD4699 /* Crab-pt-PT.json */,
+				160E506D89BD4D7C2D031490 /* Crab-zh-Hans.json */,
+				6F65F7D148507A1107B02B1B /* Crab-zh-Hant.json */,
+				4576BE6CB73FFB8884F10F3B /* CrabIcon.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F4D6BC191007EE77EBCF089A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				18E1D6FB982E50470A9AFD44 /* ActionRouter.swift */,
+				1EE98CEB363E7D585D5E819C /* ApplicationLauncher.swift */,
+				CF65922444A095F913AB484D /* AppPermissions.swift */,
+				9D0EBA0BC057A792FA19140E /* ArchiveTools.swift */,
+				2668F5C236939A3941EA75BD /* CustomScriptRunner.swift */,
+				97B2175F20FEAE8FCDDFE15E /* CutSessionManager.swift */,
+				1575782CAF8CEFDD77289BED /* FilenameRepair.swift */,
+				7C94DB5F4EB227CAB694DFD7 /* FileOperations.swift */,
+				73260FEDF057BE19C063E879 /* FinderFallback.swift */,
+				043D11BFF0D465B887A39121 /* HashTools.swift */,
+				BECE333F218ED320780FF5BB /* MediaTools.swift */,
+				F7E5D359083524B8B3F03990 /* ThreeFingerMonitor.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F516AB3F2CFC488FECE03F5E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				68AF75912D8678561CE82C1A /* FilenameRepairWindowController.swift */,
+				D9743C7451EE53EDFB072BC8 /* HoverHelpButton.swift */,
+				8A64E620610931CB3854D0F1 /* MenuEditorView.swift */,
+				621409643070078A5257D9DD /* OperationCardItem.swift */,
+				0BBD303D1B369DEFA446382A /* OperationEditor.swift */,
+				D1B07EFD5791F9C33F252B3A /* OperationPickerWindowController.swift */,
+				22C9579B4D6DDB7EFDA8F78A /* OperationPresentation.swift */,
+				EECEA4B363A8EF76ADECEF5C /* ReferenceUIComponents.swift */,
+				FC6CDC221FF193A2E6AE44B6 /* ReferenceWindowControls.swift */,
+				3662ED473DAF37D83D730B9E /* SettingsPermissionsView.swift */,
+				F0677781DF32B8BD67ABDD62 /* SettingsWindowController.swift */,
+				7EF8877B010ABDEF32318885 /* UIHelpers.swift */,
+				45FFB3739105CE8CE235F0A6 /* WindowAppearance.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		193AB174AB59ED1D0A6E8783 /* FinderExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06717DC9B6506A54906BE060 /* Build configuration list for PBXNativeTarget "FinderExtension" */;
+			buildPhases = (
+				FAF4CA79632091E78EB4DC27 /* Sources */,
+				B3E901D12C52342563FE6435 /* Resources */,
+				FEB83B755BB017A68448A280 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FinderExtension;
+			packageProductDependencies = (
+			);
+			productName = FinderExtension;
+			productReference = AF4C7654A83D5C52DEF356EF /* FinderExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		5CA5B05905E090549BE8662B /* CrabTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27D376299FD55D4D14DF5AC8 /* Build configuration list for PBXNativeTarget "CrabTests" */;
+			buildPhases = (
+				988B3B179696F39EAFEF2174 /* Sources */,
+				7758609372EB0802A797A48E /* Bundle current script runner for isolated tests */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA8EF63B1D6721AF6718E4C0 /* PBXTargetDependency */,
+			);
+			name = CrabTests;
+			packageProductDependencies = (
+			);
+			productName = CrabTests;
+			productReference = 41419DF264A23D398A6A619A /* CrabTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C3FFE7DC7956015E3B1DCB96 /* Crab */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5B2BB471781AC9D3D9D0C3C /* Build configuration list for PBXNativeTarget "Crab" */;
+			buildPhases = (
+				C299077A585D31ADAD166F60 /* Build bundled WebP codec */,
+				96439B242D2A89D7B837E2B7 /* Sources */,
+				AF777A158E47A2D655C67E1D /* Resources */,
+				795F22CB9EDF4544E6C2970F /* Frameworks */,
+				45ECA3BA1089A50AA2E36CA4 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				077F9063EE46378B7337A412 /* PBXTargetDependency */,
+			);
+			name = Crab;
+			packageProductDependencies = (
+			);
+			productName = Crab;
+			productReference = E545B2277061AACB7B81C1AC /* Crab.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C7F4959AC661226C7CD3DBB8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					193AB174AB59ED1D0A6E8783 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+					5CA5B05905E090549BE8662B = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+					C3FFE7DC7956015E3B1DCB96 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 362079CF83AC7C1037A08ACC /* Build configuration list for PBXProject "Crab" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 9461A7FCAE93CEDE458CF76E;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = B9B080D701D5D4E1C681F4FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C3FFE7DC7956015E3B1DCB96 /* Crab */,
+				5CA5B05905E090549BE8662B /* CrabTests */,
+				193AB174AB59ED1D0A6E8783 /* FinderExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AF777A158E47A2D655C67E1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0456BA74D34AE4FE78638D1 /* AppIcon.icns in Resources */,
+				3F2B8C18919EC25D85C2CAE8 /* Blank.ai in Resources */,
+				4943E76138C2A44DEDC0F589 /* Blank.docx in Resources */,
+				2C4E7738E83BDA4DD125C25A /* Blank.dps in Resources */,
+				66C315F5BF13B9AE8C1008D6 /* Blank.et in Resources */,
+				7EE1D9989DBA840327EFC533 /* Blank.key in Resources */,
+				55BD08D62368C73E47FDA515 /* Blank.numbers in Resources */,
+				A5EF6DC05E8AF9C98EE73FB7 /* Blank.pages in Resources */,
+				F2CD0B485F96500E2FE05F29 /* Blank.pptx in Resources */,
+				77B4A8C4D7808F409B45F4A2 /* Blank.psd in Resources */,
+				C5C0EBDB4BB339D30E586103 /* Blank.wps in Resources */,
+				0B6C886DD65B4E4A59050BA1 /* Blank.xlsx in Resources */,
+				236B8A0E36196520DE72A463 /* Crab-de.json in Resources */,
+				F87A61B9245609FB749DF5BA /* Crab-en.json in Resources */,
+				D57AEE1AC6B4970BF8308EA0 /* Crab-es.json in Resources */,
+				ECDD661D0D1D4DEE5F7269D2 /* Crab-fr.json in Resources */,
+				BD76E37D26C82E52BF335952 /* Crab-ja.json in Resources */,
+				DA49DA734C5604EE0E32BAE5 /* Crab-ko.json in Resources */,
+				DCF098D88F2A9C2F23BF8F20 /* Crab-pt-PT.json in Resources */,
+				B2547C672B243088C40A08F5 /* Crab-zh-Hans.json in Resources */,
+				E650854734FC08EAB65E2B17 /* Crab-zh-Hant.json in Resources */,
+				0CFBA74BFA26554ADE119837 /* CrabIcon.png in Resources */,
+				A152A3EC50B317B20268100A /* libwebp-COPYING.txt in Resources */,
+				97E8A120002A2B40AB02126E /* libwebp-PATENTS.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3E901D12C52342563FE6435 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FB633F2A16D3784B0DFB048 /* Crab-de.json in Resources */,
+				1B68ED9922007A61B90B5477 /* Crab-en.json in Resources */,
+				D52E1B97BFF78724CDD8C5BA /* Crab-es.json in Resources */,
+				206F90CA5A238C32FDDB1B44 /* Crab-fr.json in Resources */,
+				4FB8CC7F3FD189D307BB1277 /* Crab-ja.json in Resources */,
+				D64A00867A790B53D1A54086 /* Crab-ko.json in Resources */,
+				84445C31734D3491A7A74D37 /* Crab-pt-PT.json in Resources */,
+				FCF1A5F4B0D7410EA848F627 /* Crab-zh-Hans.json in Resources */,
+				9BDB5E298B221A36C8732709 /* Crab-zh-Hant.json in Resources */,
+				9E4147C809B6BEA435702C90 /* CrabIcon.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7758609372EB0802A797A48E /* Bundle current script runner for isolated tests */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle current script runner for isolated tests";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\"\ncp \"$SRCROOT/Crab/Services/CustomScriptRunner.swift\" \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/ScriptRunnerSource.txt\"\n";
+		};
+		C299077A585D31ADAD166F60 /* Build bundled WebP codec */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build bundled WebP codec";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"$SRCROOT/Support/WebP/build.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		96439B242D2A89D7B837E2B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5407B4BD9BFCF903A9E77E34 /* ActionLaunchPolicy.swift in Sources */,
+				C0D02425C9A4E3801CFCBFEB /* ActionRouter.swift in Sources */,
+				0E7A46CF18099050CD0700E2 /* AppDelegate.swift in Sources */,
+				0756331472297691F7E69086 /* AppLocalization.swift in Sources */,
+				35BE7C2886F467936A803820 /* AppPermissions.swift in Sources */,
+				0F9B18816A48503AA2B95490 /* ApplicationCatalog.swift in Sources */,
+				0CC51CE391C714B21976E8B3 /* ApplicationIcon.swift in Sources */,
+				FE7A4DF6AFAFE41F1B9CB882 /* ApplicationLauncher.swift in Sources */,
+				D077BD2D81525E70CFFD6327 /* ArchiveMenuTitle.swift in Sources */,
+				741F2C6E1B693F4FEFF277B5 /* ArchiveTools.swift in Sources */,
+				1885F81DDF136D282F46BD54 /* CategoryIcon.swift in Sources */,
+				03A00BCB60FF5F5DE9D7E11F /* ConfigurationStore.swift in Sources */,
+				CEDC4BCE30B0DAD269E1FAAA /* ContextMenuBuilder.swift in Sources */,
+				B09CCEB1E49B438AD767E266 /* CrabIcon.swift in Sources */,
+				DB5F2DF353FBD74F4AD03E66 /* CrabSymbol.swift in Sources */,
+				76B508D328EDCF3E6BD49BFB /* CrabSymbolArtwork.swift in Sources */,
+				33AD75A2C0F554E1DD63A6B8 /* CustomScriptRunner.swift in Sources */,
+				2A87E9246609F411B33951E1 /* CutSessionManager.swift in Sources */,
+				AA97D6091A1405CC2E916000 /* FileOperations.swift in Sources */,
+				1547BDBED1E26D336341002C /* FileTemplateIcon.swift in Sources */,
+				D62BA8185983D5FD7BA39E6E /* FilenameRepair.swift in Sources */,
+				ACD009438FD1DB0890BDB740 /* FilenameRepairWindowController.swift in Sources */,
+				F650F0666ECCDD20FE469076 /* FinderFallback.swift in Sources */,
+				856F10F864D03C27DA4661F4 /* FinderMenuPresentation.swift in Sources */,
+				7BAD386D4783D3F8E44F3CF1 /* HashTools.swift in Sources */,
+				BCDCF62F7AAB9E9EE2BEFB78 /* HoverHelpButton.swift in Sources */,
+				F079FB4F3EFB410ADF828935 /* MediaTools.swift in Sources */,
+				3DF9CBB2C5DF74CB332003E2 /* MenuEditorView.swift in Sources */,
+				456BE202D935F581DBFD017A /* MenuIconPreview.swift in Sources */,
+				C012EB7392B7FBBFB2D318B3 /* Models.swift in Sources */,
+				79E59E996EA9B42C0270356D /* OperationCardItem.swift in Sources */,
+				68AF28C238AE246E72DB8A14 /* OperationEditor.swift in Sources */,
+				47AD0725C5B37AEA18E8041D /* OperationModels.swift in Sources */,
+				1EF9A32225BC294D5E750D91 /* OperationPickerWindowController.swift in Sources */,
+				78F8F62E7AC5095B775B8A69 /* OperationPresentation.swift in Sources */,
+				71C1CE99603775FA18A6AAE7 /* OperationRegistry.swift in Sources */,
+				9B040F2B96319A7AFF7C3792 /* ReferenceUIComponents.swift in Sources */,
+				029E1E3E73CF36C95E129538 /* ReferenceWindowControls.swift in Sources */,
+				97C7968C41278E8BB531CBD8 /* ScriptLanguageIcon.swift in Sources */,
+				EDD79FCAB287F4C6253FC210 /* SettingsPermissionsView.swift in Sources */,
+				3612C5C2C96ABD54EFCCC0E8 /* SettingsWindowController.swift in Sources */,
+				FE7771006930442E5458F1DA /* StatusBarPresentation.swift in Sources */,
+				524B06A4DB650311EBD12044 /* SystemIconDefaults.swift in Sources */,
+				C5F5C896EF03F2078170E02D /* ThreeFingerMonitor.swift in Sources */,
+				1F0446AE4E7FF48AAECF348E /* ToolMenuIcon.swift in Sources */,
+				14C9C7DADA8D9872C06CDEA9 /* UIHelpers.swift in Sources */,
+				4DCAEBB79AC3882DA20997FD /* WindowAppearance.swift in Sources */,
+				3BC2504D1C00279FDCACB83D /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		988B3B179696F39EAFEF2174 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F906EBBCC7BDAC6BFE8F6601 /* ActionLaunchPolicyTests.swift in Sources */,
+				D3C4B62E948FD0AA616B58B7 /* AppLocalizationTests.swift in Sources */,
+				475F6B2770BF77441269200D /* AppPermissionsTests.swift in Sources */,
+				83A369F5C87DA265ABC63AFC /* ApplicationLauncherTests.swift in Sources */,
+				A1B29AC2F48FB6A497A98804 /* ArchiveAndWebPTests.swift in Sources */,
+				FEAE8955ADBC44C080B7A444 /* BrandingTests.swift in Sources */,
+				4752ADF4B5832D029E1409FC /* CrabSymbolTests.swift in Sources */,
+				D6CD034565F745D7A604AB12 /* CustomScriptRunnerTests.swift in Sources */,
+				D1E08CE4A12D284536F24E6A /* CutSessionManagerTests.swift in Sources */,
+				CB2934CCDB8F970E3A91DC7A /* DocumentTemplateTests.swift in Sources */,
+				B876B2A317096BDB458C3DB1 /* FileOperationsTests.swift in Sources */,
+				7500612E31DAA0017C89CD21 /* FilenameRepairTests.swift in Sources */,
+				37B556AE63AE959124631F44 /* FinderFallbackTests.swift in Sources */,
+				8A1633DAC155484B1F0D4D1D /* HoverHelpButtonTests.swift in Sources */,
+				424041496E480DC2E2A86116 /* MenuEditorInteractionTests.swift in Sources */,
+				8DC8F09AC5BD932F6F63E0CC /* MenuNodeIconStyleTests.swift in Sources */,
+				651CA21E95B589B79AFBD3E4 /* MenuVisibilityTests.swift in Sources */,
+				3ACDC4345BC7FECD9993B0C8 /* OperationLibraryTests.swift in Sources */,
+				DB8D64582B56D86D7819257A /* OperationPickerTests.swift in Sources */,
+				B6336F443CDC65BD23AA7DA2 /* PermissionSettingsTests.swift in Sources */,
+				61E10A612189364E91B42BD8 /* ScriptLanguageIconTests.swift in Sources */,
+				8CB0A7560F183B89B8D7570D /* SettingsPageLayoutTests.swift in Sources */,
+				1416912DD494433EC857D45B /* StatusBarPresentationTests.swift in Sources */,
+				8CE0BF1F2D12D67F16A906E4 /* ThreeFingerMonitorTests.swift in Sources */,
+				42E6260DD613E994506546C4 /* ToolMenuIconTests.swift in Sources */,
+				3E666B4336B7135D434FCDA4 /* ToolTests.swift in Sources */,
+				9CD43D62BDC7E5339BA5159F /* WindowAppearanceTests.swift in Sources */,
+				A4EC60937F69C1AED8EFFEE0 /* WindowDialogTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAF4CA79632091E78EB4DC27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCC9BAEE1EEB09F38F7E9CDF /* ActionLaunchPolicy.swift in Sources */,
+				B605FA5A8544AF48688ECC97 /* AppLocalization.swift in Sources */,
+				CD21C572FB23FE6026007468 /* ApplicationCatalog.swift in Sources */,
+				92D3A936583BCD3FF12A3A40 /* ApplicationIcon.swift in Sources */,
+				390941F946FDF7290437B7D0 /* ArchiveMenuTitle.swift in Sources */,
+				57DF2F1E7B17A495563A8219 /* CategoryIcon.swift in Sources */,
+				2DDCDB03F06396FAB58F5AE2 /* ConfigurationStore.swift in Sources */,
+				EC0C87E3B57BB01B3A4347EB /* ContextMenuBuilder.swift in Sources */,
+				C22D148DEBF007D1FB62C95A /* CrabIcon.swift in Sources */,
+				ACB40F9EABC2FADF9079AFCE /* CrabSymbol.swift in Sources */,
+				6B39EC805A36BFA09EE30949 /* CrabSymbolArtwork.swift in Sources */,
+				831D57B5A867EFBE453DFC01 /* FileTemplateIcon.swift in Sources */,
+				F6EE441A7A277E158F3888BD /* FinderMenuPresentation.swift in Sources */,
+				CE40F1B5807712F36B8C6C21 /* FinderSync.swift in Sources */,
+				22B85D154BFFBF532CD63F44 /* MenuIconPreview.swift in Sources */,
+				310B61FA65288A080D0591D7 /* Models.swift in Sources */,
+				714F4931E4DC1AC9D4B06B2D /* OperationModels.swift in Sources */,
+				745B52504375D08435FD0EEE /* OperationRegistry.swift in Sources */,
+				A7BB6DE72A44A05B205CD817 /* ScriptLanguageIcon.swift in Sources */,
+				077AFD4E400099A611E6B6AC /* SystemIconDefaults.swift in Sources */,
+				9FFFDA646EDF80BD59FCE809 /* ToolMenuIcon.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		077F9063EE46378B7337A412 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 193AB174AB59ED1D0A6E8783 /* FinderExtension */;
+			targetProxy = 916B9519A89862937CE48DCE /* PBXContainerItemProxy */;
+		};
+		AA8EF63B1D6721AF6718E4C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3FFE7DC7956015E3B1DCB96 /* Crab */;
+			targetProxy = BBD39692A0B924A9ACC1A4A8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3A02962E88413A743071221F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CRAB_APP_GROUP = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		5E5269237892E61C4F2B446D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited) $(SRCROOT)/Support/WebP/lib";
+				OTHER_LDFLAGS = "$(inherited) -larchive -lwebp";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.crab.CrabTests;
+				SDKROOT = macosx;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Support/CArchive $(SRCROOT)/Support/WebP";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Crab.app/Contents/MacOS/Crab";
+			};
+			name = Release;
+		};
+		64007D98086D2E5D20C225C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = FinderExtension/FinderExtension.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = FinderExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.crab.Crab.FinderExtension;
+				PRODUCT_NAME = CrabFinder;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		6AC6710B46059436BC7CA951 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = FinderExtension/FinderExtension.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = FinderExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.crab.Crab.FinderExtension;
+				PRODUCT_NAME = CrabFinder;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7F834076EAC58EBD60DAFFF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Crab/Crab.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Crab/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited) $(SRCROOT)/Support/WebP/lib";
+				OTHER_LDFLAGS = "$(inherited) -larchive -lwebp";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.crab.Crab;
+				PRODUCT_NAME = Crab;
+				SDKROOT = macosx;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Support/CArchive $(SRCROOT)/Support/WebP";
+			};
+			name = Debug;
+		};
+		943A48C89C7DF9E7105A3C1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited) $(SRCROOT)/Support/WebP/lib";
+				OTHER_LDFLAGS = "$(inherited) -larchive -lwebp";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.crab.CrabTests;
+				SDKROOT = macosx;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Support/CArchive $(SRCROOT)/Support/WebP";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Crab.app/Contents/MacOS/Crab";
+			};
+			name = Debug;
+		};
+		C9583EEFF9593E18903DDD9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Crab/Crab.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Crab/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited) $(SRCROOT)/Support/WebP/lib";
+				OTHER_LDFLAGS = "$(inherited) -larchive -lwebp";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.crab.Crab;
+				PRODUCT_NAME = Crab;
+				SDKROOT = macosx;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Support/CArchive $(SRCROOT)/Support/WebP";
+			};
+			name = Release;
+		};
+		DDA76CC43DB7C9AB01085F64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CRAB_APP_GROUP = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		06717DC9B6506A54906BE060 /* Build configuration list for PBXNativeTarget "FinderExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AC6710B46059436BC7CA951 /* Debug */,
+				64007D98086D2E5D20C225C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		27D376299FD55D4D14DF5AC8 /* Build configuration list for PBXNativeTarget "CrabTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				943A48C89C7DF9E7105A3C1A /* Debug */,
+				5E5269237892E61C4F2B446D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		362079CF83AC7C1037A08ACC /* Build configuration list for PBXProject "Crab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDA76CC43DB7C9AB01085F64 /* Debug */,
+				3A02962E88413A743071221F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B5B2BB471781AC9D3D9D0C3C /* Build configuration list for PBXNativeTarget "Crab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F834076EAC58EBD60DAFFF0 /* Debug */,
+				C9583EEFF9593E18903DDD9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C7F4959AC661226C7CD3DBB8 /* Project object */;
+}
