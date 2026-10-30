@@ -34,6 +34,7 @@ targets:
         CFBundleDisplayName: Crab
         CFBundleName: Crab
         CFBundleIconFile: AppIcon
+        CFBundleLocalizations: [zh-Hans, zh-Hant, en, ja, ko, fr, es, pt-PT, de]
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         LSUIElement: true

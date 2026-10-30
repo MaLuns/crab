@@ -28,6 +28,22 @@ final class AppLocalizationTests: XCTestCase {
         XCTAssertEqual(AppLocalization.resolve(code: "unsupported", preferredLanguages: ["zh-CN"]), "en")
     }
 
+    func testMainBundleDeclaresSupportedLanguagesForSystemPanels() throws {
+        let expected = AppLocalization.supportedLanguages.map(\.code).filter { !$0.isEmpty }
+        let declared = try XCTUnwrap(Bundle.main.object(forInfoDictionaryKey: "CFBundleLocalizations") as? [String])
+        XCTAssertEqual(Set(declared), Set(expected))
+        XCTAssertEqual(declared.count, expected.count)
+        XCTAssertEqual(Set(Bundle.main.localizations), Set(expected))
+        for code in expected {
+            XCTAssertEqual(Bundle.preferredLocalizations(from: Bundle.main.localizations, forPreferences: [code]).first, code)
+        }
+        for (preference, expected) in [("zh-CN", "zh-Hans"), ("zh-TW", "zh-Hant"), ("en-GB", "en"), ("ja-JP", "ja"), ("ko-KR", "ko"), ("fr-CA", "fr"), ("es-MX", "es"), ("de-AT", "de")] {
+            XCTAssertEqual(Bundle.preferredLocalizations(from: Bundle.main.localizations, forPreferences: [preference]).first, expected)
+        }
+        XCTAssertEqual(Bundle.preferredLocalizations(from: Bundle.main.localizations, forPreferences: ["it-IT", "fr-FR"]).first, "fr")
+        XCTAssertEqual(Bundle.main.developmentLocalization, "en")
+    }
+
     func testAllNineResourcesContainMatchingNonemptyKeysAndFormatArguments() throws {
         let base = try table("zh-Hans")
         let requiredKeys: Set<String> = [
