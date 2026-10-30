@@ -8,7 +8,7 @@ Extraction snapshots the input into a private staging directory, rejects links a
 
 ## Offline build
 
-Complete official source is in `Vendor/libwebp`, including COPYING and PATENTS. The source URL, commit and archive SHA-256 are recorded in `Support/WebP/SOURCE.json`.
+`Vendor/libwebp` contains a subset of official libwebp 1.6.0 for the existing offline macOS build. Retained upstream files are unmodified: the required codec and SharpYUV sources, headers, Autotools inputs and helpers, README, COPYING, PATENTS and AUTHORS. Unused examples, test data, language bindings, tools, mux/demux implementations, documentation and alternative platform/build tooling are omitted. Configuration templates for disabled components remain where upstream `configure` requires them. The source URL, commit, pruning scope and original archive SHA-256 are recorded in `Support/WebP/SOURCE.json`; that hash identifies the upstream archive, not the pruned directory or a built library.
 
 Run `bash Support/WebP/build.sh`. With `ARCHS="arm64 x86_64"` (default), this creates universal `Support/WebP/lib/libwebp.a`; either architecture can also be selected alone. It requires the Xcode command line toolchain and performs no downloads or Homebrew calls. The static archive includes libsharpyuv. All C objects target macOS 13. Both architectures have been linked locally, and the arm64 encoder version probe ran successfully. There are no third-party dynamic-library dependencies.
 
