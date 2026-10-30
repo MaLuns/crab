@@ -7,6 +7,7 @@ on:
     paths:
       - '.github/workflows/release.yml'
       - 'Scripts/release.sh'
+      - 'cliff.toml'
       - 'project.yml'
       - 'Crab/Info.plist'
       - 'FinderExtension/Info.plist'
@@ -20,6 +21,30 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  changelog:
+    name: Generate commit changelog
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Generate version changelog
+        uses: orhun/git-cliff-action@a9a95522b26fe6403f7bb24031f21fb573d0f5ff # v4.9.1
+        with:
+          version: v2.14.2
+          config: cliff.toml
+          args: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') && '--current --use-branch-tags --no-exec' || '--unreleased --use-branch-tags --no-exec' }}
+        env:
+          OUTPUT: release-notes.md
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: release-notes
+          path: release-notes.md
+          if-no-files-found: error
+          retention-days: 1
+
   build:
     name: Build ${{ matrix.arch }}
     runs-on: ${{ matrix.runner }}
@@ -62,7 +87,7 @@ jobs:
 
   publish:
     name: Publish GitHub Release
-    needs: build
+    needs: [build, changelog]
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -74,26 +99,32 @@ jobs:
           pattern: Crab-*
           merge-multiple: true
           path: release
-      - name: Verify both packages and publish
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: release-notes
+          path: release
+      - name: Verify both packages
         shell: bash
         run: |
           set -euo pipefail
           cd release
-          assets=()
           for arch in arm64 x86_64; do
             archive="Crab-$GITHUB_REF_NAME-macOS-$arch.zip"
             test -f "$archive"
             test -f "$archive.sha256"
             sha256sum --check "$archive.sha256"
-            assets+=("$archive" "$archive.sha256")
           done
-          cat > release-notes.md <<'NOTES'
-          - Apple Silicon（M 系列芯片）请选择 arm64；Intel Mac 请选择 x86_64。
-          - 解压后将 Crab.app 放入应用程序目录，再打开应用并启用 Crab Finder 菜单扩展。
-          - 本版本使用无需证书的 ad-hoc 签名，未进行 Apple 公证。首次打开可能需要在“系统设置 → 隐私与安全性”中允许打开。
-          NOTES
-          gh release create "$GITHUB_REF_NAME" "${assets[@]}" \
-            --repo "$GITHUB_REPOSITORY" --verify-tag \
-            --title "Crab $GITHUB_REF_NAME" --generate-notes --notes-file release-notes.md
+          test -s release-notes.md
+      - name: Publish release and assets
+        uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64 # v3.0.3
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Crab ${{ github.ref_name }}
+          body_path: release/release-notes.md
+          generate_release_notes: false
+          fail_on_unmatched_files: true
+          files: |
+            release/Crab-${{ github.ref_name }}-macOS-arm64.zip
+            release/Crab-${{ github.ref_name }}-macOS-arm64.zip.sha256
+            release/Crab-${{ github.ref_name }}-macOS-x86_64.zip
+            release/Crab-${{ github.ref_name }}-macOS-x86_64.zip.sha256

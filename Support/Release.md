@@ -4,8 +4,8 @@
 
 ## 触发方式
 
-- 推送格式为 `vMAJOR.MINOR.PATCH` 的标签时，构建、检查两个架构的包；两者均成功后才创建 GitHub Release。版本号各段为非负整数，不带多余前导零，例如 `v1.0.0`。不接受预发布后缀。
-- `main` 分支中 workflow、发布脚本、`project.yml` 或两端 Info.plist 的变更会触发验证；手动运行 workflow 也仅验证。验证包使用 `v0.0.0`，不创建 Release。
+- 推送格式为 `vMAJOR.MINOR.PATCH` 的标签时，构建、检查两个架构的包并生成提交说明；全部成功后才创建 GitHub Release。版本号各段为非负整数，不带多余前导零，例如 `v1.0.0`。不接受预发布后缀。
+- `main` 分支中 workflow、发布脚本、`cliff.toml`、`project.yml` 或两端 Info.plist 的变更会触发验证；手动运行 workflow 也仅验证。验证包使用 `v0.0.0`，提交说明生成待发布预览，不创建 Release。
 - 标签触发器匹配 `v*`，具体格式由发布脚本检查；不符合上述格式的标签会失败，不会发布。
 
 准备发布时，先确保发布代码已推送，并选择尚未发布的版本号。在项目根目录执行，例如：
@@ -30,9 +30,19 @@ Crab-v1.0.0-macOS-x86_64.zip.sha256
 
 Apple Silicon Mac 使用 `arm64` 包，Intel Mac 使用 `x86_64` 包。ZIP 中包含完整的 `Crab.app` 及其 Finder 扩展。
 
-发布脚本核对两端版本和 Bundle ID、目标架构、ad-hoc 签名、必要 entitlement，以及 WebP 静态库的单一架构；打包后解压并再次验证完整应用签名。发布 job 等待两个构建成功，核对两个 ZIP 及其 SHA-256 校验文件后统一上传，避免只发布一个架构。
+发布脚本核对两端版本和 Bundle ID、目标架构、ad-hoc 签名、必要 entitlement，以及 WebP 静态库的单一架构；打包后解压并再次验证完整应用签名。发布 job 等待两个构建和提交说明生成均成功，核对两个 ZIP、各自的 SHA-256 校验文件及非空说明文件后统一上传。
 
-Actions artifacts 只用于传递构建结果，保留 1 天；正式下载附件保存在 GitHub Release 中。主分支和手动验证产生的临时包不会上传到 Release。
+Actions artifacts 用于传递构建包和提交说明，均保留 1 天；正式下载附件保存在 GitHub Release 中。主分支和手动验证产生的临时包及说明不会上传到 Release。
+
+## 提交说明与发布 Action
+
+独立的 Ubuntu `changelog` job 使用 `fetch-depth: 0` 检出完整历史及标签，并调用 [orhun/git-cliff-action v4.9.1](https://github.com/orhun/git-cliff-action/releases/tag/v4.9.1)，固定使用 git-cliff `v2.14.2`。标签发布使用 `--current --use-branch-tags --no-exec`，根据当前标签及其历史中的上一匹配标签生成说明；首次发布包含从根提交开始的历史。只有符合 `vMAJOR.MINOR.PATCH` 的标签参与发布区间，不符合格式的标签不会截断提交说明。主分支和手动验证使用 `--unreleased --use-branch-tags --no-exec` 生成待发布预览。
+
+`cliff.toml` 声明提交保留规则和 Markdown 模板，不要求提交消息遵守 Conventional Commits。`feat:`、`fix:`、`perf:` 及其带 scope 的形式分别归入新增功能、问题修复、性能优化，其余提交归入其他变更，普通中文与自由格式提交均保留。说明展示每条提交的标题及提交链接；有上一版本时附上两标签之间的 compare 链接，末尾保留架构选择、安装与签名说明。提交范围选择、历史遍历和分类由 git-cliff 处理，没有自写范围、分页或提交解析脚本。
+
+发布 job 使用 [softprops/action-gh-release v3.0.3](https://github.com/softprops/action-gh-release/releases/tag/v3.0.3)。通过 `body_path` 读取生成的说明文件，关闭 GitHub 的 `generate_release_notes`，以免再次生成另一套说明。四个附件使用显式路径，设置 `fail_on_unmatched_files: true`，任一路径无文件即失败。首次创建稳定版时先创建草稿，所有附件上传成功后才公开；上传失败会保留草稿。已公开 Release 的重跑沿用其公开状态，不属于首次创建的草稿发布流程。
+
+两个第三方 Action 均在 workflow 中固定到对应版本的完整 commit SHA。
 
 ## 版本与签名
 
@@ -40,7 +50,7 @@ Actions artifacts 只用于传递构建结果，保留 1 天；正式下载附�
 
 产物采用无需开发者证书的 ad-hoc 签名，不包含 Developer ID 签名或 Apple 公证。签名检查通过表示包内代码和资源封装一致，不代表已完成真实 Finder 界面验收或首次下载启动验收。
 
-发布 job 将工作流自带的 `github.token` 传为 `GH_TOKEN`，并仅在该 job 授予 `contents: write`。无需额外配置个人访问令牌、签名证书或公证凭据。
+发布 Action 使用工作流自带的 `github.token`，仅发布 job 获得 `contents: write`。无需手工配置个人访问令牌、签名证书或公证凭据。
 
 ## 本地打包
 
