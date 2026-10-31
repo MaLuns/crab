@@ -52,4 +52,4 @@ open build/Build/Products/Release/Crab.app
 
 ## 许可
 
-遵循 [Crab Noncommercial Source License 1.0](LICENSE)。个人非商业使用免费；传播须免费公开完整对应源码，修改版沿用本许可；商业用途须事先取得书面授权。
+[GPL](LICENSE)

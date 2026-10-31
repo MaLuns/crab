@@ -52,4 +52,4 @@ La compilación actual utiliza una firma ad hoc y no está notarizada por Apple.
 
 ## Licencia
 
-Crab se distribuye bajo la [Crab Noncommercial Source License 1.0](LICENSE). El uso personal no comercial es gratuito. Toda redistribución debe ser gratuita y publicar el código fuente correspondiente completo; las versiones modificadas mantienen esta licencia. El uso comercial requiere autorización previa por escrito.
+[GPL](LICENSE)

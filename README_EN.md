@@ -52,4 +52,4 @@ The current build uses ad-hoc signing and is not notarized by Apple.
 
 ## License
 
-Licensed under the [Crab Noncommercial Source License 1.0](LICENSE). Free for personal, noncommercial use. Redistribution must be free of charge and make the complete corresponding source code publicly available; modified versions must use the same license. Commercial use requires prior written authorization.
+[GPL](LICENSE)

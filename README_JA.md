@@ -52,4 +52,4 @@ open build/Build/Products/Release/Crab.app
 
 ## ライセンス
 
-[Crab Noncommercial Source License 1.0](LICENSE) に従います。個人の非商用利用は無料です。再配布は無料で行い、対応する完全なソースコードを公開する必要があります。改変版にも同じライセンスを適用します。商用利用には事前の書面による許可が必要です。
+[GPL](LICENSE)

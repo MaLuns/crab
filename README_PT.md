@@ -52,4 +52,4 @@ A compilação atual utiliza uma assinatura ad hoc e não está notarizada pela 
 
 ## Licença
 
-O Crab segue a [Crab Noncommercial Source License 1.0](LICENSE). A utilização pessoal não comercial é gratuita. Qualquer redistribuição deve ser gratuita e disponibilizar publicamente o código-fonte correspondente completo; as versões modificadas mantêm esta licença. A utilização comercial exige autorização prévia por escrito.
+[GPL](LICENSE)

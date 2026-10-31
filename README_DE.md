@@ -52,4 +52,4 @@ Der aktuelle Build verwendet eine Ad-hoc-Signatur und ist nicht von Apple notari
 
 ## Lizenz
 
-Es gilt die [Crab Noncommercial Source License 1.0](LICENSE). Die persönliche, nicht kommerzielle Nutzung ist kostenlos. Jede Weitergabe muss kostenlos erfolgen und den vollständigen zugehörigen Quellcode öffentlich bereitstellen; geänderte Versionen bleiben unter dieser Lizenz. Eine kommerzielle Nutzung erfordert eine vorherige schriftliche Genehmigung.
+[GPL](LICENSE)
