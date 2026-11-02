@@ -41,7 +41,7 @@ The current build uses ad-hoc signing and is not notarized by Apple.
 ## Usage Notes
 
 - Application entries require the corresponding apps to be installed. Scripts require an available interpreter; their original files and execution permissions are left unchanged.
-- Extraction supports ZIP / 7z, but not RAR or encrypted archives. See the [codec notes](Support/NativeCodecs.md) for size and other limits.
+- Extraction supports ZIP / 7z, but not RAR or encrypted archives.
 - **Show Hidden Files / Hide Hidden Files** restarts Finder.
 - Enable the fallback menu for iCloud and OneDrive folders in **General**, then grant Accessibility and Finder Automation permissions. Grant Input Monitoring when prompted by the system.
 

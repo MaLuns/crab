@@ -82,8 +82,12 @@ final class OperationRegistry {
             return NSImage(contentsOfFile: path) == nil ? "图标不可用" : nil
         }, supports: { _, context in !context.urls.isEmpty }))
         register(.init(kind: "script", title: "自定义脚本", category: .scripts, symbol: "terminal", defaultName: {
-            if case .script(let path) = $0.parameters { return URL(fileURLWithPath: path).deletingPathExtension().lastPathComponent }; return L("自定义脚本")
-        }, validation: { if case .script(let path) = $0.parameters { return Self.fileError(path) }; return "配置无效" }, supports: { _, context in context.directory != nil }))
+            if case .script(let p) = $0.parameters { return URL(fileURLWithPath: p.path).deletingPathExtension().lastPathComponent }; return L("自定义脚本")
+        }, validation: {
+            guard case .script(let p) = $0.parameters else { return "配置无效" }
+            guard p.arguments.allSatisfy({ !$0.contains("\0") }) else { return "脚本参数包含无法传递的字符。" }
+            return Self.fileError(p.path)
+        }, supports: { _, context in context.directory != nil }))
     }
     private static func fileError(_ path: String) -> String? {
         var directory: ObjCBool = false
@@ -180,10 +184,10 @@ enum OperationImages {
     }
     static func source(_ op: OperationRecord, preview: OperationPreview? = nil) -> NSImage? {
         if op.iconID == MenuNodeIcons.hiddenID { return nil }
-        if ScriptLanguageIcon.isAutomatic(op), case .script(let path) = op.parameters {
+        if ScriptLanguageIcon.isAutomatic(op), case .script(let p) = op.parameters {
             let language: ScriptLanguage?
             if let preview { language = preview.scriptLanguageID.flatMap(ScriptLanguage.init(rawValue:)) }
-            else { language = ScriptLanguage.detect(at: path) }
+            else { language = ScriptLanguage.detect(at: p.path) }
             return ScriptLanguageIcon.outline(language: language)
         }
         if let id = op.iconID, let image = MenuNodeIcons.catalogImage(id, style: .color) { return image }
@@ -203,10 +207,10 @@ enum OperationImages {
     }
     static func image(_ op: OperationRecord, configuration: AppConfiguration, size: CGFloat = 18, allowFileRead: Bool = Bundle.main.bundleURL.pathExtension != "appex") -> NSImage? {
         if op.iconID == MenuNodeIcons.hiddenID { return nil }
-        if ScriptLanguageIcon.isAutomatic(op), case .script(let path) = op.parameters {
+        if ScriptLanguageIcon.isAutomatic(op), case .script(let p) = op.parameters {
             let language: ScriptLanguage?
             if let preview = configuration.previews[op.id] { language = preview.scriptLanguageID.flatMap(ScriptLanguage.init(rawValue:)) }
-            else { language = allowFileRead ? ScriptLanguage.detect(at: path) : nil }
+            else { language = allowFileRead ? ScriptLanguage.detect(at: p.path) : nil }
             return ScriptLanguageIcon.image(language: language, style: configuration.iconStyle, size: size)
         }
         if let id = op.iconID, let image = MenuNodeIcons.catalogImage(id, style: configuration.iconStyle, size: size) { return image }

@@ -140,6 +140,7 @@ struct CustomScript: Codable, Identifiable, Equatable {
     var id = UUID().uuidString
     var name: String
     var path: String
+    var arguments: [String] = []
 }
 
 enum MenuIconCategory: String, CaseIterable, Codable {

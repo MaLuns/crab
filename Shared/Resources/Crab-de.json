@@ -311,5 +311,9 @@
   "将全部菜单恢复为默认编排。操作库内容保持不变。": "Alle Menüs auf die Standardanordnung zurücksetzen. Der Inhalt der Aktionsbibliothek bleibt unverändert.",
   "将此分组下的操作恢复为默认编排。其他分组保持不变。": "Die Aktionen in dieser Gruppe auf die Standardanordnung zurücksetzen. Andere Gruppen bleiben unverändert.",
   "批量删除": "Mehrere löschen",
-  "工具操作": "Werkzeugaktion"
+  "工具操作": "Werkzeugaktion",
+  "脚本路径与参数": "Skriptpfad und Argumente",
+  "路径后可填写参数，以空格分隔；含空格的路径须用双引号包裹。": "Fügen Sie Argumente nach dem Pfad durch Leerzeichen getrennt hinzu. Setzen Sie Pfade mit Leerzeichen in doppelte Anführungszeichen.",
+  "脚本命令格式无效，请检查引号和转义，含空格的路径须用双引号包裹。": "Ungültiger Skriptbefehl. Prüfen Sie Anführungszeichen und Escape-Sequenzen und setzen Sie Pfade mit Leerzeichen in doppelte Anführungszeichen.",
+  "脚本参数包含无法传递的字符。": "Skriptargumente enthalten Zeichen, die nicht übergeben werden können."
 }

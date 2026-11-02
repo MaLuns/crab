@@ -50,10 +50,10 @@ final class OperationUIRegistry {
             if let path = p.path, let size = MenuIconPreview.dimensions(at: path) { return path + " · \(Int(size.width)) × \(Int(size.height))" }
             return p.path ?? L("请选择图片")
         }, fields: { $0.imageFields() }))
-        register(.init(kind: "script", makeDraft: { .init(parameters: .script("")) }, summary: {
-            guard case .script(let path) = $0.parameters else { return "" }
-            let interpreter = (try? CustomScriptRunner.shared.launchPlan(CustomScript(name: "", path: path), selectedURLs: [], directory: URL(fileURLWithPath: path).deletingLastPathComponent()))
-            return path + (interpreter.map { " · " + $0.executableURL.path } ?? "")
+        register(.init(kind: "script", makeDraft: { .init(parameters: .script(.init(path: ""))) }, summary: {
+            guard case .script(let p) = $0.parameters else { return "" }
+            let interpreter = (try? CustomScriptRunner.shared.launchPlan(CustomScript(name: "", path: p.path, arguments: p.arguments), selectedURLs: [], directory: URL(fileURLWithPath: p.path).deletingLastPathComponent()))
+            return p.commandLine + (interpreter.map { " · " + $0.executableURL.path } ?? "")
         }, fields: { $0.scriptFields() }))
     }
 }
@@ -84,7 +84,7 @@ enum OperationFileImport {
                 case "directory": parameters = .directory(url.path)
                 case "application": parameters = .application(.init(path: url.path))
                 case "image": parameters = .image(.init(path: url.path))
-                case "script": parameters = .script(url.path)
+                case "script": parameters = .script(.init(path: url.path))
                 default: throw CocoaError(.coderInvalidValue)
                 }
                 let displayName: String

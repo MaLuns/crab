@@ -8,10 +8,13 @@ struct CardSnapshot {
 
 final class OperationOriginBadge: ReferenceCanvas {
     private let naturalWidth: CGFloat
+    private let label: NSTextField
     override var intrinsicContentSize: NSSize { NSSize(width: naturalWidth, height: 18) }
+    override var firstBaselineOffsetFromTop: CGFloat { label.frame.minY + label.firstBaselineOffsetFromTop }
 
     init(operation: OperationRecord) {
         let label = referenceLabel(operation.isBuiltIn ? "内置" : "自定义", size: 10, weight: .medium, color: .secondaryLabelColor)
+        self.label = label
         naturalWidth = referenceFittingSize(label).width + 12
         super.init(frame: NSRect(x: 0, y: 0, width: naturalWidth, height: 18))
         fill = NSColor.secondaryLabelColor.withAlphaComponent(0.10); radius = 4

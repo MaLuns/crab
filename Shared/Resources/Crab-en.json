@@ -311,5 +311,9 @@
   "将全部菜单恢复为默认编排。操作库内容保持不变。": "Restore all menus to the default layout. The Operation Library will remain unchanged.",
   "将此分组下的操作恢复为默认编排。其他分组保持不变。": "Restore the operations in this group to the default layout. Other groups will remain unchanged.",
   "批量删除": "Bulk Delete",
-  "工具操作": "Tool action"
+  "工具操作": "Tool action",
+  "脚本路径与参数": "Script Path and Arguments",
+  "路径后可填写参数，以空格分隔；含空格的路径须用双引号包裹。": "Add arguments after the path, separated by spaces. Enclose paths containing spaces in double quotes.",
+  "脚本命令格式无效，请检查引号和转义，含空格的路径须用双引号包裹。": "Invalid script command. Check quotes and escapes, and enclose paths containing spaces in double quotes.",
+  "脚本参数包含无法传递的字符。": "Script arguments contain characters that cannot be passed."
 }

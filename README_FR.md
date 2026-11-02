@@ -41,7 +41,7 @@ La compilation actuelle utilise une signature ad hoc et n’est pas notariée pa
 ## À savoir
 
 - Les raccourcis vers les applications nécessitent que celles-ci soient installées. Les scripts nécessitent un interpréteur disponible ; leur contenu et leurs autorisations d’exécution restent inchangés.
-- L’extraction prend en charge ZIP / 7z, mais pas RAR ni les archives chiffrées. Les limites de taille et autres restrictions sont décrites dans les [notes sur les codecs](Support/NativeCodecs.md).
+- L’extraction prend en charge ZIP / 7z, mais pas RAR ni les archives chiffrées.
 - « Afficher les fichiers masqués / Ne pas afficher les fichiers masqués » redémarre le Finder.
 - Le menu alternatif pour les dossiers iCloud et OneDrive doit être activé dans « Général » et nécessite les autorisations Accessibilité et Automatisation du Finder. Accordez la Surveillance de l’entrée lorsque le système le demande.
 

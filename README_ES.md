@@ -41,7 +41,7 @@ La compilación actual utiliza una firma ad hoc y no está notarizada por Apple.
 ## Notas de uso
 
 - Los accesos a aplicaciones requieren que estas estén instaladas. Los scripts necesitan un intérprete disponible; su contenido y sus permisos de ejecución permanecen intactos.
-- La extracción admite ZIP / 7z, pero no RAR ni archivos cifrados. Consulta los límites de tamaño y otras restricciones en las [notas sobre los códecs](Support/NativeCodecs.md).
+- La extracción admite ZIP / 7z, pero no RAR ni archivos cifrados.
 - «Mostrar archivos ocultos / Ocultar archivos ocultos» reinicia Finder.
 - El menú alternativo para carpetas de iCloud y OneDrive debe activarse en «General» y requiere permisos de Accesibilidad y Automatización de Finder. Concede la Monitorización de entrada cuando lo solicite el sistema.
 

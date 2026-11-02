@@ -8,6 +8,7 @@ final class CustomScriptRunner {
         case unrecognizedInterpreter
         case missingInterpreter(String)
         case invalidEnvironment
+        case invalidArguments
         case oversizedEnvironment
         case launchFailed(String)
 
@@ -18,6 +19,7 @@ final class CustomScriptRunner {
             case .unrecognizedInterpreter: return L("无法识别脚本解释器，请在脚本首行添加有效的 shebang。")
             case .missingInterpreter(let name): return LF("找不到脚本解释器：%@", name)
             case .invalidEnvironment: return L("脚本上下文包含无法传递的环境变量。")
+            case .invalidArguments: return L("脚本参数包含无法传递的字符。")
             case .oversizedEnvironment: return L("脚本上下文超出系统进程启动限制，无法执行。")
             case .launchFailed(let message): return LF("无法启动自定义脚本：%@", message)
             }
@@ -128,7 +130,8 @@ final class CustomScriptRunner {
             throw LaunchError.invalidEnvironment
         }
         let invocation = try interpreter(for: scriptURL, path: environment["PATH"]!, directory: directory)
-        let arguments = invocation.arguments + [scriptURL.path]
+        guard script.arguments.allSatisfy({ !$0.contains("\0") }) else { throw LaunchError.invalidArguments }
+        let arguments = invocation.arguments + [scriptURL.path] + script.arguments
         try validateSize(executable: invocation.executableURL.path, arguments: arguments, environment: environment)
         return LaunchPlan(executableURL: invocation.executableURL, arguments: arguments,
                           environment: environment, directoryURL: directory)

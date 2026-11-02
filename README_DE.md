@@ -41,7 +41,7 @@ Der aktuelle Build verwendet eine Ad-hoc-Signatur und ist nicht von Apple notari
 ## Hinweise zur Nutzung
 
 - App-Verknüpfungen setzen die jeweilige installierte App voraus. Skripte benötigen einen verfügbaren Interpreter; ihr Inhalt und ihre Ausführungsrechte bleiben unverändert.
-- Das Entpacken unterstützt ZIP / 7z, jedoch keine RAR-Dateien oder verschlüsselten Archive. Größenlimits und weitere Einschränkungen stehen in den [Codec-Hinweisen](Support/NativeCodecs.md).
+- Das Entpacken unterstützt ZIP / 7z, jedoch keine RAR-Dateien oder verschlüsselten Archive.
 - „Versteckte Dateien anzeigen / Versteckte Dateien ausblenden“ startet den Finder neu.
 - Das alternative Menü für iCloud- und OneDrive-Ordner muss unter „Allgemein“ aktiviert werden und benötigt die Berechtigungen für Bedienungshilfen und Finder-Automation. Die Eingabeüberwachung wird bei Aufforderung durch das System freigegeben.
 

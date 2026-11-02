@@ -311,5 +311,9 @@
   "将全部菜单恢复为默认编排。操作库内容保持不变。": "Repor todos os menus na disposição predefinida. O conteúdo da biblioteca de operações permanece inalterado.",
   "将此分组下的操作恢复为默认编排。其他分组保持不变。": "Repor as operações deste grupo na disposição predefinida. Os outros grupos permanecem inalterados.",
   "批量删除": "Eliminar em lote",
-  "工具操作": "Ação de ferramenta"
+  "工具操作": "Ação de ferramenta",
+  "脚本路径与参数": "Caminho do script e argumentos",
+  "路径后可填写参数，以空格分隔；含空格的路径须用双引号包裹。": "Adicione argumentos após o caminho, separados por espaços. Coloque entre aspas duplas os caminhos que contenham espaços.",
+  "脚本命令格式无效，请检查引号和转义，含空格的路径须用双引号包裹。": "Comando de script inválido. Verifique as aspas e os escapes e coloque entre aspas duplas os caminhos que contenham espaços.",
+  "脚本参数包含无法传递的字符。": "Os argumentos do script contêm caracteres que não podem ser transmitidos."
 }

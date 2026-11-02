@@ -41,7 +41,7 @@ open build/Build/Products/Release/Crab.app
 ## 使用提示
 
 - 應用程式入口需要安裝對應的應用程式；腳本需要可用的直譯器，原始檔案及執行權限保持不變。
-- 解壓縮支援 ZIP / 7z，不支援 RAR 或加密封存檔；大小等限制見[編解碼說明](Support/NativeCodecs.md)。
+- 解壓縮支援 ZIP / 7z，不支援 RAR 或加密封存檔。
 - 「顯示隱藏檔案 / 不顯示隱藏檔案」會重新啟動 Finder。
 - iCloud 與 OneDrive 資料夾中的備用選單需在「通用設置」中啟用，並授予「輔助使用」和「Finder 自動化」權限；「輸入監控」依系統提示授權。
 

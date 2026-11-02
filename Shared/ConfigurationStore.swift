@@ -71,7 +71,7 @@ final class ConfigurationStore {
                 var data: Data?
                 if case .image(let p) = op.parameters, let path = p.path { data = MenuIconPreview.thumbnail(at: path) }
                 let language: ScriptLanguage?
-                if ScriptLanguageIcon.isAutomatic(op), case .script(let path) = op.parameters { language = ScriptLanguage.detect(at: path) }
+                if ScriptLanguageIcon.isAutomatic(op), case .script(let p) = op.parameters { language = ScriptLanguage.detect(at: p.path) }
                 else { language = nil }
                 statuses[op.id] = OperationPreview(data: data, available: reason == nil, reason: reason, scriptLanguageID: language?.rawValue)
             }
@@ -101,7 +101,7 @@ final class ConfigurationStore {
         for operation in config.operations {
             let reason = OperationRegistry.shared.definition(for: operation)?.validation(operation) ?? (OperationRegistry.shared.definition(for: operation) == nil ? L("不受当前版本支持") : nil)
             let language: ScriptLanguage?
-            if ScriptLanguageIcon.isAutomatic(operation), case .script(let path) = operation.parameters { language = ScriptLanguage.detect(at: path) }
+            if ScriptLanguageIcon.isAutomatic(operation), case .script(let p) = operation.parameters { language = ScriptLanguage.detect(at: p.path) }
             else { language = nil }
             var preview = OperationPreview(available: reason == nil, reason: reason, scriptLanguageID: language?.rawValue)
             preview.data = OperationImages.source(operation, preview: preview).flatMap { MenuIconPreview.pngData(from: $0) }

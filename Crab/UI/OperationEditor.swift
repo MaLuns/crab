@@ -14,6 +14,7 @@ final class OperationEditor: NSWindowController, NSTextFieldDelegate, NSWindowDe
     }
     private let existingID: String?
     private var bindings: [String: (String) -> Void] = [:]
+    private var scriptCommandLine: String?
     private var y: CGFloat = 20
     private let editorWidth: CGFloat = 460
     private let inset: CGFloat = 18
@@ -98,7 +99,9 @@ final class OperationEditor: NSWindowController, NSTextFieldDelegate, NSWindowDe
             let description = L(definition.title) + (isReadOnly ? " · " + L("只读") : "")
             let type = NSTextField(labelWithString: description); type.font = .systemFont(ofSize: 11); type.textColor = .secondaryLabelColor
             type.lineBreakMode = .byTruncatingTail; type.toolTip = description
-            referencePlace(type, badge.frame.maxX + 8, inset + 33, fieldWidth - 62 - badge.frame.width - 8, 18, in: body)
+            let typeHeight = referenceFittingSize(type).height
+            let typeY = badge.frame.minY + badge.firstBaselineOffsetFromTop - type.firstBaselineOffsetFromTop
+            referencePlace(type, badge.frame.maxX + 8, typeY, fieldWidth - 62 - badge.frame.width - 8, typeHeight, in: body)
         }
         y = inset + (isReadOnly ? 62 : 70)
         OperationUIRegistry.shared.adapter(draft.parameters.kind)?.fields(self)
@@ -204,7 +207,8 @@ final class OperationEditor: NSWindowController, NSTextFieldDelegate, NSWindowDe
         referencePlace(row, inset, y, fieldWidth, height, in: body); y += height + 8
         return field
     }
-    func file(_ title: String, value: String, directories: Bool = false, application: Bool = false, changed: @escaping (String) -> Void) {
+    func file(_ title: String, value: String, directories: Bool = false, application: Bool = false,
+              selectionValue: @escaping (String) -> String = { $0 }, changed: @escaping (String) -> Void) {
         let field = text(title, value: value, changed: changed)
         field.lineBreakMode = .byTruncatingMiddle; field.toolTip = value
         guard !isReadOnly else { return }
@@ -215,7 +219,7 @@ final class OperationEditor: NSWindowController, NSTextFieldDelegate, NSWindowDe
             if application { panel.allowedContentTypes = [.applicationBundle] }
             WindowDialogs.present(panel, for: window, store: self.store) { [weak self] response in
                 guard response == .OK, let url = panel.url, let self else { return }
-                changed(url.path); self.rebuild()
+                changed(selectionValue(url.path)); self.rebuild()
             }
         }
         let buttonWidth = max(84, referenceFittingSize(button).width)
@@ -310,14 +314,28 @@ final class OperationEditor: NSWindowController, NSTextFieldDelegate, NSWindowDe
         }
     }
     func scriptFields() {
-        guard case .script(let path) = draft.parameters else { return }
-        file("脚本路径", value: path) { [weak self] value in self?.draft.parameters = .script(value) }
+        guard case .script(let parameters) = draft.parameters else { return }
+        file("脚本路径与参数", value: scriptCommandLine ?? parameters.commandLine, selectionValue: { [weak self] path in
+            var next = parameters
+            if let self, case .script(let current) = self.draft.parameters { next = current }
+            next.path = path
+            return next.commandLine
+        }) { [weak self] value in
+            self?.scriptCommandLine = value
+            if let parameters = try? ScriptParameters(commandLine: value) { self?.draft.parameters = .script(parameters) }
+        }
+        let hint = referenceLabel("路径后可填写参数，以空格分隔；含空格的路径须用双引号包裹。", size: 11, color: .secondaryLabelColor)
+        let hintSize = referenceWrapLabel(hint, width: fieldWidth); referencePlace(hint, inset, y, hintSize.width, hintSize.height, in: body); y += hintSize.height + 10
         let info = referenceLabel("脚本仅引用原文件，不修改内容或执行权限。", size: 11, color: .secondaryLabelColor)
         let size = referenceWrapLabel(info, width: fieldWidth); referencePlace(info, inset, y, size.width, size.height, in: body); y += size.height + 10
     }
     @discardableResult func save() -> Bool {
         guard !isReadOnly else { return false }
         window?.makeFirstResponder(nil)
+        if case .script = draft.parameters, let commandLine = scriptCommandLine {
+            do { draft.parameters = .script(try ScriptParameters(commandLine: commandLine)) }
+            catch { showError(error.localizedDescription); return false }
+        }
         guard !draft.displayName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
               let definition = OperationRegistry.shared.definition(for: draft) else { showError(L("配置无效")); return false }
         if let error = definition.validation(draft) { showError(L(error)); return false }

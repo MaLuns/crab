@@ -41,7 +41,7 @@ open build/Build/Products/Release/Crab.app
 ## 使用提示
 
 - 应用入口需要安装对应应用；脚本需要可用的解释器，原文件及执行权限保持不变。
-- 解压支持 ZIP / 7z，不支持 RAR 或加密归档；大小等限制见[编解码说明](Support/NativeCodecs.md)。
+- 解压支持 ZIP / 7z，不支持 RAR 或加密归档。
 - “显示隐藏文件 / 不显示隐藏文件”会重启访达。
 - iCloud 与 OneDrive 文件夹中的备用菜单需在“通用设置”中启用，并授予辅助功能和访达自动化权限；输入监控按系统提示授权。
 

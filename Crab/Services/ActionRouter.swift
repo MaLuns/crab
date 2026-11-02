@@ -98,8 +98,8 @@ final class ActionRouter {
             catch { presentError(error) }
         }
         registerExecutor(kind: "script") { [weak self] op, context in
-            guard let self, case .script(let path) = op.parameters, let directory = context.directory else { return }
-            let script = CustomScript(name: op.displayName, path: path)
+            guard let self, case .script(let p) = op.parameters, let directory = context.directory else { return }
+            let script = CustomScript(name: op.displayName, path: p.path, arguments: p.arguments)
             DispatchQueue.global(qos: .userInitiated).async {
                 do {
                     try self.launchScript(script, context.urls, directory) { error in DispatchQueue.main.async { self.reportScriptError(error) } }

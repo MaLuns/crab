@@ -41,7 +41,7 @@ A compilação atual utiliza uma assinatura ad hoc e não está notarizada pela 
 ## Notas de utilização
 
 - Os atalhos para aplicações exigem que estas estejam instaladas. Os scripts precisam de um interpretador disponível; o seu conteúdo e as suas permissões de execução mantêm-se inalterados.
-- A extração suporta ZIP / 7z, mas não RAR nem arquivos encriptados. Consulte os limites de tamanho e outras restrições nas [notas sobre os codecs](Support/NativeCodecs.md).
+- A extração suporta ZIP / 7z, mas não RAR nem arquivos encriptados.
 - «Mostrar ficheiros ocultos / Ocultar ficheiros ocultos» reinicia o Finder.
 - O menu alternativo para pastas do iCloud e do OneDrive tem de ser ativado em «Geral» e requer permissões de Acessibilidade e Automatização do Finder. Autorize a Monitorização de entrada quando o sistema o solicitar.
 

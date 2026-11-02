@@ -25,6 +25,57 @@ struct ImageParameters: Codable, Equatable {
     var path: String? = nil
     var remove = false
 }
+struct ScriptParameters: Codable, Equatable {
+    var path: String
+    var arguments: [String] = []
+
+    enum CommandLineError: LocalizedError {
+        case invalidSyntax
+        var errorDescription: String? { L("脚本命令格式无效，请检查引号和转义，含空格的路径须用双引号包裹。") }
+    }
+    init(path: String, arguments: [String] = []) { self.path = path; self.arguments = arguments }
+    init(commandLine: String) throws {
+        var words: [String] = [], word = ""
+        var quote: Character?, started = false
+        let characters = Array(commandLine)
+        var index = 0
+        while index < characters.count {
+            let character = characters[index]
+            if character == "\\", quote != "'" {
+                guard index + 1 < characters.count else { throw CommandLineError.invalidSyntax }
+                let next = characters[index + 1]
+                if quote == "\"", !["\\", "\"", "$", "`"].contains(next) {
+                    word.append(character)
+                } else {
+                    word.append(next); index += 1
+                }
+                started = true
+            } else if let current = quote {
+                if character == current { quote = nil } else { word.append(character) }
+            } else if character == "\"" || character == "'" {
+                quote = character; started = true
+            } else if character.isWhitespace {
+                if started { words.append(word); word = ""; started = false }
+            } else {
+                word.append(character); started = true
+            }
+            index += 1
+        }
+        guard quote == nil else { throw CommandLineError.invalidSyntax }
+        if started { words.append(word) }
+        guard let path = words.first, !path.isEmpty, !commandLine.contains("\0"),
+              !path.contains(where: \.isWhitespace) || commandLine.trimmingCharacters(in: .whitespacesAndNewlines).hasPrefix("\"") else {
+            throw CommandLineError.invalidSyntax
+        }
+        self.init(path: path, arguments: Array(words.dropFirst()))
+    }
+    var commandLine: String { ([path] + arguments).map(Self.quoted).joined(separator: " ") }
+    private static func quoted(_ value: String) -> String {
+        let safe = CharacterSet.alphanumerics.union(CharacterSet(charactersIn: "/_-.,:+=@%"))
+        if !value.isEmpty, value.unicodeScalars.allSatisfy({ safe.contains($0) }) { return value }
+        return "\"" + value.replacingOccurrences(of: "\\", with: "\\\\").replacingOccurrences(of: "\"", with: "\\\"") + "\""
+    }
+}
 enum JSONValue: Codable, Equatable {
     case object([String: JSONValue]), array([JSONValue]), string(String), number(Double), bool(Bool), null
     init(from decoder: Decoder) throws {
@@ -50,7 +101,7 @@ enum JSONValue: Codable, Equatable {
 }
 enum OperationParameters: Equatable, Codable {
     case tool(ToolParameters), template(TemplateParameters), transfer(TransferParameters)
-    case directory(String), application(ApplicationParameters), image(ImageParameters), script(String)
+    case directory(String), application(ApplicationParameters), image(ImageParameters), script(ScriptParameters)
     case unknown(String, JSONValue)
     var kind: String {
         switch self {
@@ -75,7 +126,7 @@ enum OperationParameters: Equatable, Codable {
         case "directory": self = .directory(try c.decode(String.self, forKey: .value))
         case "application": self = .application(try c.decode(ApplicationParameters.self, forKey: .value))
         case "image": self = .image(try c.decode(ImageParameters.self, forKey: .value))
-        case "script": self = .script(try c.decode(String.self, forKey: .value))
+        case "script": self = .script(try c.decode(ScriptParameters.self, forKey: .value))
         default: self = .unknown(type, try c.decode(JSONValue.self, forKey: .value))
         } } catch { self = .unknown(type, try c.decode(JSONValue.self, forKey: .value)) }
     }
@@ -85,7 +136,8 @@ enum OperationParameters: Equatable, Codable {
         case .tool(let v): try c.encode(v, forKey: .value)
         case .template(let v): try c.encode(v, forKey: .value)
         case .transfer(let v): try c.encode(v, forKey: .value)
-        case .directory(let v), .script(let v): try c.encode(v, forKey: .value)
+        case .directory(let v): try c.encode(v, forKey: .value)
+        case .script(let v): try c.encode(v, forKey: .value)
         case .application(let v): try c.encode(v, forKey: .value)
         case .image(let v): try c.encode(v, forKey: .value)
         case .unknown(_, let v): try c.encode(v, forKey: .value)

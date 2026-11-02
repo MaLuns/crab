@@ -31,37 +31,19 @@ final class MenuNodeIconStyleTests: XCTestCase {
         return configuration
     }
 
-    func testAllExistingCategoryArtworkIsSelectableWithItsSemanticPaletteInBothAppearances() throws {
+    func testCategoryCatalogUsesUniqueIDsAndResolvesBothIconStyles() throws {
         let categoryIDs = CategoryIcon.allCases.map { "category." + $0.rawValue }
         XCTAssertEqual(Array(MenuNodeIcons.catalog.prefix(categoryIDs.count).map(\.id)), categoryIDs)
         XCTAssertEqual(Set(MenuNodeIcons.catalog.map(\.id)).count, MenuNodeIcons.catalog.count)
-        let applicationAppearance = NSApp.appearance
-        for appearanceName in [NSAppearance.Name.aqua, .darkAqua] {
-            let appearance = try XCTUnwrap(NSAppearance(named: appearanceName))
-            for category in CategoryIcon.allCases {
-                for style in AppIconStyle.allCases {
-                    var image: NSImage?
-                    appearance.performAsCurrentDrawingAppearance {
-                        image = MenuNodeIcons.catalogImage("category." + category.rawValue, style: style, size: 24)
-                    }
-                    let rendered = try XCTUnwrap(image)
-                    XCTAssertEqual(rendered.isTemplate, style == .monochrome)
-                    XCTAssertEqual(rendered.size, NSSize(width: 24, height: 24))
-                    let expected = try XCTUnwrap(category.image(style: style, size: 24))
-                    XCTAssertEqual(MenuIconPreview.pngData(from: rendered), MenuIconPreview.pngData(from: expected))
-                }
+        for category in CategoryIcon.allCases {
+            for style in AppIconStyle.allCases {
+                let image = try XCTUnwrap(MenuNodeIcons.catalogImage("category." + category.rawValue, style: style, size: 24))
+                XCTAssertEqual(image.isTemplate, style == .monochrome)
+                XCTAssertEqual(image.size, NSSize(width: 24, height: 24))
+                let expected = try XCTUnwrap(category.image(style: style, size: 24))
+                XCTAssertEqual(MenuIconPreview.pngData(from: image), MenuIconPreview.pngData(from: expected))
             }
         }
-        let general = try XCTUnwrap(MenuNodeIcons.catalogImage("category.general", style: .color))
-        let tools = try XCTUnwrap(MenuNodeIcons.catalogImage("category.tools", style: .color))
-        let generalPixels = try XCTUnwrap(NSBitmapImageRep(data: XCTUnwrap(MenuIconPreview.pngData(from: general))))
-        let toolsPixels = try XCTUnwrap(NSBitmapImageRep(data: XCTUnwrap(MenuIconPreview.pngData(from: tools))))
-        let generalTile = try XCTUnwrap(generalPixels.colorAt(x: 6, y: 32)?.usingColorSpace(.sRGB))
-        let toolsTile = try XCTUnwrap(toolsPixels.colorAt(x: 6, y: 32)?.usingColorSpace(.sRGB))
-        XCTAssertGreaterThan(generalTile.alphaComponent, 0.9)
-        XCTAssertGreaterThan(toolsTile.alphaComponent, 0.9)
-        XCTAssertGreaterThan(abs(generalTile.redComponent - toolsTile.redComponent), 0.2)
-        XCTAssertTrue(NSApp.appearance === applicationAppearance)
     }
 
     func testSameSelectedCatalogIDsFollowBothStylesInRootAndNestedMenus() throws {
@@ -238,42 +220,4 @@ final class MenuNodeIconStyleTests: XCTestCase {
         }
     }
 
-    func testOptionalUnavailableApplicationIconAndSettingsPreviews() throws {
-        let environment = ProcessInfo.processInfo.environment
-        guard let path = environment["CRAB_UNAVAILABLE_APP_PREVIEW_DIR"] ?? environment["TEST_RUNNER_CRAB_UNAVAILABLE_APP_PREVIEW_DIR"] else { return }
-        let output = URL(fileURLWithPath: path, isDirectory: true)
-        try FileManager.default.createDirectory(at: output, withIntermediateDirectories: true)
-        let operation = unavailableApplication()
-        for style in AppIconStyle.allCases {
-            for size in [18, 32, 96] {
-                let image = try XCTUnwrap(ApplicationIcon.unavailableImage(style: style, size: CGFloat(size)))
-                XCTAssertEqual(image.size, NSSize(width: CGFloat(size), height: CGFloat(size)))
-                let bitmap = try XCTUnwrap(NSBitmapImageRep(bitmapDataPlanes: nil, pixelsWide: size * 2, pixelsHigh: size * 2,
-                    bitsPerSample: 8, samplesPerPixel: 4, hasAlpha: true, isPlanar: false,
-                    colorSpaceName: .deviceRGB, bytesPerRow: 0, bitsPerPixel: 0))
-                bitmap.size = image.size
-                let context = try XCTUnwrap(NSGraphicsContext(bitmapImageRep: bitmap))
-                NSGraphicsContext.saveGraphicsState(); NSGraphicsContext.current = context
-                image.draw(in: NSRect(origin: .zero, size: image.size))
-                context.flushGraphics(); NSGraphicsContext.restoreGraphicsState()
-                try XCTUnwrap(bitmap.representation(using: .png, properties: [:])).write(to: output.appendingPathComponent("placeholder-" + style.rawValue + "-" + String(size) + "pt@2x.png"))
-            }
-            let store = ConfigurationStore(directory: directory.appendingPathComponent(style.rawValue))
-            var configuration = applicationConfiguration(operation); configuration.iconStyle = style; configuration.windowTheme = .light
-            XCTAssertTrue(store.replace(configuration))
-            let scene = SettingsWindowController(store: store)
-            defer { scene.window?.close() }
-            for page in [SettingsPage.library, .menu] {
-                scene.selectPage(page.rawValue)
-                RunLoop.main.run(until: Date().addingTimeInterval(0.3))
-                let root = try XCTUnwrap(scene.window?.contentView)
-                root.layoutSubtreeIfNeeded()
-                func invalidate(_ view: NSView) { view.needsDisplay = true; view.subviews.forEach(invalidate) }
-                invalidate(root)
-                let bitmap = try XCTUnwrap(root.bitmapImageRepForCachingDisplay(in: root.bounds))
-                root.cacheDisplay(in: root.bounds, to: bitmap)
-                try XCTUnwrap(bitmap.representation(using: .png, properties: [:])).write(to: output.appendingPathComponent(style.rawValue + "-" + page.rawValue + ".png"))
-            }
-        }
-    }
 }

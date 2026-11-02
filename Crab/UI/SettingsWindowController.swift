@@ -144,7 +144,7 @@ final class SettingsWindowController: NSWindowController, NSCollectionViewDataSo
             self?.typeFilter = index == 0 ? "" : definitions[index - 1].kind; self?.layoutLibraryToolbar?(); self?.applyFilters()
         }
         type.identifier = .init("library-type"); type.setAccessibilityLabel(L("全部类型"))
-        let statuses = ActionPopup(titles: ["全部状态", "已启用", "已停用", "操作不可用", "未加入菜单"].map(L), selected: statusFilter) { [weak self] index in
+        let statuses = ActionPopup(titles: ["全部状态", "操作不可用", "未加入菜单"].map(L), selected: statusFilter) { [weak self] index in
             self?.statusFilter = index; self?.layoutLibraryToolbar?(); self?.applyFilters()
         }
         statuses.identifier = .init("library-status"); statuses.setAccessibilityLabel(L("全部状态"))
@@ -254,9 +254,8 @@ final class SettingsWindowController: NSWindowController, NSCollectionViewDataSo
         batchDeleteButton?.isEnabled = !selecting || !selectedIDs.isEmpty
         visibleOperations = config.operations.filter { op in
             if !typeFilter.isEmpty && op.parameters.kind != typeFilter { return false }
-            if statusFilter == 1 && !op.enabled || statusFilter == 2 && op.enabled { return false }
-            if statusFilter == 3 && snapshots[op.id]?.reason == nil { return false }
-            if statusFilter == 4 && config.referenceCount(op.id) != 0 { return false }
+            if statusFilter == 1 && snapshots[op.id]?.reason == nil { return false }
+            if statusFilter == 2 && config.referenceCount(op.id) != 0 { return false }
             return search.isEmpty || (op.displayName + " " + (snapshots[op.id]?.summary ?? "")).localizedCaseInsensitiveContains(search)
         }
         collection?.reloadData()

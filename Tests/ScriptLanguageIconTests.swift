@@ -96,7 +96,7 @@ final class ScriptLanguageIconTests: XCTestCase {
 
     func testAutomaticDefaultsPreserveHiddenAndExplicitLibraryAndMenuIconChoices() throws {
         let url = try script("sample.py", contents: "print('sample')\n")
-        var operation = OperationRecord(parameters: .script(url.path))
+        var operation = OperationRecord(parameters: .script(.init(path: url.path)))
         var configuration = AppConfiguration(); configuration.operations = [operation]; configuration.menu = []
         for id in [nil, "category.scripts"] as [String?] {
             operation.iconID = id
@@ -133,7 +133,7 @@ final class ScriptLanguageIconTests: XCTestCase {
         let shell = try script("shell.py", contents: "#!/bin/sh\nexit 0\n")
         let unknown = try script("unknown.data", contents: "unrecognized\n")
         var configuration = AppConfiguration()
-        configuration.operations = [python, shell, unknown].map { .init(iconID: "category.scripts", parameters: .script($0.path)) }
+        configuration.operations = [python, shell, unknown].map { .init(iconID: "category.scripts", parameters: .script(.init(path: $0.path))) }
         configuration.menu = configuration.operations.map { .reference($0.id) }
         let prepared = ConfigurationStore.prepare(configuration)
         let expected: [ScriptLanguage?] = [.python, .shell, nil]
@@ -157,7 +157,7 @@ final class ScriptLanguageIconTests: XCTestCase {
 
     func testTransportedLanguageMetadataRendersAfterSourceRemovalInBothStylesAndInheritsInMenus() throws {
         let url = try script("transport.py", contents: "print('sample')\n")
-        let operation = OperationRecord(iconID: "category.scripts", parameters: .script(url.path))
+        let operation = OperationRecord(iconID: "category.scripts", parameters: .script(.init(path: url.path)))
         let inherited = MenuNode.reference(operation.id)
         var explicit = MenuNode.reference(operation.id); explicit.iconID = "crab.star"
         var configuration = AppConfiguration(); configuration.operations = [operation]; configuration.menu = [inherited, explicit]
@@ -181,7 +181,7 @@ final class ScriptLanguageIconTests: XCTestCase {
 
     func testBuiltInLanguageArtworkRendersBothStylesAndUnknownLanguageKeepsExistingDefault() throws {
         let unknown = try script("unknown.language", contents: "unrecognized script\n")
-        let operation = OperationRecord(iconID: "category.scripts", parameters: .script(unknown.path))
+        let operation = OperationRecord(iconID: "category.scripts", parameters: .script(.init(path: unknown.path)))
         var configuration = AppConfiguration(); configuration.operations = [operation]; configuration.menu = []
         for style in AppIconStyle.allCases {
             configuration.iconStyle = style
@@ -196,35 +196,5 @@ final class ScriptLanguageIconTests: XCTestCase {
                 XCTAssertFalse(try png(image).isEmpty)
             }
         }
-        try writePreviewIfRequested()
-    }
-
-    private func writePreviewIfRequested() throws {
-        guard let path = ProcessInfo.processInfo.environment["CRAB_SCRIPT_ICON_PREVIEW_DIR"] else { return }
-        let output = URL(fileURLWithPath: path, isDirectory: true)
-        try FileManager.default.createDirectory(at: output, withIntermediateDirectories: true)
-        let languages: [ScriptLanguage?] = [nil] + ScriptLanguage.allCases.map(Optional.some)
-        let columnWidth = 90, rowHeight = 100
-        let width = languages.count * columnWidth, height = rowHeight * 2
-        let bitmap = try XCTUnwrap(NSBitmapImageRep(bitmapDataPlanes: nil, pixelsWide: width, pixelsHigh: height,
-            bitsPerSample: 8, samplesPerPixel: 4, hasAlpha: true, isPlanar: false,
-            colorSpaceName: .deviceRGB, bytesPerRow: 0, bitsPerPixel: 0))
-        let context = try XCTUnwrap(NSGraphicsContext(bitmapImageRep: bitmap))
-        NSGraphicsContext.saveGraphicsState(); NSGraphicsContext.current = context
-        defer { NSGraphicsContext.restoreGraphicsState() }
-        NSColor(srgbRed: 0.95, green: 0.96, blue: 0.98, alpha: 1).setFill()
-        NSRect(x: 0, y: 0, width: CGFloat(width), height: CGFloat(height)).fill()
-        for (row, style) in [AppIconStyle.color, .monochrome].enumerated() {
-            for (column, language) in languages.enumerated() {
-                let x = CGFloat(column * columnWidth), y = CGFloat((1 - row) * rowHeight)
-                let image = try XCTUnwrap(ScriptLanguageIcon.image(language: language, style: style, size: 42))
-                image.draw(in: NSRect(x: x + 24, y: y + 35, width: 42, height: 42))
-                let label = (language?.title ?? "Default") as NSString
-                label.draw(in: NSRect(x: x + 3, y: y + 12, width: CGFloat(columnWidth - 6), height: 18),
-                           withAttributes: [.font: NSFont.systemFont(ofSize: 10), .foregroundColor: NSColor.black])
-            }
-        }
-        context.flushGraphics()
-        try XCTUnwrap(bitmap.representation(using: .png, properties: [:])).write(to: output.appendingPathComponent("script-language-icons.png"))
     }
 }

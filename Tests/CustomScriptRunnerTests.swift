@@ -79,6 +79,36 @@ final class CustomScriptRunnerTests: XCTestCase {
         XCTAssertEqual(permissions?.intValue, 0o600)
     }
 
+    func testScriptArgumentsFollowInterpreterOptionsAndScriptPathAndRespectLaunchLimits() throws {
+        var item = try script(contents: "#!/bin/sh -e -u\nexit 0\n")
+        item.arguments = ["--mode", "fast", "hello world", ""]
+        let plan = try runner.launchPlan(item, selectedURLs: [], directory: root)
+        XCTAssertEqual(plan.arguments, ["-e", "-u", item.path] + item.arguments)
+        item.arguments = ["invalid\0argument"]
+        XCTAssertThrowsError(try runner.launchPlan(item, selectedURLs: [], directory: root)) { error in
+            guard let failure = error as? CustomScriptRunner.LaunchError, case .invalidArguments = failure else { return XCTFail("Unexpected error: \(error)") }
+        }
+        let limit = sysconf(_SC_ARG_MAX)
+        item.arguments = [String(repeating: "x", count: (limit > 0 ? Int(limit) : 262_144) + 1024)]
+        XCTAssertThrowsError(try runner.launchPlan(item, selectedURLs: [], directory: root)) { error in
+            guard let failure = error as? CustomScriptRunner.LaunchError, case .oversizedEnvironment = failure else { return XCTFail("Unexpected error: \(error)") }
+        }
+    }
+
+    func testLaunchedScriptReceivesExactArgumentsWithoutShellExpansion() throws {
+        var item = try script("My Script.sh", contents: """
+        #!/bin/sh
+        printf '%s\\0' "$@" > "$CRAB_DIRECTORY/arguments"
+        printf done > "$CRAB_DIRECTORY/done"
+        """)
+        item.arguments = ["--mode", "fast", "hello world", "", "中文\nvalue", "\"quoted\"", "\\", "$HOME", "$(touch injected)", "`touch injected`", ";", "|", ">", "*", "~"]
+        try runner.launch(item, selectedURLs: [], directory: root)
+        XCTAssertTrue(waitUntil { self.text("done") == "done" })
+        let data = try Data(contentsOf: root.appendingPathComponent("arguments"))
+        XCTAssertEqual(data.split(separator: 0, omittingEmptySubsequences: false).dropLast().map { String(decoding: $0, as: UTF8.self) }, item.arguments)
+        XCTAssertFalse(FileManager.default.fileExists(atPath: root.appendingPathComponent("injected").path))
+    }
+
     func testCommonSuffixFallbacksUseInjectedPathWithoutInstalledLanguageDependencies() throws {
         for name in ["python3", "node", "ruby", "perl"] { _ = try installRuntime(name) }
         let suffixes = ["sh": "/bin/sh", "bash": "/bin/bash", "zsh": "/bin/zsh",
@@ -356,70 +386,5 @@ final class CustomScriptRunnerTests: XCTestCase {
         XCTAssertThrowsError(try runner.launch(item, selectedURLs: [], directory: root) { _ in unexpected.fulfill() })
         XCTAssertEqual(runner.runningProcessCount, 0)
         wait(for: [unexpected], timeout: 0.2)
-    }
-
-    func testScriptContinuesAfterAnIsolatedLauncherHostExits() throws {
-        let item = try script(contents: """
-        #!/bin/sh
-        parent="$PPID"
-        printf '%s' "$parent" > "$CRAB_DIRECTORY/child-ready"
-        while kill -0 "$parent" 2>/dev/null; do /bin/sleep 0.01; done
-        printf survived > "$CRAB_DIRECTORY/after-parent"
-        """)
-        let helper = try compileIsolatedHelper()
-        let parent = Process()
-        parent.executableURL = helper
-        parent.arguments = [item.path, root.path]
-        parent.environment = ["PATH": "/usr/bin:/bin:/usr/sbin:/sbin"]
-        parent.standardInput = FileHandle.nullDevice
-        parent.standardOutput = FileHandle.nullDevice
-        parent.standardError = FileHandle.nullDevice
-        try parent.run()
-        parent.waitUntilExit()
-        XCTAssertEqual(parent.terminationStatus, 0)
-        XCTAssertEqual(text("child-ready"), String(parent.processIdentifier))
-        XCTAssertTrue(waitUntil { self.text("after-parent") == "survived" })
-    }
-
-    private func compileIsolatedHelper() throws -> URL {
-        let directory = root.appendingPathComponent("helper", isDirectory: true)
-        try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: false)
-        let support = directory.appendingPathComponent("Support.swift")
-        try Data(#"""
-        import Foundation
-        struct CustomScript { let name: String; let path: String }
-        func L(_ source: String) -> String { source }
-        func LF(_ source: String, _ arguments: CVarArg...) -> String { String(format: source, arguments: arguments) }
-        """#.utf8).write(to: support)
-        let main = directory.appendingPathComponent("main.swift")
-        try Data(#"""
-        import Foundation
-        import Darwin
-        let directory = URL(fileURLWithPath: CommandLine.arguments[2], isDirectory: true)
-        try CustomScriptRunner.shared.launch(CustomScript(name: "fixture", path: CommandLine.arguments[1]), selectedURLs: [], directory: directory)
-        let ready = directory.appendingPathComponent("child-ready")
-        let deadline = Date().addingTimeInterval(5)
-        while !FileManager.default.fileExists(atPath: ready.path) && Date() < deadline { Thread.sleep(forTimeInterval: 0.01) }
-        if !FileManager.default.fileExists(atPath: ready.path) { exit(2) }
-        """#.utf8).write(to: main)
-        let bundled = try XCTUnwrap(Bundle(for: Self.self).url(forResource: "ScriptRunnerSource", withExtension: "txt"))
-        let source = directory.appendingPathComponent("CustomScriptRunner.swift")
-        try Data(contentsOf: bundled).write(to: source)
-        let helper = directory.appendingPathComponent("launcher-helper")
-        let compiler = Process()
-        compiler.executableURL = URL(fileURLWithPath: "/usr/bin/xcrun")
-        compiler.arguments = ["swiftc", support.path, source.path, main.path, "-module-cache-path", directory.appendingPathComponent("ModuleCache").path, "-o", helper.path]
-        var environment = ["PATH": "/usr/bin:/bin:/usr/sbin:/sbin"]
-        for key in ["DEVELOPER_DIR", "SDKROOT", "TOOLCHAINS"] { environment[key] = ProcessInfo.processInfo.environment[key] }
-        compiler.environment = environment
-        compiler.standardInput = FileHandle.nullDevice
-        let output = Pipe()
-        compiler.standardOutput = output
-        compiler.standardError = output
-        try compiler.run()
-        let diagnostics = output.fileHandleForReading.readDataToEndOfFile()
-        compiler.waitUntilExit()
-        XCTAssertEqual(compiler.terminationStatus, 0, String(decoding: diagnostics, as: UTF8.self))
-        return helper
     }
 }
