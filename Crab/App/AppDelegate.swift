@@ -5,6 +5,7 @@ import OSLog
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem?
+    private var iconAppearanceObservation: NSKeyValueObservation?
     private var settings: SettingsWindowController?
     private var observers: [NSObjectProtocol] = []
     let router = ActionRouter()
@@ -30,6 +31,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil { return }
         AppLocalization.languageCode = ConfigurationStore.shared.configuration.languageCode
         NSApp.setActivationPolicy(.accessory)
+        iconAppearanceObservation = NSApp.observe(\.effectiveAppearance, options: [.initial, .new]) { application, _ in
+            DispatchQueue.main.async {
+                application.applicationIconImage = CrabIcon.image(size: 512, appearance: application.effectiveAppearance)
+            }
+        }
         let main = NSMenu()
         let appItem = NSMenuItem(); let appMenu = NSMenu()
         appMenu.addItem(withTitle: L("关于Crab"), action: #selector(showAbout), keyEquivalent: "")
@@ -105,7 +111,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
     @objc private func showAbout() {
         let existingWindows = Set(NSApp.windows.map(ObjectIdentifier.init))
-        NSApp.orderFrontStandardAboutPanel(options: [.applicationName: "Crab", .applicationVersion: "1.0.0", .credits: NSAttributedString(string: "Swift 原生文件与右键菜单工具\nAppKit · FinderSync · 本地处理")])
+        var options: [NSApplication.AboutPanelOptionKey: Any] = [.applicationName: "Crab", .applicationVersion: "1.0.0", .credits: NSAttributedString(string: "Swift 原生文件与右键菜单工具\nAppKit · FinderSync · 本地处理")]
+        if let icon = CrabIcon.image(size: 128) { options[.applicationIcon] = icon }
+        NSApp.orderFrontStandardAboutPanel(options: options)
         NSApp.activate(ignoringOtherApps: true)
         if let window = NSApp.windows.first(where: { $0.isVisible && !existingWindows.contains(ObjectIdentifier($0)) }) ?? NSApp.keyWindow {
             WindowAppearance.bind(window)

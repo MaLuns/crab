@@ -84,6 +84,7 @@ xcodegen generate
 ```
 
 - 两个构建/测试脚本均支持 `BUILD_DIR` 覆盖 DerivedData 目录。主应用预构建阶段离线编译随项目附带的 libwebp；归档功能使用系统 tar/libarchive，不新增运行时下载或 Homebrew 依赖。
+- 明暗品牌资源使用 `swift Scripts/GenerateAdaptiveIcon.swift Shared/Resources/CrabIcon.png Shared/Resources/Branding.xcassets/CrabArtwork.imageset Crab/Resources/AppIcon.icon` 同步生成。构建使用支持 Icon Composer 的 Xcode 26 或更新版本，macOS 部署目标仍为 13.0；应用图标及旧系统回退 ICNS 由 Icon Composer 资源编译生成，不将手工导出的 `AppIcon.icns` 直接复制进应用。应用内 Logo 跟随所在窗口外观；运行中的应用图标跟随系统外观，Finder 应用文件图标遵循系统图标外观设置。
 - 当前默认签名为 ad-hoc，适用于本地开发；不能把本地构建结果当作已完成签名、公证的发行包。
 - GitHub Release 使用无需开发者证书的 ad-hoc 签名，不做 Apple 公证；仅推送 `vMAJOR.MINOR.PATCH` 标签时发布，arm64 与 x86_64 分别构建和打包，不合并通用包。两端版本由 `MARKETING_VERSION` / `CURRENT_PROJECT_VERSION` 在签名前注入；默认本地版本保持 1.0.0 / 1。同一检出内的两个架构应串行构建，避免 WebP 共享输出冲突。
 - 按变更范围运行现有相关测试；新增或修复业务行为时补充有意义的回归。纯文档修改核对事实、链接和排版，无需运行无关业务测试。

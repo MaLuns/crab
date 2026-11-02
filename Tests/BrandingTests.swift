@@ -2,7 +2,13 @@ import XCTest
 import AppKit
 @testable import Crab
 
+@MainActor
 final class BrandingTests: XCTestCase {
+    private func bitmap(_ image: NSImage?) throws -> NSBitmapImageRep {
+        let image = try XCTUnwrap(image)
+        return NSBitmapImageRep(cgImage: try XCTUnwrap(image.cgImage(forProposedRect: nil, context: nil, hints: nil)))
+    }
+
     func testAllNineBundledLanguagesKeepTheCrabBrandInVisibleCopy() throws {
         let originalLanguage = AppLocalization.languageCode
         defer { AppLocalization.languageCode = originalLanguage }
@@ -51,5 +57,58 @@ final class BrandingTests: XCTestCase {
         XCTAssertEqual(image.size, NSSize(width: 20, height: 20))
         let appData = try Data(contentsOf: try XCTUnwrap(Bundle.main.url(forResource: "CrabIcon", withExtension: "png")))
         XCTAssertEqual(try Data(contentsOf: resource), appData)
+    }
+
+    func testLightAndDarkArtworkSwapForegroundAndBackgroundWithoutChangingAlpha() throws {
+        let light = try bitmap(CrabIcon.image(size: 128, appearance: NSAppearance(named: .aqua)!))
+        let dark = try bitmap(CrabIcon.image(size: 128, appearance: NSAppearance(named: .darkAqua)!))
+        XCTAssertEqual(light.pixelsWide, dark.pixelsWide)
+        XCTAssertEqual(light.pixelsHigh, dark.pixelsHigh)
+        var foreground = 0, background = 0
+        for y in stride(from: 0, to: light.pixelsHigh, by: 16) {
+            for x in stride(from: 0, to: light.pixelsWide, by: 16) {
+                let a = try XCTUnwrap(light.colorAt(x: x, y: y)?.usingColorSpace(.deviceRGB))
+                let b = try XCTUnwrap(dark.colorAt(x: x, y: y)?.usingColorSpace(.deviceRGB))
+                XCTAssertEqual(a.alphaComponent, b.alphaComponent, accuracy: 1.0 / 255)
+                guard a.alphaComponent > 0.95 else { continue }
+                // AppKit color management changes intermediate gray values;
+                // verify the visible foreground/background roles instead.
+                if a.redComponent < 0.15 {
+                    foreground += 1
+                    for channel in [b.redComponent, b.greenComponent, b.blueComponent] {
+                        XCTAssertGreaterThan(channel, 0.8)
+                    }
+                }
+                if a.redComponent > 0.85 {
+                    background += 1
+                    for channel in [b.redComponent, b.greenComponent, b.blueComponent] {
+                        XCTAssertLessThan(channel, 0.2)
+                    }
+                }
+            }
+        }
+        XCTAssertGreaterThan(foreground, 0)
+        XCTAssertGreaterThan(background, foreground)
+    }
+
+    func testFinderArtworkResolvesEachAppearanceBeforeCrossProcessEncoding() throws {
+        let extensionURL = try XCTUnwrap(Bundle.main.builtInPlugInsURL)
+            .appendingPathComponent("CrabFinder.appex", isDirectory: true)
+        let bundle = try XCTUnwrap(Bundle(url: extensionURL))
+        for name: NSAppearance.Name in [.aqua, .darkAqua, .accessibilityHighContrastDarkAqua, .aqua] {
+            let appearance = try XCTUnwrap(NSAppearance(named: name))
+            let image = try XCTUnwrap(CrabIcon.image(size: 20, in: bundle, appearance: appearance))
+            let encoded = try NSKeyedArchiver.archivedData(withRootObject: image, requiringSecureCoding: true)
+            let decoded = try XCTUnwrap(NSKeyedUnarchiver.unarchivedObject(ofClass: NSImage.self, from: encoded))
+            let actual = try bitmap(decoded)
+            let expected = try bitmap(CrabIcon.image(size: 20, appearance: appearance))
+            XCTAssertEqual(actual.pixelsWide, expected.pixelsWide)
+            XCTAssertEqual(actual.pixelsHigh, expected.pixelsHigh)
+            let a = try XCTUnwrap(actual.colorAt(x: actual.pixelsWide / 2, y: actual.pixelsHigh / 5)?.usingColorSpace(.sRGB))
+            let b = try XCTUnwrap(expected.colorAt(x: expected.pixelsWide / 2, y: expected.pixelsHigh / 5)?.usingColorSpace(.sRGB))
+            XCTAssertEqual(a.redComponent, b.redComponent, accuracy: 1.0 / 255)
+            let dark = appearance.bestMatch(from: [.aqua, .darkAqua]) == .darkAqua
+            XCTAssertEqual(a.redComponent, dark ? 0 : 1, accuracy: 0.03)
+        }
     }
 }

@@ -42,7 +42,8 @@ final class FinderSync: FIFinderSync {
     override var toolbarItemName: String { "Crab" }
     override var toolbarItemToolTip: String { "Crab 文件菜单" }
     override var toolbarItemImage: NSImage {
-        CrabIcon.image(size: 20) ?? NSImage(size: NSSize(width: 20, height: 20))
+        CrabIcon.image(size: 20, appearance: NSApp?.effectiveAppearance ?? NSAppearance.currentDrawing())
+            ?? NSImage(size: NSSize(width: 20, height: 20))
     }
 
     override func menu(for menuKind: FIMenuKind) -> NSMenu? {

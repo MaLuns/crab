@@ -22,7 +22,9 @@ targets:
     platform: macOS
     sources:
       - path: Crab
-        excludes: [Info.plist, Crab.entitlements]
+        excludes: [Info.plist, Crab.entitlements, Resources/AppIcon.icns, Resources/AppIcon.icon]
+      - path: Crab/Resources/AppIcon.icon
+        type: file
       - path: Shared
     preBuildScripts:
       - name: Build bundled WebP codec
@@ -34,6 +36,7 @@ targets:
         CFBundleDisplayName: Crab
         CFBundleName: Crab
         CFBundleIconFile: AppIcon
+        CFBundleIconName: AppIcon
         CFBundleLocalizations: [zh-Hans, zh-Hant, en, ja, ko, fr, es, pt-PT, de]
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
@@ -51,6 +54,7 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: dev.crab.Crab
         CODE_SIGN_ENTITLEMENTS: Crab/Crab.entitlements
         PRODUCT_NAME: Crab
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         SWIFT_INCLUDE_PATHS: '$(SRCROOT)/Support/CArchive $(SRCROOT)/Support/WebP'
         LIBRARY_SEARCH_PATHS: '$(inherited) $(SRCROOT)/Support/WebP/lib'
         OTHER_LDFLAGS: '$(inherited) -larchive -lwebp'

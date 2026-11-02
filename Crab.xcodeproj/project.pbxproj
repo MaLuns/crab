@@ -27,6 +27,7 @@
 		206F90CA5A238C32FDDB1B44 /* Crab-fr.json in Resources */ = {isa = PBXBuildFile; fileRef = DA5E134B18247D261CCE4DB8 /* Crab-fr.json */; };
 		22B85D154BFFBF532CD63F44 /* MenuIconPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0579864F2D82C2803EF5C19 /* MenuIconPreview.swift */; };
 		236B8A0E36196520DE72A463 /* Crab-de.json in Resources */ = {isa = PBXBuildFile; fileRef = CCA777C9F3436D67D74EBBAE /* Crab-de.json */; };
+		259E6304238E996B40F52FF2 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 6EE5A997E360F86E07C3B0B9 /* AppIcon.icon */; };
 		2A87E9246609F411B33951E1 /* CutSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B2175F20FEAE8FCDDFE15E /* CutSessionManager.swift */; };
 		2C4E7738E83BDA4DD125C25A /* Blank.dps in Resources */ = {isa = PBXBuildFile; fileRef = 8C4D4FE3802A609A346235E7 /* Blank.dps */; };
 		2DDCDB03F06396FAB58F5AE2 /* ConfigurationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18626E7A8013D394A67C2AC5 /* ConfigurationStore.swift */; };
@@ -56,6 +57,7 @@
 		57DF2F1E7B17A495563A8219 /* CategoryIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FB35B41D05CB934CAD93A0 /* CategoryIcon.swift */; };
 		61E10A612189364E91B42BD8 /* ScriptLanguageIconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0065C68A03CAB07B47455A /* ScriptLanguageIconTests.swift */; };
 		651CA21E95B589B79AFBD3E4 /* MenuVisibilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2780336261AF10D6DE7397B /* MenuVisibilityTests.swift */; };
+		652A68993C68F88C8986F8D3 /* Branding.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3D82EE0B71E3609ED3F8EA8 /* Branding.xcassets */; };
 		66C315F5BF13B9AE8C1008D6 /* Blank.et in Resources */ = {isa = PBXBuildFile; fileRef = 3EB3E7FBF6D6DF8CB7923F4D /* Blank.et */; };
 		68AF28C238AE246E72DB8A14 /* OperationEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD303D1B369DEFA446382A /* OperationEditor.swift */; };
 		6B39EC805A36BFA09EE30949 /* CrabSymbolArtwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647C58796C7654976DD4FC75 /* CrabSymbolArtwork.swift */; };
@@ -97,6 +99,7 @@
 		B2547C672B243088C40A08F5 /* Crab-zh-Hans.json in Resources */ = {isa = PBXBuildFile; fileRef = 160E506D89BD4D7C2D031490 /* Crab-zh-Hans.json */; };
 		B605FA5A8544AF48688ECC97 /* AppLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220E269334D60A63DF5B1355 /* AppLocalization.swift */; };
 		B876B2A317096BDB458C3DB1 /* FileOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7421DD0A93626464D3737DC9 /* FileOperationsTests.swift */; };
+		BAE817442A6535BD713D2AE5 /* Branding.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3D82EE0B71E3609ED3F8EA8 /* Branding.xcassets */; };
 		BCDCF62F7AAB9E9EE2BEFB78 /* HoverHelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9743C7451EE53EDFB072BC8 /* HoverHelpButton.swift */; };
 		BD76E37D26C82E52BF335952 /* Crab-ja.json in Resources */ = {isa = PBXBuildFile; fileRef = 72660F273452E706F2A1B91B /* Crab-ja.json */; };
 		C012EB7392B7FBBFB2D318B3 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA996B1B0F6A30AD67B1A5 /* Models.swift */; };
@@ -124,7 +127,6 @@
 		EC0C87E3B57BB01B3A4347EB /* ContextMenuBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E55B6600EE1B76E4E310508 /* ContextMenuBuilder.swift */; };
 		ECDD661D0D1D4DEE5F7269D2 /* Crab-fr.json in Resources */ = {isa = PBXBuildFile; fileRef = DA5E134B18247D261CCE4DB8 /* Crab-fr.json */; };
 		EDD79FCAB287F4C6253FC210 /* SettingsPermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3662ED473DAF37D83D730B9E /* SettingsPermissionsView.swift */; };
-		F0456BA74D34AE4FE78638D1 /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1C55B89874DF97AB78B0F18C /* AppIcon.icns */; };
 		F079FB4F3EFB410ADF828935 /* MediaTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE333F218ED320780FF5BB /* MediaTools.swift */; };
 		F2CD0B485F96500E2FE05F29 /* Blank.pptx in Resources */ = {isa = PBXBuildFile; fileRef = 1C4B42C4A047A429E59E7C9B /* Blank.pptx */; };
 		F650F0666ECCDD20FE469076 /* FinderFallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73260FEDF057BE19C063E879 /* FinderFallback.swift */; };
@@ -178,7 +180,6 @@
 		18626E7A8013D394A67C2AC5 /* ConfigurationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationStore.swift; sourceTree = "<group>"; };
 		18E1D6FB982E50470A9AFD44 /* ActionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRouter.swift; sourceTree = "<group>"; };
 		1C4B42C4A047A429E59E7C9B /* Blank.pptx */ = {isa = PBXFileReference; path = Blank.pptx; sourceTree = "<group>"; };
-		1C55B89874DF97AB78B0F18C /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
 		1EE98CEB363E7D585D5E819C /* ApplicationLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationLauncher.swift; sourceTree = "<group>"; };
 		1F69FD29A439B012428FC818 /* ToolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolTests.swift; sourceTree = "<group>"; };
 		220E269334D60A63DF5B1355 /* AppLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocalization.swift; sourceTree = "<group>"; };
@@ -208,6 +209,7 @@
 		621409643070078A5257D9DD /* OperationCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationCardItem.swift; sourceTree = "<group>"; };
 		647C58796C7654976DD4FC75 /* CrabSymbolArtwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrabSymbolArtwork.swift; sourceTree = "<group>"; };
 		68AF75912D8678561CE82C1A /* FilenameRepairWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilenameRepairWindowController.swift; sourceTree = "<group>"; };
+		6EE5A997E360F86E07C3B0B9 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		6F65F7D148507A1107B02B1B /* Crab-zh-Hant.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "Crab-zh-Hant.json"; sourceTree = "<group>"; };
 		7061FD4E0989B62E99FD4699 /* Crab-pt-PT.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "Crab-pt-PT.json"; sourceTree = "<group>"; };
 		706FD3C1865C43279F25338F /* Blank.numbers */ = {isa = PBXFileReference; path = Blank.numbers; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 		DD03A6B8919BB8747A9C46B5 /* ArchiveAndWebPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveAndWebPTests.swift; sourceTree = "<group>"; };
 		DDC8FB330DFF1DC59FE9D284 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E26FE7816F5F2DA96467B74C /* Blank.pages */ = {isa = PBXFileReference; path = Blank.pages; sourceTree = "<group>"; };
+		E3D82EE0B71E3609ED3F8EA8 /* Branding.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Branding.xcassets; sourceTree = "<group>"; };
 		E545B2277061AACB7B81C1AC /* Crab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6FB35B41D05CB934CAD93A0 /* CategoryIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIcon.swift; sourceTree = "<group>"; };
 		EA9EBD2741ED4B951EE83D58 /* CrabIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrabIcon.swift; sourceTree = "<group>"; };
@@ -334,7 +337,7 @@
 		4F601BFA2FD6C11F938C756F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1C55B89874DF97AB78B0F18C /* AppIcon.icns */,
+				6EE5A997E360F86E07C3B0B9 /* AppIcon.icon */,
 				F01653017164D9C5A5CBD4D0 /* Blank.ai */,
 				379DBA618966B81AB0C42AAD /* Blank.docx */,
 				8C4D4FE3802A609A346235E7 /* Blank.dps */,
@@ -440,6 +443,7 @@
 		F4272CAB01C93F2BF64C84CC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E3D82EE0B71E3609ED3F8EA8 /* Branding.xcassets */,
 				CCA777C9F3436D67D74EBBAE /* Crab-de.json */,
 				8E3C6B42BA406914898C71A9 /* Crab-en.json */,
 				BFE60591483F8C29A9BD4040 /* Crab-es.json */,
@@ -604,7 +608,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0456BA74D34AE4FE78638D1 /* AppIcon.icns in Resources */,
+				259E6304238E996B40F52FF2 /* AppIcon.icon in Resources */,
 				3F2B8C18919EC25D85C2CAE8 /* Blank.ai in Resources */,
 				4943E76138C2A44DEDC0F589 /* Blank.docx in Resources */,
 				2C4E7738E83BDA4DD125C25A /* Blank.dps in Resources */,
@@ -616,6 +620,7 @@
 				77B4A8C4D7808F409B45F4A2 /* Blank.psd in Resources */,
 				C5C0EBDB4BB339D30E586103 /* Blank.wps in Resources */,
 				0B6C886DD65B4E4A59050BA1 /* Blank.xlsx in Resources */,
+				652A68993C68F88C8986F8D3 /* Branding.xcassets in Resources */,
 				236B8A0E36196520DE72A463 /* Crab-de.json in Resources */,
 				F87A61B9245609FB749DF5BA /* Crab-en.json in Resources */,
 				D57AEE1AC6B4970BF8308EA0 /* Crab-es.json in Resources */,
@@ -635,6 +640,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAE817442A6535BD713D2AE5 /* Branding.xcassets in Resources */,
 				7FB633F2A16D3784B0DFB048 /* Crab-de.json in Resources */,
 				1B68ED9922007A61B90B5477 /* Crab-en.json in Resources */,
 				D52E1B97BFF78724CDD8C5BA /* Crab-es.json in Resources */,
