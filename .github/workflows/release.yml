@@ -2,16 +2,7 @@ name: Release
 
 on:
   push:
-    branches: [main]
     tags: ['v*']
-    paths:
-      - '.github/workflows/release.yml'
-      - 'Scripts/release.sh'
-      - 'cliff.toml'
-      - 'project.yml'
-      - 'Crab/Info.plist'
-      - 'FinderExtension/Info.plist'
-  workflow_dispatch:
 
 permissions:
   contents: read
