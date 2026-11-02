@@ -6,12 +6,12 @@
   <p>macOS 13.0+</p>
 </div>
 
-![操作ライブラリ：操作の検索、絞り込み、管理（簡体字中国語の画面）](Previews/操作库.png)
+![操作ライブラリ：操作の検索、絞り込み、管理（簡体字中国語の画面）](Previews/operation-library.png)
 
 <details>
 <summary>メニュー構成を見る</summary>
 
-![メニュー構成：グループとメニュー項目の管理（簡体字中国語の画面）](Previews/菜单编排.png)
+![メニュー構成：グループとメニュー項目の管理（簡体字中国語の画面）](Previews/menu-layout.png)
 
 </details>
 

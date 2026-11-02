@@ -6,12 +6,12 @@
   <p>macOS 13.0+</p>
 </div>
 
-![작업 라이브러리: 작업 검색, 필터링 및 관리 (중국어 간체 화면)](Previews/操作库.png)
+![작업 라이브러리: 작업 검색, 필터링 및 관리 (중국어 간체 화면)](Previews/operation-library.png)
 
 <details>
 <summary>메뉴 구성 보기</summary>
 
-![메뉴 구성: 그룹과 메뉴 항목 관리 (중국어 간체 화면)](Previews/菜单编排.png)
+![메뉴 구성: 그룹과 메뉴 항목 관리 (중국어 간체 화면)](Previews/menu-layout.png)
 
 </details>
 

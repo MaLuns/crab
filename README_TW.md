@@ -6,12 +6,12 @@
   <p>macOS 13.0+</p>
 </div>
 
-![操作庫：搜尋、篩選並管理操作（簡體中文介面）](Previews/操作库.png)
+![操作庫：搜尋、篩選並管理操作（簡體中文介面）](Previews/operation-library.png)
 
 <details>
 <summary>查看選單編排</summary>
 
-![選單編排：管理群組和選單項目（簡體中文介面）](Previews/菜单编排.png)
+![選單編排：管理群組和選單項目（簡體中文介面）](Previews/menu-layout.png)
 
 </details>
 

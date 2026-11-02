@@ -6,12 +6,12 @@
   <p>macOS 13.0+</p>
 </div>
 
-![Bibliothèque : rechercher, filtrer et gérer les opérations — interface en chinois simplifié](Previews/操作库.png)
+![Bibliothèque : rechercher, filtrer et gérer les opérations — interface en chinois simplifié](Previews/operation-library.png)
 
 <details>
 <summary>Voir la disposition des menus</summary>
 
-![Menus : organiser les groupes et les éléments du menu — interface en chinois simplifié](Previews/菜单编排.png)
+![Menus : organiser les groupes et les éléments du menu — interface en chinois simplifié](Previews/menu-layout.png)
 
 </details>
 

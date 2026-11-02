@@ -6,12 +6,12 @@
   <p>macOS 13.0+</p>
 </div>
 
-![操作库：搜索、筛选并管理操作](Previews/操作库.png)
+![操作库：搜索、筛选并管理操作](Previews/operation-library.png)
 
 <details>
 <summary>查看菜单编排</summary>
 
-![菜单编排：管理分组和菜单项](Previews/菜单编排.png)
+![菜单编排：管理分组和菜单项](Previews/menu-layout.png)
 
 </details>
 

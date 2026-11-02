@@ -6,12 +6,12 @@
   <p>macOS 13.0+</p>
 </div>
 
-![Aktionsbibliothek: Aktionen suchen, filtern und verwalten – Oberfläche auf vereinfachtem Chinesisch](Previews/操作库.png)
+![Aktionsbibliothek: Aktionen suchen, filtern und verwalten – Oberfläche auf vereinfachtem Chinesisch](Previews/operation-library.png)
 
 <details>
 <summary>Menügestaltung ansehen</summary>
 
-![Menügestaltung: Gruppen und Menüeinträge verwalten – Oberfläche auf vereinfachtem Chinesisch](Previews/菜单编排.png)
+![Menügestaltung: Gruppen und Menüeinträge verwalten – Oberfläche auf vereinfachtem Chinesisch](Previews/menu-layout.png)
 
 </details>
 
