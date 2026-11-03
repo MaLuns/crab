@@ -93,15 +93,7 @@ final class ToolTests: XCTestCase {
     }
 
     func testImageConversionsAndIconsets() throws {
-        let context = CGContext(data: nil, width: 64, height: 32, bitsPerComponent: 8, bytesPerRow: 0,
-                                space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)!
-        context.setFillColor(NSColor.systemRed.cgColor)
-        context.fill(CGRect(x: 0, y: 0, width: 64, height: 32))
-        let image = context.makeImage()!
-        let input = root.appendingPathComponent("sample.png")
-        let destination = CGImageDestinationCreateWithURL(input as CFURL, UTType.png.identifier as CFString, 1, nil)!
-        CGImageDestinationAddImage(destination, image, nil)
-        XCTAssertTrue(CGImageDestinationFinalize(destination))
+        let input = try halfTransparentImage()
         for format in [ToolAction.png, .jpeg, .heic, .tiff] {
             let result = try XCTUnwrap(MediaTools.convert([input], format: format).first)
             XCTAssertNotEqual(result, input)
@@ -112,14 +104,156 @@ final class ToolTests: XCTestCase {
         }
         let mac = try XCTUnwrap(MediaTools.convert([input], format: .macIconset).first)
         XCTAssertTrue(FileManager.default.fileExists(atPath: mac.appendingPathComponent("icon_512x512@2x.png").path))
+        try assertIconCanvas(try readImage(mac.appendingPathComponent("icon_32x32.png")), background: .clear)
         let ios = try XCTUnwrap(MediaTools.convert([input], format: .iosIconset).first)
         let manifest = try JSONSerialization.jsonObject(with: Data(contentsOf: ios.appendingPathComponent("Contents.json"))) as! [String: Any]
         XCTAssertEqual((manifest["images"] as? [[String: String]])?.count, 18)
         let marketingSource = try XCTUnwrap(CGImageSourceCreateWithURL(ios.appendingPathComponent("Icon-1024@1x.png") as CFURL, nil))
         let marketingImage = try XCTUnwrap(CGImageSourceCreateImageAtIndex(marketingSource, 0, nil))
         XCTAssertTrue([CGImageAlphaInfo.none, .noneSkipFirst, .noneSkipLast].contains(marketingImage.alphaInfo))
+        try assertIconCanvas(marketingImage, background: .white)
         let icns = try XCTUnwrap(MediaTools.convert([input], format: .icns).first)
         XCTAssertEqual(try Data(contentsOf: icns).prefix(4), Data("icns".utf8))
+        try assertIconCanvas(try readImage(icns), background: .clear)
+    }
+
+    func testCustomBackgroundsFillSourceTransparencyAndPaddingPerImage() throws {
+        let full = try halfTransparentImage()
+        let cropped = root.appendingPathComponent("cropped.png")
+        try FileManager.default.copyItem(at: full, to: cropped)
+        let pink = NSColor(srgbRed: 0.9, green: 0.2, blue: 0.4, alpha: 1)
+        let indigo = NSColor(srgbRed: 0.2, green: 0.25, blue: 0.9, alpha: 1)
+        let options = [full: IconExportOptions(crop: nil, backgroundColor: pink.cgColor),
+                       cropped: IconExportOptions(crop: .centered, backgroundColor: indigo.cgColor)]
+        for (format, member) in [(ToolAction.icns, ""), (.macIconset, "icon_32x32.png"), (.iosIconset, "Icon-1024@1x.png")] {
+            let outputs = try MediaTools.convert([full, cropped], format: format, iconOptions: options)
+            XCTAssertEqual(outputs.count, 2)
+            for (index, output) in outputs.enumerated() {
+                let image = try readImage(member.isEmpty ? output : output.appendingPathComponent(member))
+                try assertIconCanvas(image, background: index == 0 ? pink : indigo, cropped: index == 1)
+                if format == .iosIconset {
+                    XCTAssertTrue([CGImageAlphaInfo.none, .noneSkipFirst, .noneSkipLast].contains(image.alphaInfo))
+                }
+            }
+        }
+    }
+
+    private func halfTransparentImage() throws -> URL {
+        let context = try XCTUnwrap(CGContext(data: nil, width: 64, height: 32, bitsPerComponent: 8, bytesPerRow: 0,
+                                              space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue))
+        context.clear(CGRect(x: 0, y: 0, width: 64, height: 32))
+        context.setFillColor(gray: 0, alpha: 1)
+        context.fill(CGRect(x: 32, y: 0, width: 32, height: 32))
+        let url = root.appendingPathComponent("sample.png")
+        let writer = try XCTUnwrap(CGImageDestinationCreateWithURL(url as CFURL, UTType.png.identifier as CFString, 1, nil))
+        CGImageDestinationAddImage(writer, try XCTUnwrap(context.makeImage()), nil)
+        XCTAssertTrue(CGImageDestinationFinalize(writer))
+        return url
+    }
+
+    // Compare the transparent half, the opaque subject and the space above it in a known color space.
+    private func assertIconCanvas(_ image: CGImage, background: NSColor, cropped: Bool = false,
+                                  file: StaticString = #filePath, line: UInt = #line) throws {
+        let context = try XCTUnwrap(CGContext(data: nil, width: 1, height: 1, bitsPerComponent: 8, bytesPerRow: 4,
+                                              space: CGColorSpace(name: CGColorSpace.sRGB)!,
+                                              bitmapInfo: CGBitmapInfo.byteOrder32Big.rawValue | CGImageAlphaInfo.premultipliedLast.rawValue))
+        let sample = CGRect(x: 0, y: 0, width: 1, height: 1)
+        context.setBlendMode(.copy)
+        for (x, y, expected) in [(0.25, 0.5, background), (0.75, 0.5, NSColor.black), (0.75, 0.125, cropped ? .black : background)] {
+            let location = sample.offsetBy(dx: floor(CGFloat(image.width) * x), dy: floor(CGFloat(image.height) * y))
+            context.draw(try XCTUnwrap(image.cropping(to: location)), in: sample)
+            let bytes = try XCTUnwrap(context.data).assumingMemoryBound(to: UInt8.self)
+            let color = try XCTUnwrap(expected.usingColorSpace(.sRGB))
+            let components = [color.redComponent, color.greenComponent, color.blueComponent, color.alphaComponent]
+            for (channel, value) in components.enumerated() {
+                XCTAssertEqual(CGFloat(bytes[channel]) / 255, value, accuracy: 0.035, file: file, line: line)
+            }
+        }
+    }
+
+    func testIconExportsUseCropFromOrientedPreviewAtEverySize() throws {
+        let input = try stripedImage(named: "rotated", orientation: .right)
+        let preview = try MediaTools.iconPreview(input)
+        XCTAssertLessThan(preview.height, 1800)
+        XCTAssertEqual(CGFloat(preview.height) / CGFloat(preview.width), 3, accuracy: 0.02)
+        let crop = IconCrop(center: CGPoint(x: 0.5, y: 11.0 / 12), fraction: 0.5)
+        let selection = crop.pixelRect(in: CGSize(width: preview.width, height: preview.height))
+        try assertColor(try XCTUnwrap(preview.cropping(to: selection)), blue: true)
+
+        let options = [input: IconExportOptions(crop: crop, backgroundColor: nil)]
+        for format in [ToolAction.icns, .macIconset, .iosIconset] {
+            let output = try XCTUnwrap(MediaTools.convert([input], format: format, iconOptions: options).first)
+            if format == .icns {
+                let source = try XCTUnwrap(CGImageSourceCreateWithURL(output as CFURL, nil))
+                XCTAssertGreaterThan(CGImageSourceGetCount(source), 0)
+                for i in 0..<CGImageSourceGetCount(source) {
+                    try assertColor(try XCTUnwrap(CGImageSourceCreateImageAtIndex(source, i, nil)), blue: true)
+                }
+            } else {
+                let files = try FileManager.default.contentsOfDirectory(at: output, includingPropertiesForKeys: nil)
+                let images = files.filter { $0.pathExtension == "png" }
+                XCTAssertFalse(images.isEmpty)
+                for file in images { try assertColor(try readImage(file), blue: true) }
+            }
+        }
+    }
+
+    func testBatchIconCropsAreIndependentAndFailedBatchPreservesEarlierResults() throws {
+        let left = try stripedImage(named: "left", orientation: .up)
+        let right = root.appendingPathComponent("right.tiff")
+        try FileManager.default.copyItem(at: left, to: right)
+        let crops = [left: IconCrop(center: CGPoint(x: 1.0 / 12, y: 0.5), fraction: 0.5),
+                     right: IconCrop(center: CGPoint(x: 11.0 / 12, y: 0.5), fraction: 0.5)]
+        let options = crops.mapValues { IconExportOptions(crop: $0, backgroundColor: nil) }
+        let outputs = try MediaTools.convert([left, right], format: .macIconset, iconOptions: options)
+        XCTAssertEqual(outputs.count, 2)
+        let first = try XCTUnwrap(outputs.first).appendingPathComponent("icon_32x32.png")
+        let second = try XCTUnwrap(outputs.last).appendingPathComponent("icon_32x32.png")
+        try assertColor(try readImage(first), blue: false)
+        try assertColor(try readImage(second), blue: true)
+
+        let invalid = root.appendingPathComponent("invalid.png")
+        try Data("Invalid image".utf8).write(to: invalid)
+        let contents = try FileManager.default.contentsOfDirectory(atPath: root.path).sorted()
+        XCTAssertThrowsError(try MediaTools.convert([left, invalid], format: .macIconset, iconOptions: options))
+        XCTAssertEqual(try FileManager.default.contentsOfDirectory(atPath: root.path).sorted(), contents)
+        try assertColor(try readImage(first), blue: false)
+    }
+
+    // The outer sixth on each side is exactly half the short edge of this landscape image.
+    private func stripedImage(named name: String, orientation: CGImagePropertyOrientation) throws -> URL {
+        let context = try XCTUnwrap(CGContext(data: nil, width: 1800, height: 600, bitsPerComponent: 8, bytesPerRow: 0,
+                                              space: CGColorSpace(name: CGColorSpace.sRGB)!,
+                                              bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue))
+        context.setFillColor(red: 0, green: 1, blue: 0, alpha: 1)
+        context.fill(CGRect(x: 0, y: 0, width: 1800, height: 600))
+        context.setFillColor(red: 1, green: 0, blue: 0, alpha: 1)
+        context.fill(CGRect(x: 0, y: 0, width: 300, height: 600))
+        context.setFillColor(red: 0, green: 0, blue: 1, alpha: 1)
+        context.fill(CGRect(x: 1500, y: 0, width: 300, height: 600))
+        let url = root.appendingPathComponent(name + ".tiff")
+        let destination = try XCTUnwrap(CGImageDestinationCreateWithURL(url as CFURL, UTType.tiff.identifier as CFString, 1, nil))
+        CGImageDestinationAddImage(destination, try XCTUnwrap(context.makeImage()),
+                                   [kCGImagePropertyOrientation: orientation.rawValue] as CFDictionary)
+        XCTAssertTrue(CGImageDestinationFinalize(destination))
+        return url
+    }
+
+    private func readImage(_ url: URL) throws -> CGImage {
+        let source = try XCTUnwrap(CGImageSourceCreateWithURL(url as CFURL, nil))
+        return try XCTUnwrap(CGImageSourceCreateImageAtIndex(source, 0, nil))
+    }
+
+    private func assertColor(_ image: CGImage, blue: Bool, file: StaticString = #filePath, line: UInt = #line) throws {
+        let bitmap = NSBitmapImageRep(cgImage: image)
+        for offset in [0.15, 0.85] {
+            let color = try XCTUnwrap(bitmap.colorAt(x: Int(Double(image.width) * offset),
+                                                    y: Int(Double(image.height) * offset))?.usingColorSpace(.sRGB))
+            let expected = blue ? color.blueComponent : color.redComponent
+            let other = blue ? color.redComponent : color.blueComponent
+            XCTAssertGreaterThan(expected - max(other, color.greenComponent), 0.55, file: file, line: line)
+            XCTAssertEqual(color.alphaComponent, 1, accuracy: 0.02, file: file, line: line)
+        }
     }
 
     private func makeZIP(_ files: [(String, Data, UInt32)]) -> Data {

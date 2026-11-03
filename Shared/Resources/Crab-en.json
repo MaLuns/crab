@@ -315,5 +315,21 @@
   "脚本路径与参数": "Script Path and Arguments",
   "路径后可填写参数，以空格分隔；含空格的路径须用双引号包裹。": "Add arguments after the path, separated by spaces. Enclose paths containing spaces in double quotes.",
   "脚本命令格式无效，请检查引号和转义，含空格的路径须用双引号包裹。": "Invalid script command. Check quotes and escapes, and enclose paths containing spaces in double quotes.",
-  "脚本参数包含无法传递的字符。": "Script arguments contain characters that cannot be passed."
+  "脚本参数包含无法传递的字符。": "Script arguments contain characters that cannot be passed.",
+  "方形裁剪": "Square Crop",
+  "保留整图": "Keep Entire Image",
+  "图标预览": "Icon Preview",
+  "拖动方框移动裁剪区域，拖动四角调整大小。": "Drag the square to move the crop. Drag a corner to resize it.",
+  "整张图片会等比缩放并居中。": "The entire image is scaled proportionally and centered.",
+  "正在载入预览…": "Loading preview…",
+  "上一张": "Previous",
+  "下一张": "Next",
+  "生成图标": "Generate Icon",
+  "全部生成": "Generate All",
+  "无法读取图片：%@": "Cannot read image: %@",
+  "无法解码图片：%@": "Cannot decode image: %@",
+  "图片尺寸过大，最多支持一亿像素，单边不超过 32768 像素。": "The image is too large. The limit is 100 megapixels, with no side longer than 32,768 pixels.",
+  "无法裁剪图片。": "Cannot crop the image.",
+  "背景色": "Background Color",
+  "透明背景": "Transparent Background"
 }

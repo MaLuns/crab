@@ -86,7 +86,9 @@ xcodegen generate
 - 两个构建/测试脚本均支持 `BUILD_DIR` 覆盖 DerivedData 目录。主应用预构建阶段离线编译随项目附带的 libwebp；归档功能使用系统 tar/libarchive，不新增运行时下载或 Homebrew 依赖。
 - 明暗品牌资源使用 `swift Scripts/GenerateAdaptiveIcon.swift Shared/Resources/CrabIcon.png Shared/Resources/Branding.xcassets/CrabArtwork.imageset Crab/Resources/AppIcon.icon` 同步生成。构建使用支持 Icon Composer 的 Xcode 26 或更新版本，macOS 部署目标仍为 13.0；应用图标及旧系统回退 ICNS 由 Icon Composer 资源编译生成，不将手工导出的 `AppIcon.icns` 直接复制进应用。应用内 Logo 跟随所在窗口外观；运行中的应用图标跟随系统外观，Finder 应用文件图标遵循系统图标外观设置。
 - 当前默认签名为 ad-hoc，适用于本地开发；不能把本地构建结果当作已完成签名、公证的发行包。
+- 正式版主应用和 Finder 扩展沿用固定标识，安装和升级使用同一位置并原位替换。Debug 使用独立的应用与扩展标识、URL scheme、配置通知和数据目录，避免调试包被识别为正式版的另一个版本。
 - GitHub Release 使用无需开发者证书的 ad-hoc 签名，不做 Apple 公证；仅推送 `vMAJOR.MINOR.PATCH` 标签时发布，arm64 与 x86_64 分别构建和打包，不合并通用包。两端版本由 `MARKETING_VERSION` / `CURRENT_PROJECT_VERSION` 在签名前注入；默认本地版本保持 1.0.0 / 1。同一检出内的两个架构应串行构建，避免 WebP 共享输出冲突。
+- 使用 `Scripts/test.sh` 和 `Scripts/release.sh` 做单测与验包。这两个脚本把应用产物放进各自的临时目录，退出前按本次路径注销临时应用，再清理目录。`BUILD_DIR` 仍保存构建缓存、测试结果或发布包。真实发布包使用正式标识，需完全隔离日用 Finder 的发版演练应在 CI 或独立 macOS 实例执行。
 - 按变更范围运行现有相关测试；新增或修复业务行为时补充有意义的回归。纯文档修改核对事实、链接和排版，无需运行无关业务测试。
 - 提交到仓库的测试只保留模型、业务逻辑和隔离组件行为的单元测试。开窗、控件交互脚本、截图、离屏布局和像素外观验收、临时端到端验收代码仅用于本地问题排查和开发验证，不加入正式测试目标，也不提交到仓库。图片编解码、图标数据转换及资源加载的输入输出检查可以保留。
 - 自动化测试、代码检查、真实 Finder 界面验证和硬件手势验收分别记录。三指轻点依赖私有 MultitouchSupport，合成帧测试通过不等于真实设备或所有系统版本已验收。

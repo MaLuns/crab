@@ -5,4 +5,8 @@ BUILD_DIR="${BUILD_DIR:-$PROJECT_DIR/build}"
 CONFIGURATION="${CONFIGURATION:-Release}"
 xcodebuild -project "$PROJECT_DIR/Crab.xcodeproj" -scheme Crab \
   -configuration "$CONFIGURATION" -derivedDataPath "$BUILD_DIR" build "$@"
-printf '\n构建完成：%s\n' "$BUILD_DIR/Build/Products/$CONFIGURATION/Crab.app"
+if [[ -n "${CRAB_PRODUCTS_STAGE:-}" ]]; then
+  printf '\n临时验证构建完成。\n'
+else
+  printf '\n构建完成：%s\n' "$BUILD_DIR/Build/Products/$CONFIGURATION/Crab.app"
+fi

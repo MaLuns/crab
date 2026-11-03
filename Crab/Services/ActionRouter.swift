@@ -169,7 +169,17 @@ final class ActionRouter {
         case .wallpaper:
             guard let url = urls.first else { return }
             do { for screen in NSScreen.screens { try NSWorkspace.shared.setDesktopImageURL(url, for: screen, options: [:]) } } catch { presentError(error) }
-        case .png, .jpeg, .heic, .webp, .tiff, .icns, .macIconset, .iosIconset:
+        case .icns, .macIconset, .iosIconset:
+            guard !urls.isEmpty else { return }
+            let editor = IconCropWindowController(urls: urls, format: action, store: store) { [weak self] options in
+                self?.perform("转换图片") { try MediaTools.convert(urls, format: action, iconOptions: options) }
+                    completion: { NSWorkspace.shared.activateFileViewerSelecting($0) }
+            }
+            editor.onClose = { [weak self, weak editor] in self?.windows.removeAll { $0 === editor } }
+            windows.append(editor)
+            editor.showWindow(nil)
+            NSApp.activate(ignoringOtherApps: true)
+        case .png, .jpeg, .heic, .webp, .tiff:
             perform("转换图片") { try MediaTools.convert(urls, format: action) } completion: { NSWorkspace.shared.activateFileViewerSelecting($0) }
         case .zip:
             guard let directory else { return }

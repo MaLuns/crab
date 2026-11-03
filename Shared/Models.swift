@@ -1,9 +1,16 @@
 import AppKit
 
 enum AppConstants {
-    static let scheme = "crab-native"
-    static let configChanged = Notification.Name("dev.crab.operations.v1.configurationChanged")
-    static let configRequest = Notification.Name("dev.crab.operations.v1.configurationRequest")
+    static let scheme = Bundle.main.object(forInfoDictionaryKey: "CrabActionScheme") as? String ?? "crab-native"
+    #if DEBUG
+    static let supportDirectoryName = "Crab Debug"
+    static let namespace = "dev.crab.debug"
+    #else
+    static let supportDirectoryName = "Crab"
+    static let namespace = "dev.crab"
+    #endif
+    static let configChanged = Notification.Name(namespace + ".operations.v1.configurationChanged")
+    static let configRequest = Notification.Name(namespace + ".operations.v1.configurationRequest")
     static let localConfigChanged = Notification.Name("Crab.localConfigChanged")
     static let fallbackStatusChanged = Notification.Name("Crab.fallbackStatusChanged")
     static var appGroup: String { Bundle.main.object(forInfoDictionaryKey: "CrabAppGroupIdentifier") as? String ?? "group.dev.crab" }

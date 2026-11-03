@@ -32,7 +32,7 @@ final class CutSessionManager {
         var records: [Record]
         var changeCount: Int
     }
-    private static let marker = NSPasteboard.PasteboardType("dev.crab.cut-session")
+    private static let marker = NSPasteboard.PasteboardType(AppConstants.namespace + ".cut-session")
     private let pasteboard: NSPasteboard
     private let journalURL: URL
     private let notificationCenter: NotificationCenter
@@ -47,7 +47,7 @@ final class CutSessionManager {
     static var defaultJournalURL: URL {
         let directory = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first
             ?? FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Library/Application Support")
-        return directory.appendingPathComponent("Crab", isDirectory: true).appendingPathComponent("CutSession.json")
+        return directory.appendingPathComponent(AppConstants.supportDirectoryName, isDirectory: true).appendingPathComponent("CutSession.json")
     }
 
     init(pasteboard: NSPasteboard = .general,

@@ -315,5 +315,21 @@
   "脚本路径与参数": "Caminho do script e argumentos",
   "路径后可填写参数，以空格分隔；含空格的路径须用双引号包裹。": "Adicione argumentos após o caminho, separados por espaços. Coloque entre aspas duplas os caminhos que contenham espaços.",
   "脚本命令格式无效，请检查引号和转义，含空格的路径须用双引号包裹。": "Comando de script inválido. Verifique as aspas e os escapes e coloque entre aspas duplas os caminhos que contenham espaços.",
-  "脚本参数包含无法传递的字符。": "Os argumentos do script contêm caracteres que não podem ser transmitidos."
+  "脚本参数包含无法传递的字符。": "Os argumentos do script contêm caracteres que não podem ser transmitidos.",
+  "方形裁剪": "Recorte quadrado",
+  "保留整图": "Imagem inteira",
+  "图标预览": "Pré-visualização do ícone",
+  "拖动方框移动裁剪区域，拖动四角调整大小。": "Arraste o quadrado para mover a área de recorte. Arraste um canto para ajustar o tamanho.",
+  "整张图片会等比缩放并居中。": "A imagem inteira é redimensionada proporcionalmente e centrada.",
+  "正在载入预览…": "A carregar a pré-visualização…",
+  "上一张": "Anterior",
+  "下一张": "Seguinte",
+  "生成图标": "Gerar ícone",
+  "全部生成": "Gerar todos",
+  "无法读取图片：%@": "Não foi possível ler a imagem: %@",
+  "无法解码图片：%@": "Não foi possível descodificar a imagem: %@",
+  "图片尺寸过大，最多支持一亿像素，单边不超过 32768 像素。": "A imagem é demasiado grande. O limite é de 100 megapíxeis e nenhum lado pode exceder 32 768 píxeis.",
+  "无法裁剪图片。": "Não foi possível recortar a imagem.",
+  "背景色": "Cor de fundo",
+  "透明背景": "Fundo transparente"
 }

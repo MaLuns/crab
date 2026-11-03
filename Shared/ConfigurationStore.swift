@@ -17,8 +17,9 @@ final class ConfigurationStore {
         self.notificationName = notificationName ?? (directory == nil ? AppConstants.configChanged : nil)
         let manager = FileManager.default
         let group = directory == nil && !AppConstants.appGroup.isEmpty ? manager.containerURL(forSecurityApplicationGroupIdentifier: AppConstants.appGroup) : nil
-        let base = directory ?? group?.appendingPathComponent("Library/Application Support/Crab", isDirectory: true)
-            ?? manager.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0].appendingPathComponent("Crab", isDirectory: true)
+        let support = group?.appendingPathComponent("Library/Application Support", isDirectory: true)
+            ?? manager.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
+        let base = directory ?? support.appendingPathComponent(AppConstants.supportDirectoryName, isDirectory: true)
         fileURL = base.appendingPathComponent(self.cacheReceivedConfiguration ? "finder-operations-v1.json" : "operations-v1.json")
         configuration = AppConfiguration()
         if manager.fileExists(atPath: fileURL.path) {

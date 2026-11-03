@@ -24,7 +24,25 @@ final class BrandingTests: XCTestCase {
             }
             XCTAssertEqual(L("Crab"), "Crab", language.code)
         }
-        XCTAssertEqual(Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String, "Crab")
+    }
+
+    func testHostAndEmbeddedExtensionShareTheExpectedBuildIdentityAndActionScheme() throws {
+        let host = Bundle.main
+        let embeddedURL = try XCTUnwrap(host.builtInPlugInsURL).appendingPathComponent("CrabFinder.appex")
+        let finder = try XCTUnwrap(Bundle(url: embeddedURL))
+        #if DEBUG
+        let identifier = "dev.crab.Crab.debug", name = "Crab Debug", scheme = "crab-native-debug"
+        #else
+        let identifier = "dev.crab.Crab", name = "Crab", scheme = "crab-native"
+        #endif
+        XCTAssertEqual(host.bundleIdentifier, identifier)
+        XCTAssertEqual(finder.bundleIdentifier, identifier + ".FinderExtension")
+        XCTAssertEqual(host.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String, name)
+        XCTAssertEqual(finder.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String, name + " Finder 菜单")
+        let types = try XCTUnwrap(host.object(forInfoDictionaryKey: "CFBundleURLTypes") as? [[String: Any]])
+        XCTAssertEqual(types.flatMap { $0["CFBundleURLSchemes"] as? [String] ?? [] }, [scheme])
+        XCTAssertEqual(AppConstants.scheme, scheme)
+        XCTAssertEqual(finder.object(forInfoDictionaryKey: "CrabActionScheme") as? String, scheme)
     }
 
     func testBundledArtworkLoadsIndependentImagesAtRequestedSizes() throws {

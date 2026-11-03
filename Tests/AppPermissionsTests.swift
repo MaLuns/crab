@@ -78,29 +78,36 @@ final class AppPermissionsTests: XCTestCase {
         XCTAssertEqual(statuses.first { $0.permission == .fullDiskAccess }?.state, .requiresSystemSettings)
     }
 
-    func testRegistryUsesOnlyTheCurrentExtensionPathAndPreservesUnknownElections() {
-        let current = URL(fileURLWithPath: "/Fixture/Release/Crab.app/Contents/PlugIns/CrabFinder.appex")
-        let other = "/Fixture/Debug/Crab.app/Contents/PlugIns/CrabFinder.appex"
+    func testRegistryUsesOnlyTheCurrentExtensionPathAndPreservesUnknownElections() throws {
+        let current = try XCTUnwrap(Bundle.main.builtInPlugInsURL).appendingPathComponent("CrabFinder.appex")
+        let identifier = try XCTUnwrap(Bundle(url: current)?.bundleIdentifier)
+        let other = "/Fixture/Other/Crab.app/Contents/PlugIns/CrabFinder.appex"
         func record(_ marker: String, _ path: String) -> String {
-            marker + "    dev.crab.Crab.FinderExtension(1.0.0)\tUUID\t2026-10-29 00:00:00 +0000\t" + path
+            marker + "    " + identifier + "(1.0.0)\tUUID\t2026-10-29 00:00:00 +0000\t" + path
+        }
+        func state(_ output: String?, nativeEnabled: Bool = false) -> AppPermissionState {
+            AppPermissions.finderExtensionState(nativeEnabled: nativeEnabled, extensionURL: current) { queriedID in
+                XCTAssertEqual(queriedID, identifier)
+                return output
+            }
         }
         let currentDisabled = record("+", other) + "\n" + record("-", current.path) + "\n (2 plug-ins)"
-        XCTAssertEqual(AppPermissions.registeredExtensionState(currentDisabled, extensionURL: current), .disabled)
-        XCTAssertEqual(AppPermissions.finderExtensionState(nativeEnabled: true, extensionURL: current,
-                                                          registryOutput: { currentDisabled }), .disabled)
+        XCTAssertEqual(state(currentDisabled, nativeEnabled: true), .disabled)
         let currentEnabled = record("-", other) + "\n" + record("+", current.path)
-        XCTAssertEqual(AppPermissions.finderExtensionState(nativeEnabled: false, extensionURL: current,
-                                                          registryOutput: { currentEnabled }), .enabled)
-        XCTAssertEqual(AppPermissions.registeredExtensionState(record("+", other), extensionURL: current), .unavailable)
+        XCTAssertEqual(state(currentEnabled), .enabled)
+        XCTAssertEqual(state(record("+", other)), .unavailable)
+        XCTAssertEqual(state(record("+", current.path).replacingOccurrences(of: identifier, with: "other.extension")), .unavailable)
         for marker in ["?", "=", "!"] {
-            XCTAssertEqual(AppPermissions.registeredExtensionState(record(marker, current.path), extensionURL: current), .unavailable)
+            XCTAssertEqual(state(record(marker, current.path)), .unavailable)
         }
         let conflicting = record("+", current.path) + "\n" + record("-", current.path)
-        XCTAssertEqual(AppPermissions.registeredExtensionState(conflicting, extensionURL: current), .unavailable)
-        XCTAssertEqual(AppPermissions.finderExtensionState(nativeEnabled: false, extensionURL: current,
-                                                          registryOutput: { nil }), .unavailable)
-        XCTAssertEqual(AppPermissions.finderExtensionState(nativeEnabled: true, extensionURL: current,
-                                                          registryOutput: { nil }), .enabled)
+        XCTAssertEqual(state(conflicting), .unavailable)
+        XCTAssertEqual(state(nil), .unavailable)
+        XCTAssertEqual(state(nil, nativeEnabled: true), .enabled)
+        XCTAssertEqual(AppPermissions.finderExtensionState(nativeEnabled: true, extensionURL: nil) { _ in
+            XCTFail("Missing bundle metadata must skip the registry query")
+            return nil
+        }, .enabled)
     }
 
     func testRegistryFailureDoesNotMisreportTheExtensionAsDisabled() {

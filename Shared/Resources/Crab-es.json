@@ -315,5 +315,21 @@
   "脚本路径与参数": "Ruta del script y argumentos",
   "路径后可填写参数，以空格分隔；含空格的路径须用双引号包裹。": "Añade argumentos después de la ruta, separados por espacios. Encierra entre comillas dobles las rutas que contengan espacios.",
   "脚本命令格式无效，请检查引号和转义，含空格的路径须用双引号包裹。": "Comando de script no válido. Revisa las comillas y los escapes, y encierra entre comillas dobles las rutas que contengan espacios.",
-  "脚本参数包含无法传递的字符。": "Los argumentos del script contienen caracteres que no se pueden transmitir."
+  "脚本参数包含无法传递的字符。": "Los argumentos del script contienen caracteres que no se pueden transmitir.",
+  "方形裁剪": "Recorte cuadrado",
+  "保留整图": "Imagen completa",
+  "图标预览": "Vista previa del icono",
+  "拖动方框移动裁剪区域，拖动四角调整大小。": "Arrastra el cuadrado para mover el área de recorte. Arrastra una esquina para cambiar su tamaño.",
+  "整张图片会等比缩放并居中。": "La imagen completa se ajusta y se centra manteniendo sus proporciones.",
+  "正在载入预览…": "Cargando vista previa…",
+  "上一张": "Anterior",
+  "下一张": "Siguiente",
+  "生成图标": "Generar icono",
+  "全部生成": "Generar todos",
+  "无法读取图片：%@": "No se puede leer la imagen: %@",
+  "无法解码图片：%@": "No se puede decodificar la imagen: %@",
+  "图片尺寸过大，最多支持一亿像素，单边不超过 32768 像素。": "La imagen es demasiado grande. El límite es de 100 megapíxeles y ningún lado puede superar los 32.768 píxeles.",
+  "无法裁剪图片。": "No se puede recortar la imagen.",
+  "背景色": "Color de fondo",
+  "透明背景": "Fondo transparente"
 }

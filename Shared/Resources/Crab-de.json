@@ -315,5 +315,21 @@
   "脚本路径与参数": "Skriptpfad und Argumente",
   "路径后可填写参数，以空格分隔；含空格的路径须用双引号包裹。": "Fügen Sie Argumente nach dem Pfad durch Leerzeichen getrennt hinzu. Setzen Sie Pfade mit Leerzeichen in doppelte Anführungszeichen.",
   "脚本命令格式无效，请检查引号和转义，含空格的路径须用双引号包裹。": "Ungültiger Skriptbefehl. Prüfen Sie Anführungszeichen und Escape-Sequenzen und setzen Sie Pfade mit Leerzeichen in doppelte Anführungszeichen.",
-  "脚本参数包含无法传递的字符。": "Skriptargumente enthalten Zeichen, die nicht übergeben werden können."
+  "脚本参数包含无法传递的字符。": "Skriptargumente enthalten Zeichen, die nicht übergeben werden können.",
+  "方形裁剪": "Quadratisch zuschneiden",
+  "保留整图": "Ganzes Bild",
+  "图标预览": "Symbolvorschau",
+  "拖动方框移动裁剪区域，拖动四角调整大小。": "Ziehe das Quadrat, um den Ausschnitt zu verschieben. Ziehe an einer Ecke, um seine Größe zu ändern.",
+  "整张图片会等比缩放并居中。": "Das gesamte Bild wird proportional skaliert und zentriert.",
+  "正在载入预览…": "Vorschau wird geladen…",
+  "上一张": "Zurück",
+  "下一张": "Weiter",
+  "生成图标": "Symbol erstellen",
+  "全部生成": "Alle erstellen",
+  "无法读取图片：%@": "Bild kann nicht gelesen werden: %@",
+  "无法解码图片：%@": "Bild kann nicht dekodiert werden: %@",
+  "图片尺寸过大，最多支持一亿像素，单边不超过 32768 像素。": "Das Bild ist zu groß. Maximal 100 Megapixel sind zulässig und keine Seite darf länger als 32.768 Pixel sein.",
+  "无法裁剪图片。": "Das Bild kann nicht zugeschnitten werden.",
+  "背景色": "Hintergrundfarbe",
+  "透明背景": "Transparenter Hintergrund"
 }

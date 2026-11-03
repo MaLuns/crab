@@ -315,5 +315,21 @@
   "脚本路径与参数": "Chemin du script et arguments",
   "路径后可填写参数，以空格分隔；含空格的路径须用双引号包裹。": "Ajoutez les arguments après le chemin, séparés par des espaces. Entourez les chemins contenant des espaces de guillemets doubles.",
   "脚本命令格式无效，请检查引号和转义，含空格的路径须用双引号包裹。": "Commande de script non valide. Vérifiez les guillemets et les échappements, et entourez les chemins contenant des espaces de guillemets doubles.",
-  "脚本参数包含无法传递的字符。": "Les arguments du script contiennent des caractères qui ne peuvent pas être transmis."
+  "脚本参数包含无法传递的字符。": "Les arguments du script contiennent des caractères qui ne peuvent pas être transmis.",
+  "方形裁剪": "Recadrage carré",
+  "保留整图": "Image entière",
+  "图标预览": "Aperçu de l’icône",
+  "拖动方框移动裁剪区域，拖动四角调整大小。": "Faites glisser le carré pour déplacer la zone de recadrage. Faites glisser un coin pour la redimensionner.",
+  "整张图片会等比缩放并居中。": "L’image entière est redimensionnée en conservant ses proportions, puis centrée.",
+  "正在载入预览…": "Chargement de l’aperçu…",
+  "上一张": "Précédente",
+  "下一张": "Suivante",
+  "生成图标": "Générer l’icône",
+  "全部生成": "Tout générer",
+  "无法读取图片：%@": "Impossible de lire l’image : %@",
+  "无法解码图片：%@": "Impossible de décoder l’image : %@",
+  "图片尺寸过大，最多支持一亿像素，单边不超过 32768 像素。": "L’image est trop grande. La limite est de 100 mégapixels, avec un maximum de 32 768 pixels par côté.",
+  "无法裁剪图片。": "Impossible de recadrer l’image.",
+  "背景色": "Couleur de fond",
+  "透明背景": "Fond transparent"
 }

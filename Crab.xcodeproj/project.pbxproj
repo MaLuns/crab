@@ -14,6 +14,7 @@
 		0B6C886DD65B4E4A59050BA1 /* Blank.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 8901DCD82E2B909C26AF1D19 /* Blank.xlsx */; };
 		0CC51CE391C714B21976E8B3 /* ApplicationIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129D1C5B5040AB83A991DA2 /* ApplicationIcon.swift */; };
 		0CFBA74BFA26554ADE119837 /* CrabIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4576BE6CB73FFB8884F10F3B /* CrabIcon.png */; };
+		0D7A23431255F756E4CBDEE9 /* IconCropCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E452151EE52B7F3650379B3 /* IconCropCanvas.swift */; };
 		0E7A46CF18099050CD0700E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED05DCC2F2346264E788995 /* AppDelegate.swift */; };
 		0F9B18816A48503AA2B95490 /* ApplicationCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F1899CBE78F3C267177A81 /* ApplicationCatalog.swift */; };
 		1416912DD494433EC857D45B /* StatusBarPresentationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD26BF91A56FC43300F0831 /* StatusBarPresentationTests.swift */; };
@@ -129,6 +130,7 @@
 		EDD79FCAB287F4C6253FC210 /* SettingsPermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3662ED473DAF37D83D730B9E /* SettingsPermissionsView.swift */; };
 		F079FB4F3EFB410ADF828935 /* MediaTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE333F218ED320780FF5BB /* MediaTools.swift */; };
 		F2CD0B485F96500E2FE05F29 /* Blank.pptx in Resources */ = {isa = PBXBuildFile; fileRef = 1C4B42C4A047A429E59E7C9B /* Blank.pptx */; };
+		F4253C7D06BCDBF3DAFFC2FD /* IconCropWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC972192FC4FB1E5BCB125BC /* IconCropWindowController.swift */; };
 		F650F0666ECCDD20FE469076 /* FinderFallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73260FEDF057BE19C063E879 /* FinderFallback.swift */; };
 		F6EE441A7A277E158F3888BD /* FinderMenuPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731C032DD9C15ED3D76ACC9 /* FinderMenuPresentation.swift */; };
 		F87A61B9245609FB749DF5BA /* Crab-en.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E3C6B42BA406914898C71A9 /* Crab-en.json */; };
@@ -204,6 +206,7 @@
 		490A1F1237B9A20AFE6C2300 /* ActionLaunchPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionLaunchPolicy.swift; sourceTree = "<group>"; };
 		4BD61733B0AA08E8927926FC /* Crab-ko.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "Crab-ko.json"; sourceTree = "<group>"; };
 		4BD9DC667998027F93D50DF7 /* Blank.wps */ = {isa = PBXFileReference; path = Blank.wps; sourceTree = "<group>"; };
+		4E452151EE52B7F3650379B3 /* IconCropCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCropCanvas.swift; sourceTree = "<group>"; };
 		59E1E36ED1934278A9BC270E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		5C609B61F15A0E65422EBEB4 /* FilenameRepairTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilenameRepairTests.swift; sourceTree = "<group>"; };
 		621409643070078A5257D9DD /* OperationCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationCardItem.swift; sourceTree = "<group>"; };
@@ -246,6 +249,7 @@
 		AF4C7654A83D5C52DEF356EF /* FinderExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FinderExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0579864F2D82C2803EF5C19 /* MenuIconPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuIconPreview.swift; sourceTree = "<group>"; };
 		B2149760E6D5C7E4B0A7A5D4 /* FinderFallbackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderFallbackTests.swift; sourceTree = "<group>"; };
+		BC972192FC4FB1E5BCB125BC /* IconCropWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCropWindowController.swift; sourceTree = "<group>"; };
 		BECE333F218ED320780FF5BB /* MediaTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTools.swift; sourceTree = "<group>"; };
 		BFE60591483F8C29A9BD4040 /* Crab-es.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "Crab-es.json"; sourceTree = "<group>"; };
 		C129D1C5B5040AB83A991DA2 /* ApplicationIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationIcon.swift; sourceTree = "<group>"; };
@@ -482,6 +486,8 @@
 			children = (
 				68AF75912D8678561CE82C1A /* FilenameRepairWindowController.swift */,
 				D9743C7451EE53EDFB072BC8 /* HoverHelpButton.swift */,
+				4E452151EE52B7F3650379B3 /* IconCropCanvas.swift */,
+				BC972192FC4FB1E5BCB125BC /* IconCropWindowController.swift */,
 				8A64E620610931CB3854D0F1 /* MenuEditorView.swift */,
 				621409643070078A5257D9DD /* OperationCardItem.swift */,
 				0BBD303D1B369DEFA446382A /* OperationEditor.swift */,
@@ -709,6 +715,8 @@
 				856F10F864D03C27DA4661F4 /* FinderMenuPresentation.swift in Sources */,
 				7BAD386D4783D3F8E44F3CF1 /* HashTools.swift in Sources */,
 				BCDCF62F7AAB9E9EE2BEFB78 /* HoverHelpButton.swift in Sources */,
+				0D7A23431255F756E4CBDEE9 /* IconCropCanvas.swift in Sources */,
+				F4253C7D06BCDBF3DAFFC2FD /* IconCropWindowController.swift in Sources */,
 				F079FB4F3EFB410ADF828935 /* MediaTools.swift in Sources */,
 				3DF9CBB2C5DF74CB332003E2 /* MenuEditorView.swift in Sources */,
 				456BE202D935F581DBFD017A /* MenuIconPreview.swift in Sources */,
@@ -844,7 +852,11 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				CRAB_ACTION_SCHEME = "crab-native";
+				CRAB_APP_DISPLAY_NAME = Crab;
 				CRAB_APP_GROUP = "";
+				CRAB_APP_IDENTIFIER = dev.crab.Crab;
+				CRAB_FINDER_DISPLAY_NAME = "Crab Finder 菜单";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
@@ -903,7 +915,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.crab.Crab.FinderExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(CRAB_APP_IDENTIFIER).FinderExtension";
 				PRODUCT_NAME = CrabFinder;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -922,7 +934,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.crab.Crab.FinderExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(CRAB_APP_IDENTIFIER).FinderExtension";
 				PRODUCT_NAME = CrabFinder;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -942,7 +954,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited) $(SRCROOT)/Support/WebP/lib";
 				OTHER_LDFLAGS = "$(inherited) -larchive -lwebp";
-				PRODUCT_BUNDLE_IDENTIFIER = dev.crab.Crab;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(CRAB_APP_IDENTIFIER)";
 				PRODUCT_NAME = Crab;
 				SDKROOT = macosx;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Support/CArchive $(SRCROOT)/Support/WebP";
@@ -982,7 +994,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited) $(SRCROOT)/Support/WebP/lib";
 				OTHER_LDFLAGS = "$(inherited) -larchive -lwebp";
-				PRODUCT_BUNDLE_IDENTIFIER = dev.crab.Crab;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(CRAB_APP_IDENTIFIER)";
 				PRODUCT_NAME = Crab;
 				SDKROOT = macosx;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Support/CArchive $(SRCROOT)/Support/WebP";
@@ -1026,7 +1038,11 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				CRAB_ACTION_SCHEME = "crab-native-debug";
+				CRAB_APP_DISPLAY_NAME = "Crab Debug";
 				CRAB_APP_GROUP = "";
+				CRAB_APP_IDENTIFIER = dev.crab.Crab.debug;
+				CRAB_FINDER_DISPLAY_NAME = "Crab Debug Finder 菜单";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";

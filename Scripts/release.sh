@@ -17,15 +17,21 @@ if [[ ! "$RELEASE_BUILD_NUMBER" =~ ^[1-9][0-9]*$ ]]; then
 fi
 
 cd "$PROJECT_DIR"
-export BUILD_DIR="${BUILD_DIR:-$PROJECT_DIR/build/release-$RELEASE_ARCH}"
+BUILD_DIR="${BUILD_DIR:-$PROJECT_DIR/build/release-$RELEASE_ARCH}"
+mkdir -p "$BUILD_DIR"
+BUILD_DIR="$(cd "$BUILD_DIR" && pwd -P)"
+export BUILD_DIR
 export CONFIGURATION=Release
+source "$PROJECT_DIR/Scripts/temporary-products.sh"
+crab_prepare_temporary_products
+RELEASE_APP="$CRAB_PRODUCTS_STAGE/products/Crab.app"
 bash Scripts/build.sh -destination 'generic/platform=macOS' \
+  "CONFIGURATION_BUILD_DIR=$CRAB_PRODUCTS_STAGE/products" \
   "ARCHS=$RELEASE_ARCH" ONLY_ACTIVE_ARCH=NO \
   "MARKETING_VERSION=$RELEASE_VERSION" "CURRENT_PROJECT_VERSION=$RELEASE_BUILD_NUMBER" \
   CODE_SIGN_STYLE=Manual CODE_SIGN_IDENTITY=- DEVELOPMENT_TEAM= \
   CODE_SIGNING_ALLOWED=YES CODE_SIGNING_REQUIRED=YES CODE_SIGN_INJECT_BASE_ENTITLEMENTS=NO
 
-RELEASE_APP="$BUILD_DIR/Build/Products/Release/Crab.app"
 # Validate the actual products before packaging; never change a signed bundle.
 python3 - "$PROJECT_DIR" "$RELEASE_APP" "$RELEASE_ARCH" "$RELEASE_VERSION" "$RELEASE_BUILD_NUMBER" <<'PY'
 import pathlib
@@ -68,16 +74,15 @@ print("Verified " + arch + " ad-hoc bundles, entitlements, and version " + versi
 PY
 
 RELEASE_OUTPUT="$BUILD_DIR/release"
-mkdir -p "$RELEASE_OUTPUT"
-RELEASE_STAGE="$(mktemp -d "$BUILD_DIR/.crab-release.XXXXXX")"
-trap 'rm -rf "$RELEASE_STAGE"' EXIT
 RELEASE_ZIP="Crab-$RELEASE_TAG-macOS-$RELEASE_ARCH.zip"
-ditto -c -k --sequesterRsrc --keepParent "$RELEASE_APP" "$RELEASE_STAGE/$RELEASE_ZIP"
-ditto -x -k "$RELEASE_STAGE/$RELEASE_ZIP" "$RELEASE_STAGE/unpacked"
-codesign --verify --deep --strict "$RELEASE_STAGE/unpacked/Crab.app"
+ditto -c -k --sequesterRsrc --keepParent "$RELEASE_APP" "$CRAB_PRODUCTS_STAGE/$RELEASE_ZIP"
+ditto -x -k "$CRAB_PRODUCTS_STAGE/$RELEASE_ZIP" "$CRAB_PRODUCTS_STAGE/unpacked"
+codesign --verify --deep --strict "$CRAB_PRODUCTS_STAGE/unpacked/Crab.app"
 (
-  cd "$RELEASE_STAGE"
+  cd "$CRAB_PRODUCTS_STAGE"
   shasum -a 256 "$RELEASE_ZIP" > "$RELEASE_ZIP.sha256"
 )
-mv "$RELEASE_STAGE/$RELEASE_ZIP" "$RELEASE_STAGE/$RELEASE_ZIP.sha256" "$RELEASE_OUTPUT/"
+mkdir -p "$RELEASE_OUTPUT"
+# rsync replaces each verified file via a temporary file on the output volume.
+/usr/bin/rsync -ptI "$CRAB_PRODUCTS_STAGE/$RELEASE_ZIP" "$CRAB_PRODUCTS_STAGE/$RELEASE_ZIP.sha256" "$RELEASE_OUTPUT/"
 printf '\nRelease package: %s/%s\n' "$RELEASE_OUTPUT" "$RELEASE_ZIP"

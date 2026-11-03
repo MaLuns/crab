@@ -136,15 +136,16 @@ enum AppPermissions {
     }
 
     static func finderExtensionState(nativeEnabled: Bool, extensionURL: URL?,
-                                     registryOutput: () -> String?) -> AppPermissionState {
-        if let extensionURL, let output = registryOutput() {
-            return registeredExtensionState(output, extensionURL: extensionURL)
+                                     registryOutput: (String) -> String?) -> AppPermissionState {
+        if let extensionURL, let identifier = Bundle(url: extensionURL)?.bundleIdentifier,
+           let output = registryOutput(identifier) {
+            return registeredExtensionState(output, extensionURL: extensionURL, identifier: identifier)
         }
         return nativeEnabled ? .enabled : .unavailable
     }
 
     static func registeredExtensionState(_ output: String, extensionURL: URL,
-                                         identifier: String = "dev.crab.Crab.FinderExtension") -> AppPermissionState {
+                                         identifier: String) -> AppPermissionState {
         let expected = extensionURL.standardizedFileURL.resolvingSymlinksInPath()
         let matches = output.split(whereSeparator: \.isNewline).compactMap { line -> AppPermissionState? in
             let fields = line.split(separator: "\t", omittingEmptySubsequences: false)
@@ -163,12 +164,12 @@ enum AppPermissions {
         return first
     }
 
-    private static func readExtensionRegistry() -> String? {
+    private static func readExtensionRegistry(identifier: String) -> String? {
         let process = Process(), output = Pipe()
         let exited = DispatchSemaphore(value: 0), drained = DispatchSemaphore(value: 0)
         let capture = RegistryCapture()
         process.executableURL = URL(fileURLWithPath: "/usr/bin/pluginkit")
-        process.arguments = ["-m", "-v", "-A", "-D", "-i", "dev.crab.Crab.FinderExtension"]
+        process.arguments = ["-m", "-v", "-A", "-D", "-i", identifier]
         process.standardOutput = output
         process.standardError = FileHandle.nullDevice
         process.terminationHandler = { _ in exited.signal() }

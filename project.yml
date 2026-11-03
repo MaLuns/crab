@@ -14,8 +14,18 @@ settings:
     MARKETING_VERSION: '1.0.0'
     CURRENT_PROJECT_VERSION: '1'
     CRAB_APP_GROUP: ''
+    CRAB_APP_IDENTIFIER: dev.crab.Crab
+    CRAB_APP_DISPLAY_NAME: Crab
+    CRAB_FINDER_DISPLAY_NAME: Crab Finder 菜单
+    CRAB_ACTION_SCHEME: crab-native
     ENABLE_HARDENED_RUNTIME: YES
     COMBINE_HIDPI_IMAGES: YES
+  configs:
+    Debug:
+      CRAB_APP_IDENTIFIER: dev.crab.Crab.debug
+      CRAB_APP_DISPLAY_NAME: Crab Debug
+      CRAB_FINDER_DISPLAY_NAME: Crab Debug Finder 菜单
+      CRAB_ACTION_SCHEME: crab-native-debug
 targets:
   Crab:
     type: application
@@ -33,8 +43,8 @@ targets:
     info:
       path: Crab/Info.plist
       properties:
-        CFBundleDisplayName: Crab
-        CFBundleName: Crab
+        CFBundleDisplayName: $(CRAB_APP_DISPLAY_NAME)
+        CFBundleName: $(CRAB_APP_DISPLAY_NAME)
         CFBundleIconFile: AppIcon
         CFBundleIconName: AppIcon
         CFBundleLocalizations: [zh-Hans, zh-Hant, en, ja, ko, fr, es, pt-PT, de]
@@ -45,13 +55,14 @@ targets:
         NSPrincipalClass: NSApplication
         NSHumanReadableCopyright: 'Crab · Swift 原生右键工具'
         CrabAppGroupIdentifier: $(CRAB_APP_GROUP)
+        CrabActionScheme: $(CRAB_ACTION_SCHEME)
         CFBundleURLTypes:
           - CFBundleURLName: dev.crab.commands
-            CFBundleURLSchemes: [crab-native]
+            CFBundleURLSchemes: ['$(CRAB_ACTION_SCHEME)']
         NSAppleEventsUsageDescription: 用于读取访达中选中的文件和当前目录。
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: dev.crab.Crab
+        PRODUCT_BUNDLE_IDENTIFIER: $(CRAB_APP_IDENTIFIER)
         CODE_SIGN_ENTITLEMENTS: Crab/Crab.entitlements
         PRODUCT_NAME: Crab
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
@@ -71,7 +82,7 @@ targets:
       - path: Shared
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: dev.crab.Crab.FinderExtension
+        PRODUCT_BUNDLE_IDENTIFIER: $(CRAB_APP_IDENTIFIER).FinderExtension
         PRODUCT_NAME: CrabFinder
         INFOPLIST_FILE: FinderExtension/Info.plist
         CODE_SIGN_ENTITLEMENTS: FinderExtension/FinderExtension.entitlements

@@ -21,7 +21,12 @@ final class ActionLaunchPolicyTests: XCTestCase {
         XCTAssertEqual(decoded.targetDirectory, request.targetDirectory)
         XCTAssertEqual(decoded.paths, request.paths)
         XCTAssertFalse(ActionLaunchPolicy.isActionURL(try XCTUnwrap(URL(string: "https://example.invalid/execute"))))
-        XCTAssertFalse(ActionLaunchPolicy.isActionURL(try XCTUnwrap(URL(string: "crab-native://settings"))))
+        XCTAssertFalse(ActionLaunchPolicy.isActionURL(try XCTUnwrap(URL(string: AppConstants.scheme + "://settings"))))
+        var otherBuildURL = try XCTUnwrap(URLComponents(url: url, resolvingAgainstBaseURL: false))
+        otherBuildURL.scheme = url.scheme == "crab-native" ? "crab-native-debug" : "crab-native"
+        let foreignURL = try XCTUnwrap(otherBuildURL.url)
+        XCTAssertFalse(ActionLaunchPolicy.isActionURL(foreignURL))
+        XCTAssertThrowsError(try ActionRequest.decode(foreignURL))
     }
 
     func testFirstActionLaunchDoesNotOpenSettingsRegardlessOfURLDeliveryOrder() throws {
