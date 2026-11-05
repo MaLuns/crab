@@ -172,15 +172,14 @@ final class ActionRouter {
         case .icns, .macIconset, .iosIconset:
             guard !urls.isEmpty else { return }
             let editor = IconCropWindowController(urls: urls, format: action, store: store) { [weak self] options in
-                self?.perform("转换图片") { try MediaTools.convert(urls, format: action, iconOptions: options) }
-                    completion: { NSWorkspace.shared.activateFileViewerSelecting($0) }
+                self?.perform("转换图片", showsProgress: false, work: { try MediaTools.convert(urls, format: action, iconOptions: options) })
             }
             editor.onClose = { [weak self, weak editor] in self?.windows.removeAll { $0 === editor } }
             windows.append(editor)
             editor.showWindow(nil)
             NSApp.activate(ignoringOtherApps: true)
         case .png, .jpeg, .heic, .webp, .tiff:
-            perform("转换图片") { try MediaTools.convert(urls, format: action) } completion: { NSWorkspace.shared.activateFileViewerSelecting($0) }
+            perform("转换图片", showsProgress: false, work: { try MediaTools.convert(urls, format: action) })
         case .zip:
             guard let directory else { return }
             perform("压缩 ZIP") { try ArchiveTools.compress(urls, in: directory) } completion: { NSWorkspace.shared.activateFileViewerSelecting([$0]) }
